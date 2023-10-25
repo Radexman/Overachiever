@@ -9,23 +9,25 @@ import About from "./components/Pages/About/About";
 import { Task } from "./Types/Task";
 
 const App = () => {
-  const [taskList, setTaskList] = useState([
-    {
-      task: "Clean bathroom",
-      important: true,
-    },
-    {
-      task: "Clean Kitchen",
-      important: true,
-    },
-    {
-      task: "Buy groceries",
-      important: false,
-    },
-  ]);
+  const [taskList, setTaskList] = useState<Task[]>(() => {
+    const storedState = JSON.parse(localStorage.getItem("tasks")!);
+    return storedState || [];
+  });
+
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme")! : "emerald",
   );
+
+  useEffect(() => {
+    const storedTaskList = JSON.parse(localStorage.getItem("tasks")!);
+    if (storedTaskList) {
+      setTaskList(storedTaskList);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(taskList));
+  }, [taskList]);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);

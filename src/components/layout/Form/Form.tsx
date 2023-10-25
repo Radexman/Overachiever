@@ -25,6 +25,9 @@ const Form = ({ handleAdd }: FormProps) => {
     };
 
     handleAdd(newTask);
+
+    setTaskInput("");
+    setImportantInput(false);
   };
 
   return (
