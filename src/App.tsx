@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect, ChangeEvent } from "react";
 import Navbar from "./components/layout/Navbar/Navbar";
+import MobileNavbar from "./components/layout/Navbar/MobileNavbar";
 import Home from "./components/Pages/Home/Home";
 import Tasks from "./components/Pages/Tasks/Tasks";
 import Stats from "./components/Pages/Stats/Stats";
@@ -28,15 +29,17 @@ const App = () => {
   return (
     <Router>
       <>
-        <Navbar toggleTheme={toggleTheme} />
+        <Navbar toggleTheme={toggleTheme} theme={theme} />
         <main className="container mx-auto">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tasks" element={<Tasks />} />
             <Route path="/stats" element={<Stats />} />
             <Route path="/about" element={<About />} />
+            {/* @TODO Add Notfound Component */}
           </Routes>
         </main>
+        <MobileNavbar />
       </>
     </Router>
   );

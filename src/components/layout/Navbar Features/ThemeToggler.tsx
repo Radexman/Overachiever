@@ -2,12 +2,17 @@ import { ChangeEvent } from "react";
 
 type ThemeTogglerProps = {
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
+  theme: string;
 };
 
-const ThemeToggler = ({ toggleTheme }: ThemeTogglerProps) => {
+const ThemeToggler = ({ toggleTheme, theme }: ThemeTogglerProps) => {
   return (
     <label className="swap-rotate swap ">
-      <input type="checkbox" onChange={toggleTheme} />
+      <input
+        type="checkbox"
+        onChange={toggleTheme}
+        checked={theme === "emerald" ? false : true}
+      />
       <svg
         className="swap-on h-10 w-10 fill-current"
         xmlns="http://www.w3.org/2000/svg"

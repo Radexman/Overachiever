@@ -5,9 +5,10 @@ import ThemeToggler from "../Navbar Features/ThemeToggler";
 
 type NavbarProps = {
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
+  theme: string;
 };
 
-const Navbar = ({ toggleTheme }: NavbarProps) => {
+const Navbar = ({ toggleTheme, theme }: NavbarProps) => {
   return (
     <nav className="navbar flex justify-between bg-secondary px-8 text-slate-50">
       <NavLink to="/">
@@ -18,7 +19,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
           <li>
             <NavLink
               to="/"
-              className="btn-ghost px-6 text-xl hover:text-slate-900"
+              className="btn-ghost px-6 text-xl hover:bg-primary-focus hover:text-slate-900"
             >
               Home
             </NavLink>
@@ -26,7 +27,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
           <li>
             <NavLink
               to="/tasks"
-              className="btn-ghost px-6 text-xl hover:text-slate-900"
+              className="btn-ghost px-6 text-xl hover:bg-primary-focus hover:text-slate-900"
             >
               Tasks
             </NavLink>
@@ -34,7 +35,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
           <li>
             <NavLink
               to="/stats"
-              className="btn-ghost px-6 text-xl hover:text-slate-900"
+              className="btn-ghost px-6 text-xl hover:bg-primary-focus hover:text-slate-900"
             >
               Stats
             </NavLink>
@@ -42,7 +43,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
           <li>
             <NavLink
               to="/about"
-              className="btn-ghost px-6 text-xl hover:text-slate-900"
+              className="btn-ghost px-6 text-xl hover:bg-primary-focus hover:text-slate-900"
             >
               About
             </NavLink>
@@ -53,7 +54,7 @@ const Navbar = ({ toggleTheme }: NavbarProps) => {
             <Tracker />
           </li>
           <li>
-            <ThemeToggler toggleTheme={toggleTheme} />
+            <ThemeToggler toggleTheme={toggleTheme} theme={theme} />
           </li>
         </ul>
       </div>
