@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 
 const Form = () => {
   const [taskInput, setTaskInput] = useState<string>();
@@ -12,13 +12,28 @@ const Form = () => {
     setImportantInput(e.target.checked);
   };
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const newTask = {
+      task: taskInput,
+      important: importantInput,
+    };
+
+    console.log(newTask);
+  };
+
   return (
     <div>
       <h1 className="text-3xl font-bold">Create New Task</h1>
       <p>Fill the form to create new task, check the box if it is important.</p>
-      <form className="max-w-xs rounded-lg bg-secondary px-8 py-4">
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-xs rounded-lg bg-secondary px-8 py-4"
+      >
         <div className="flex flex-col">
-          <label htmlFor="task">Task Name</label>
+          <label htmlFor="task" className="text-lg font-bold text-slate-50">
+            Task Name
+          </label>
           <input
             onChange={handleTaskInput}
             type="text"
@@ -29,15 +44,25 @@ const Form = () => {
         </div>
         <div className="flex-center form-control">
           <label className="label cursor-pointer">
-            <span className="label-text">Important</span>
+            <span className="label-text text-lg font-bold text-slate-50">
+              Important
+            </span>
             <input
               type="checkbox"
               onChange={handleImportantChange}
-              className="checkbox"
+              className="checkbox-secondary-content checkbox"
               checked={importantInput === true ? true : false}
             />
           </label>
         </div>
+        <button
+          type="submit"
+          className={`btn-primary-content btn btn-wide ${
+            taskInput === undefined && "btn-disabled"
+          }`}
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
