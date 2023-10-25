@@ -3,29 +3,29 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar flex justify-between bg-secondary px-4">
+    <nav className="navbar flex justify-between bg-secondary px-8">
       <NavLink to="/">
-        <span className="text-2xl">Overachiever</span>
+        <span className="font-brand text-6xl font-bold">Overachiever</span>
       </NavLink>
       <div className="flex-none">
-        <ul className="menu menu-horizontal hidden px-1 sm:flex">
+        <ul className="menu menu-horizontal hidden px-1 md:flex">
           <li>
-            <NavLink to="/" className="btn-ghost px-8 text-xl">
+            <NavLink to="/" className="btn-ghost px-6 text-xl">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/tasks" className="btn-ghost px-8 text-xl">
+            <NavLink to="/tasks" className="btn-ghost px-6 text-xl">
               Tasks
             </NavLink>
           </li>
           <li>
-            <NavLink to="/stats" className="btn-ghost px-8 text-xl">
+            <NavLink to="/stats" className="btn-ghost px-6 text-xl">
               Stats
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about" className="btn-ghost px-8 text-xl">
+            <NavLink to="/about" className="btn-ghost px-6 text-xl">
               About
             </NavLink>
           </li>
