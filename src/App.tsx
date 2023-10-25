@@ -28,9 +28,9 @@ const App = () => {
 
   return (
     <Router>
-      <>
+      <div className="min-h-screen">
         <Navbar toggleTheme={toggleTheme} theme={theme} />
-        <main className="container mx-auto">
+        <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tasks" element={<Tasks />} />
@@ -40,7 +40,7 @@ const App = () => {
           </Routes>
         </main>
         <MobileNavbar />
-      </>
+      </div>
     </Router>
   );
 };

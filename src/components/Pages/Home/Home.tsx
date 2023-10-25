@@ -1,15 +1,22 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
-    <div className="flex items-start pt-12 sm:items-center">
-      <div className="max-w-2xl px-4">
-        <h1 className="text-center text-4xl sm:text-left">Home Page</h1>
-        <p className="pt-4 text-center text-lg sm:text-left">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quia
-          temporibus inventore fuga est distinctio vel quas mollitia consectetur
-          error. Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-          quia temporibus inventore fuga est distinctio vel quas mollitia
-          consectetur error.
+    <div className="flex justify-center py-36 md:justify-start">
+      <div className="ml-0 max-w-2xl px-4 text-center md:ml-16 md:text-left">
+        <h1 className="mb-5 text-5xl font-bold md:text-7xl">
+          Achieve Your Daily Tasks With Ease
+        </h1>
+        <p className="mb-5 text-lg">
+          Create, track and update your daily tasks and chores. Never again miss
+          a meeting or something that you ought to do. View your current
+          progress and get notified about upcoming assignments.
         </p>
+        <Link to="/tasks">
+          <button className="btn btn-secondary btn-outline btn-wide my-4">
+            Create New Task
+          </button>
+        </Link>
       </div>
     </div>
   );
