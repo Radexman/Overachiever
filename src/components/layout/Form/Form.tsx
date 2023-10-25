@@ -1,6 +1,11 @@
 import { useState, ChangeEvent, FormEvent } from "react";
+import { Task } from "../../../Types/Task";
 
-const Form = () => {
+type FormProps = {
+  handleAdd: (newTask: Task) => void;
+};
+
+const Form = ({ handleAdd }: FormProps) => {
   const [taskInput, setTaskInput] = useState<string>();
   const [importantInput, setImportantInput] = useState<boolean>();
 
@@ -15,11 +20,11 @@ const Form = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newTask = {
-      task: taskInput,
-      important: importantInput,
+      task: taskInput!,
+      important: importantInput!,
     };
 
-    console.log(newTask);
+    handleAdd(newTask);
   };
 
   return (

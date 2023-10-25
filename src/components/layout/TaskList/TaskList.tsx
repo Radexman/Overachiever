@@ -1,16 +1,14 @@
+import { Task } from "../../../Types/Task";
+
 type TaskListProps = {
-  taskList: {
-    id: number;
-    task: string;
-    important: boolean;
-  }[];
+  taskList: Task[];
 };
 
 const TaskList = ({ taskList }: TaskListProps) => {
   return (
     <div>
-      {taskList.map((task) => (
-        <h2 key={task.id}>{task.task}</h2>
+      {taskList.map((task, index) => (
+        <h2 key={index}>{task.task}</h2>
       ))}
     </div>
   );
