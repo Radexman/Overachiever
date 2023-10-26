@@ -33,7 +33,7 @@ const Form = ({ handleAdd }: FormProps) => {
   };
 
   return (
-    <div className="space-y-4 text-center md:text-left">
+    <div className="mx-auto space-y-4 text-center md:mx-0 md:text-left">
       <h2 className="text-3xl font-bold">Create New Task</h2>
       <p className="text-lg">
         Fill the form to create new task, check the box if it is important.
@@ -51,7 +51,7 @@ const Form = ({ handleAdd }: FormProps) => {
             type="text"
             value={taskInput}
             placeholder="Write down new task..."
-            className="input input-bordered w-full"
+            className="input input-bordered"
           />
         </div>
         <div className="flex-center form-control">
