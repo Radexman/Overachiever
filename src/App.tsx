@@ -44,7 +44,11 @@ const App = () => {
   };
 
   const addTask = (newTask: Task) => {
-    setTaskList([...taskList, newTask]);
+    if (newTask.important) {
+      setTaskList([newTask, ...taskList]);
+    } else {
+      setTaskList([...taskList, newTask]);
+    }
   };
 
   return (

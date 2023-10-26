@@ -1,4 +1,5 @@
 import { useState, ChangeEvent, FormEvent } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { Task } from "../../../Types/Task";
 
 type FormProps = {
@@ -22,6 +23,7 @@ const Form = ({ handleAdd }: FormProps) => {
     const newTask = {
       task: taskInput!,
       important: importantInput!,
+      id: uuidv4(),
     };
 
     handleAdd(newTask);
@@ -32,8 +34,10 @@ const Form = ({ handleAdd }: FormProps) => {
 
   return (
     <div className="space-y-4 text-center md:text-left">
-      <h1 className="text-3xl font-bold">Create New Task</h1>
-      <p>Fill the form to create new task, check the box if it is important.</p>
+      <h2 className="text-3xl font-bold">Create New Task</h2>
+      <p className="text-lg">
+        Fill the form to create new task, check the box if it is important.
+      </p>
       <form
         onSubmit={handleSubmit}
         className="rounded-lg bg-secondary px-8 py-4"
@@ -65,9 +69,8 @@ const Form = ({ handleAdd }: FormProps) => {
         </div>
         <button
           type="submit"
-          className={`btn btn-primary btn-wide ${
-            taskInput === (undefined || "") && "btn-disabled"
-          }`}
+          disabled={!taskInput}
+          className="btn btn-primary btn-wide"
         >
           Submit
         </button>
