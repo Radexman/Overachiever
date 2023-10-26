@@ -31,12 +31,12 @@ const Form = ({ handleAdd }: FormProps) => {
   };
 
   return (
-    <div>
+    <div className="space-y-4 text-center md:text-left">
       <h1 className="text-3xl font-bold">Create New Task</h1>
       <p>Fill the form to create new task, check the box if it is important.</p>
       <form
         onSubmit={handleSubmit}
-        className="max-w-xs rounded-lg bg-secondary px-8 py-4"
+        className="rounded-lg bg-secondary px-8 py-4"
       >
         <div className="flex flex-col">
           <label htmlFor="task" className="text-lg font-bold text-slate-50">
@@ -47,7 +47,7 @@ const Form = ({ handleAdd }: FormProps) => {
             type="text"
             value={taskInput}
             placeholder="Write down new task..."
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full"
           />
         </div>
         <div className="flex-center form-control">
@@ -58,15 +58,15 @@ const Form = ({ handleAdd }: FormProps) => {
             <input
               type="checkbox"
               onChange={handleImportantChange}
-              className="checkbox-secondary-content checkbox"
+              className="checkbox-primary checkbox checkbox-lg border-2 border-secondary-content"
               checked={importantInput === true ? true : false}
             />
           </label>
         </div>
         <button
           type="submit"
-          className={`btn-primary-content btn btn-wide ${
-            taskInput === undefined && "btn-disabled"
+          className={`btn btn-primary btn-wide ${
+            taskInput === (undefined || "") && "btn-disabled"
           }`}
         >
           Submit
