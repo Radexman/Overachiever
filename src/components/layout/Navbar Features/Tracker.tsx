@@ -1,16 +1,21 @@
 import { FaClipboardList } from "react-icons/fa";
+import { Task } from "../../../Types/Task";
 
-const Tracker = () => {
+type TrackerProps = {
+  taskList: Task[];
+};
+
+const Tracker = ({ taskList }: TrackerProps) => {
   return (
-    <div className="dropdown dropdown-hover indicator">
+    <div className="dropdown-hover dropdown indicator">
       <span className="badge indicator-item badge-secondary h-6 w-6 rounded-full  bg-primary font-bold">
-        3
+        {taskList.length}
       </span>
       <div className="grid h-12 w-12 place-items-center rounded-full bg-primary">
         <FaClipboardList size={30} />
       </div>
       <div className="menu dropdown-content rounded-box z-[1] mr-6 mt-12 w-32 bg-base-100 p-2 font-bold text-primary-focus shadow-sm shadow-primary-focus">
-        You have 3 tasks
+        {`You have ${taskList.length} tasks`}
       </div>
     </div>
   );

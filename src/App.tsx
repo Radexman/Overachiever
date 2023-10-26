@@ -50,7 +50,7 @@ const App = () => {
   return (
     <Router>
       <div className="min-h-screen">
-        <Navbar toggleTheme={toggleTheme} theme={theme} />
+        <Navbar toggleTheme={toggleTheme} theme={theme} taskList={taskList} />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />

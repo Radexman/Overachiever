@@ -2,13 +2,15 @@ import { ChangeEvent } from "react";
 import { NavLink } from "react-router-dom";
 import Tracker from "../Navbar Features/Tracker";
 import ThemeToggler from "../Navbar Features/ThemeToggler";
+import { Task } from "../../../Types/Task";
 
 type NavbarProps = {
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
   theme: string;
+  taskList: Task[];
 };
 
-const Navbar = ({ toggleTheme, theme }: NavbarProps) => {
+const Navbar = ({ toggleTheme, theme, taskList }: NavbarProps) => {
   return (
     <nav className="navbar flex justify-between bg-secondary px-8 text-slate-50">
       <NavLink to="/">
@@ -51,7 +53,7 @@ const Navbar = ({ toggleTheme, theme }: NavbarProps) => {
         </ul>
         <ul className="flex space-x-4 pl-4">
           <li>
-            <Tracker />
+            <Tracker taskList={taskList} />
           </li>
           <li>
             <ThemeToggler toggleTheme={toggleTheme} theme={theme} />
