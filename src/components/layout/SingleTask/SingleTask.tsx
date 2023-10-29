@@ -7,8 +7,12 @@ type SingleTaskProps = {
 const SingleTask = ({ task }: SingleTaskProps) => {
   const { todo, important } = task;
   return (
-    <div>
-      <h3>{todo}</h3>
+    <div
+      className={` rounded-lg  ${
+        important ? "bg-primary-focus" : "bg-secondary-content"
+      }`}
+    >
+      <p className="cursor-pointer p-4 text-left text-lg font-bold">{todo}</p>
     </div>
   );
 };

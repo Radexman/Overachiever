@@ -10,7 +10,7 @@ type TasksProps = {
 const Tasks = ({ taskList, handleAdd }: TasksProps) => {
   return (
     <div className="container mx-auto text-center md:text-left">
-      <div className="flex flex-col items-start justify-between gap-4 px-8 pt-10 md:flex-row">
+      <div className="flex flex-col items-start justify-between gap-4 px-2 pt-10 md:flex-row">
         <Form handleAdd={handleAdd} />
         <TaskList taskList={taskList} />
       </div>

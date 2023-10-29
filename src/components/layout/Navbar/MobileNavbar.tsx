@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const MobileNavbar = () => {
   return (
-    <div className="absolute inset-x-0 bottom-0 block h-16 md:hidden">
+    <div className="sticky inset-x-0 bottom-0 block h-16 md:hidden">
       <div className="btm-nav">
         <NavLink to="/" className="nav-link group">
           <button className="nav-button">

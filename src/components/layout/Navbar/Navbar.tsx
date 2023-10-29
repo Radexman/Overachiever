@@ -14,7 +14,9 @@ const Navbar = ({ toggleTheme, theme, taskList }: NavbarProps) => {
   return (
     <nav className="navbar flex justify-between bg-secondary px-8 text-slate-50">
       <NavLink to="/">
-        <span className="font-brand text-6xl font-bold">Overachiever</span>
+        <span className="md:6xl font-brand text-4xl font-bold">
+          Overachiever
+        </span>
       </NavLink>
       <div className="flex-none">
         <ul className="menu menu-horizontal hidden px-1 md:flex">
