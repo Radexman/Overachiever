@@ -2,7 +2,7 @@ import { ChangeEvent } from "react";
 import { NavLink } from "react-router-dom";
 import Tracker from "../Navbar Features/Tracker";
 import ThemeToggler from "../Navbar Features/ThemeToggler";
-import { Task } from "../../../Types/Task";
+import { Task } from "../../../Types/TaskType";
 
 type NavbarProps = {
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;

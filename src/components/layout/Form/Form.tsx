@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Task } from "../../../Types/Task";
+import { Task } from "../../../Types/TaskType";
 
 type FormProps = {
   handleAdd: (newTask: Task) => void;
@@ -21,7 +21,7 @@ const Form = ({ handleAdd }: FormProps) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newTask = {
-      task: taskInput!,
+      todo: taskInput!,
       important: importantInput!,
       id: uuidv4(),
     };

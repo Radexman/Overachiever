@@ -1,5 +1,5 @@
 import { FaClipboardList } from "react-icons/fa";
-import { Task } from "../../../Types/Task";
+import { Task } from "../../../Types/TaskType";
 
 type TrackerProps = {
   taskList: Task[];
@@ -7,7 +7,7 @@ type TrackerProps = {
 
 const Tracker = ({ taskList }: TrackerProps) => {
   return (
-    <div className="dropdown-hover dropdown indicator">
+    <div className="dropdown dropdown-hover indicator">
       <span className="badge indicator-item badge-secondary h-6 w-6 rounded-full  bg-primary font-bold">
         {taskList.length}
       </span>

@@ -3,7 +3,7 @@ import image from "../../../assets/illustration-sign-up-desktop.svg";
 
 const Home = () => {
   return (
-    <div className="flex justify-start px-12 py-36">
+    <div className="flex h-[80vh] items-center justify-start px-8">
       <img
         src={image}
         alt="Statistics and graphs"

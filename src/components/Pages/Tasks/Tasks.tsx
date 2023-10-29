@@ -1,6 +1,6 @@
 import Form from "../../layout/Form/Form";
 import TaskList from "../../layout/TaskList/TaskList";
-import { Task } from "../../../Types/Task";
+import { Task } from "../../../Types/TaskType";
 
 type TasksProps = {
   taskList: Task[];

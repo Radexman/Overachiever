@@ -6,7 +6,7 @@ import Home from "./components/Pages/Home/Home";
 import Tasks from "./components/Pages/Tasks/Tasks";
 import Stats from "./components/Pages/Stats/Stats";
 import About from "./components/Pages/About/About";
-import { Task } from "./Types/Task";
+import { Task } from "./Types/TaskType";
 
 const App = () => {
   const [taskList, setTaskList] = useState<Task[]>(() => {
