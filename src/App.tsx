@@ -43,12 +43,18 @@ const App = () => {
     }
   };
 
+  // Add new task
   const addTask = (newTask: Task) => {
     if (newTask.important) {
       setTaskList([newTask, ...taskList]);
     } else {
       setTaskList([...taskList, newTask]);
     }
+  };
+
+  // Remove task
+  const removeTask = (id: string) => {
+    setTaskList(taskList.filter((task) => task.id !== id));
   };
 
   return (
@@ -60,7 +66,13 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route
               path="/tasks"
-              element={<Tasks handleAdd={addTask} taskList={taskList} />}
+              element={
+                <Tasks
+                  handleAdd={addTask}
+                  handleRemove={removeTask}
+                  taskList={taskList}
+                />
+              }
             />
             <Route path="/stats" element={<Stats />} />
             <Route path="/about" element={<About />} />

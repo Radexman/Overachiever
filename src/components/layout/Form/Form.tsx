@@ -33,7 +33,7 @@ const Form = ({ handleAdd }: FormProps) => {
   };
 
   return (
-    <div className="mx-auto space-y-4 text-center md:mx-0 md:text-left">
+    <div className="mx-auto space-y-4 md:mx-0 md:text-left">
       <h2 className="text-3xl font-bold">Create New Task</h2>
       <p className="text-lg">
         Fill the form to create new task, check the box if it is important.
@@ -43,7 +43,10 @@ const Form = ({ handleAdd }: FormProps) => {
         className="rounded-lg bg-secondary px-8 py-4"
       >
         <div className="flex flex-col">
-          <label htmlFor="task" className="text-lg font-bold text-slate-50">
+          <label
+            htmlFor="task"
+            className="text-left text-lg font-bold text-slate-50"
+          >
             Task Name
           </label>
           <input
@@ -54,7 +57,7 @@ const Form = ({ handleAdd }: FormProps) => {
             className="input input-bordered"
           />
         </div>
-        <div className="flex-center form-control">
+        <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text text-lg font-bold text-slate-50">
               Important
@@ -70,7 +73,7 @@ const Form = ({ handleAdd }: FormProps) => {
         <button
           type="submit"
           disabled={!taskInput}
-          className="btn btn-primary btn-wide"
+          className="btn btn-primary w-full md:btn-wide"
         >
           Submit
         </button>
