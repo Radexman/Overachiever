@@ -1,4 +1,5 @@
 import { MdDeleteForever } from "react-icons/md";
+import { IoCheckmarkCircleSharp } from "react-icons/io5";
 import { Task } from "../../../Types/TaskType";
 
 type SingleTaskProps = {
