@@ -16,9 +16,32 @@ const SingleTask = ({ task, handleRemove }: SingleTaskProps) => {
     >
       <p className="cursor-pointer p-4 text-left text-lg font-bold">{todo}</p>
       <div className="pr-2">
-        <button onClick={() => handleRemove(id)}>
-          <MdDeleteForever size={30} />
+        <button
+          className=""
+          onClick={() =>
+            (
+              document.getElementById("my_modal_5") as HTMLDialogElement | null
+            )?.showModal()
+          }
+        >
+          <MdDeleteForever size={25} />
         </button>
+        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+          <div className="modal-box">
+            <h3 className="text-lg font-bold">Are you sure?</h3>
+            <p className="py-4">
+              This action will remove task and not mark is as completed.
+            </p>
+            <div className="modal-action">
+              <form method="dialog">
+                <button className="btn" onClick={() => handleRemove(id)}>
+                  Delete Task
+                </button>
+                <button className="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
       </div>
     </div>
   );
