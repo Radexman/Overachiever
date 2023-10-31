@@ -1,5 +1,7 @@
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { BiMessageAltEdit } from "react-icons/bi";
+import { useContext } from "react";
+import AppContext from "../../../context/AppContext";
 import Modal from "../Modal/Modal";
 import { Task } from "../../../Types/TaskType";
 
@@ -9,9 +11,12 @@ type SingleTaskProps = {
 
 const SingleTask = ({ task }: SingleTaskProps) => {
   const { todo, important, id, details } = task;
+
+  const { editTask } = useContext(AppContext);
+
   return (
     <div
-      className={`collapse collapse-arrow rounded-md p-0 text-left ${
+      className={`collapse-arrow collapse rounded-md p-0 text-left ${
         important ? "bg-primary text-primary-content" : "bg-secondary-content"
       }`}
     >
@@ -25,7 +30,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
               Complete
               <IoIosCheckmarkCircleOutline size={25} />
             </button>
-            <button className="btn btn-md">
+            <button onClick={() => editTask(task)} className="btn btn-md">
               Update
               <BiMessageAltEdit size={25} />
             </button>

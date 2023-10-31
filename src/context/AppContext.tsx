@@ -14,9 +14,15 @@ type ContextProviderProps = {
 type ContextProps = {
   taskList: Task[];
   theme: string;
+  taskEdit: {
+    task: Task;
+    edit: boolean;
+  };
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
   addTask: (newTask: Task) => void;
   removeTask: (id: string) => void;
+  editTask: (task: Task) => void;
+  updateTask: (id: string, updItem: Task) => void;
 };
 
 const AppContext = createContext({} as ContextProps);
@@ -28,10 +34,31 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     return storedState || [];
   });
 
+  // State for task edit
+  const [taskEdit, setTaskEdit] = useState({
+    task: {} as Task,
+    edit: false,
+  });
+
   // Create state for app theme and fetch it from local storage
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme")! : "emerald",
   );
+
+  // Edit task
+  const editTask = (task: Task) => {
+    setTaskEdit({
+      task,
+      edit: true,
+    });
+  };
+
+  // Update task
+  const updateTask = (id: string, updItem: Task) => {
+    setTaskList(
+      taskList.map((task) => (task.id === id ? { ...task, ...updItem } : task)),
+    );
+  };
 
   // Check on component mount if tasks array exists in local storage
   useEffect(() => {
@@ -78,7 +105,16 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
 
   return (
     <AppContext.Provider
-      value={{ taskList, theme, toggleTheme, addTask, removeTask }}
+      value={{
+        taskList,
+        theme,
+        taskEdit,
+        toggleTheme,
+        addTask,
+        removeTask,
+        editTask,
+        updateTask,
+      }}
     >
       {children}
     </AppContext.Provider>
