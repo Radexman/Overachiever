@@ -1,13 +1,15 @@
+import { useContext } from "react";
+import AppContext from "../../../context/AppContext";
 import { MdDeleteForever } from "react-icons/md";
-import { IoCheckmarkCircleSharp } from "react-icons/io5";
 import { Task } from "../../../Types/TaskType";
 
 type SingleTaskProps = {
   task: Task;
-  handleRemove: (id: string) => void;
 };
 
-const SingleTask = ({ task, handleRemove }: SingleTaskProps) => {
+const SingleTask = ({ task }: SingleTaskProps) => {
+  const { removeTask } = useContext(AppContext);
+
   const { todo, important, id } = task;
   return (
     <div
@@ -35,7 +37,7 @@ const SingleTask = ({ task, handleRemove }: SingleTaskProps) => {
             </p>
             <div className="modal-action">
               <form method="dialog">
-                <button className="btn" onClick={() => handleRemove(id)}>
+                <button className="btn" onClick={() => removeTask(id)}>
                   Delete Task
                 </button>
                 <button className="btn">Close</button>

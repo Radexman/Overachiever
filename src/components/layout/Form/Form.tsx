@@ -1,14 +1,12 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, useContext, FormEvent } from "react";
+import AppContext from "../../../context/AppContext";
 import { v4 as uuidv4 } from "uuid";
-import { Task } from "../../../Types/TaskType";
 
-type FormProps = {
-  handleAdd: (newTask: Task) => void;
-};
-
-const Form = ({ handleAdd }: FormProps) => {
+const Form = () => {
   const [taskInput, setTaskInput] = useState<string>();
   const [importantInput, setImportantInput] = useState<boolean>();
+
+  const { addTask } = useContext(AppContext);
 
   const handleTaskInput = (e: ChangeEvent<HTMLInputElement>) => {
     setTaskInput(e.target.value);
@@ -26,7 +24,7 @@ const Form = ({ handleAdd }: FormProps) => {
       id: uuidv4(),
     };
 
-    handleAdd(newTask);
+    addTask(newTask);
 
     setTaskInput("");
     setImportantInput(false);

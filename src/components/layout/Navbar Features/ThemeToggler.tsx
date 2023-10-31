@@ -1,13 +1,11 @@
-import { ChangeEvent } from "react";
+import { useContext } from "react";
+import AppContext from "../../../context/AppContext";
 
-type ThemeTogglerProps = {
-  toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
-  theme: string;
-};
+const ThemeToggler = () => {
+  const { toggleTheme, theme } = useContext(AppContext);
 
-const ThemeToggler = ({ toggleTheme, theme }: ThemeTogglerProps) => {
   return (
-    <label className="swap-rotate swap ">
+    <label className="swap swap-rotate ">
       <input
         type="checkbox"
         onChange={toggleTheme}
@@ -30,5 +28,4 @@ const ThemeToggler = ({ toggleTheme, theme }: ThemeTogglerProps) => {
     </label>
   );
 };
-
 export default ThemeToggler;

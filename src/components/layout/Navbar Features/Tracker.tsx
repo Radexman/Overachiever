@@ -1,11 +1,10 @@
 import { FaClipboardList } from "react-icons/fa";
-import { Task } from "../../../Types/TaskType";
+import { useContext } from "react";
+import AppContext from "../../../context/AppContext";
 
-type TrackerProps = {
-  taskList: Task[];
-};
+const Tracker = () => {
+  const { taskList } = useContext(AppContext);
 
-const Tracker = ({ taskList }: TrackerProps) => {
   return (
     <div className="dropdown dropdown-hover indicator">
       <span className="badge indicator-item badge-secondary h-6 w-6 rounded-full  bg-primary font-bold">
