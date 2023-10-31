@@ -4,12 +4,17 @@ import { v4 as uuidv4 } from "uuid";
 
 const Form = () => {
   const [taskInput, setTaskInput] = useState<string>();
+  const [detailsInput, setDetailsInput] = useState<string>();
   const [importantInput, setImportantInput] = useState<boolean>();
 
   const { addTask } = useContext(AppContext);
 
   const handleTaskInput = (e: ChangeEvent<HTMLInputElement>) => {
     setTaskInput(e.target.value);
+  };
+
+  const handleDetailsInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setDetailsInput(e.target.value);
   };
 
   const handleImportantChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -20,6 +25,7 @@ const Form = () => {
     e.preventDefault();
     const newTask = {
       todo: taskInput!,
+      details: detailsInput!,
       important: importantInput!,
       id: uuidv4(),
     };
@@ -27,6 +33,7 @@ const Form = () => {
     addTask(newTask);
 
     setTaskInput("");
+    setDetailsInput("");
     setImportantInput(false);
   };
 
@@ -54,6 +61,21 @@ const Form = () => {
             placeholder="Write down new task..."
             className="input input-bordered"
           />
+        </div>
+        <div className="flex flex-col">
+          <label
+            htmlFor="task-details"
+            className="text-left text-lg font-bold text-slate-50"
+          >
+            Task Details
+          </label>
+          <textarea
+            id="task-details"
+            onChange={handleDetailsInput}
+            value={detailsInput}
+            placeholder="Write down task details (optional)"
+            className="input input-bordered block h-36 p-4"
+          ></textarea>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">

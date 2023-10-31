@@ -10,3 +10,7 @@
 .nav-button {
   @apply text-secondary-focus transition-all duration-200 group-hover:text-primary-focus;
 }
+
+textarea {
+  resize: none;
+}
