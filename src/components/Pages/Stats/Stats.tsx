@@ -1,5 +1,6 @@
 import { useContext, CSSProperties } from "react";
 import AppContext from "../../../context/AppContext";
+import RadialChart from "../../layout/RadialChart/RadialChart";
 
 const Stats = () => {
   const { taskList, completed } = useContext(AppContext);
@@ -19,13 +20,10 @@ const Stats = () => {
         </div>
         {/* Statistics Section */}
         <div>
-          {/* <RadialChart completedPercentage={completedPercentage} /> */}
-          <div
-            className="radial-progress text-primary"
-            style={{ "--value": completedPercentage } as CSSProperties}
-          >
-            <p>{`${completedPercentage}%`}</p>
-          </div>
+          <RadialChart
+            percentage={completedPercentage}
+            textColor="text-secondary-focus"
+          />
         </div>
       </div>
     </div>
