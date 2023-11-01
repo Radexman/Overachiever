@@ -13,6 +13,7 @@ type ContextProviderProps = {
 
 type ContextProps = {
   taskList: Task[];
+  completed: Task[];
   theme: string;
   taskEdit: {
     task: Task;
@@ -144,6 +145,7 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         taskList,
         theme,
         taskEdit,
+        completed,
         toggleTheme,
         addTask,
         completeTask,
