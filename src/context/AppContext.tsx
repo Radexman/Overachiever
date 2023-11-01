@@ -20,6 +20,7 @@ type ContextProps = {
   };
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
   addTask: (newTask: Task) => void;
+  completeTask: (task: Task) => void;
   removeTask: (id: string) => void;
   editTask: (task: Task) => void;
   updateTask: (id: string, updItem: Task) => void;
@@ -33,6 +34,9 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     const storedState = JSON.parse(localStorage.getItem("tasks")!);
     return storedState || [];
   });
+
+  // Completed tasks
+  const [completed, setCompleted] = useState<Task[]>([]);
 
   // State for task edit
   const [taskEdit, setTaskEdit] = useState({
@@ -103,6 +107,12 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     }
   };
 
+  // Complete task
+  const completeTask = (task: Task) => {
+    setCompleted([...completed, task]);
+    removeTask(task.id);
+  };
+
   // Remove task
   const removeTask = (id: string) => {
     setTaskList(taskList.filter((task) => task.id !== id));
@@ -116,6 +126,7 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         taskEdit,
         toggleTheme,
         addTask,
+        completeTask,
         removeTask,
         editTask,
         updateTask,

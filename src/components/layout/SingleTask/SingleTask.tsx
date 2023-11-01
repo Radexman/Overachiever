@@ -12,7 +12,7 @@ type SingleTaskProps = {
 const SingleTask = ({ task }: SingleTaskProps) => {
   const { todo, important, id, details } = task;
 
-  const { editTask } = useContext(AppContext);
+  const { editTask, completeTask } = useContext(AppContext);
 
   return (
     <div
@@ -25,16 +25,16 @@ const SingleTask = ({ task }: SingleTaskProps) => {
       <div className="collapse-content">
         <div className="flex flex-col space-y-4">
           {details && <div>{details}</div>}
-          <div className="btn-group items-center">
-            <button className="btn btn-md">
+          <div className="btn-group">
+            <button onClick={() => completeTask(task)} className="btn w-[33%]">
               Complete
               <IoIosCheckmarkCircleOutline size={25} />
             </button>
-            <button onClick={() => editTask(task)} className="btn btn-md">
+            <button onClick={() => editTask(task)} className="btn w-[33%]">
               Update
               <BiMessageAltEdit size={25} />
             </button>
-            <button className="btn btn-md">
+            <button className="btn w-[33%]">
               <Modal id={id} />
             </button>
           </div>
