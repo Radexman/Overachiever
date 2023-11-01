@@ -35,8 +35,13 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     return storedState || [];
   });
 
-  // Completed tasks
-  const [completed, setCompleted] = useState<Task[]>([]);
+  // Create task list state and fetch it from local storage
+  const [completed, setCompleted] = useState<Task[]>(() => {
+    const storedCompleted = JSON.parse(
+      localStorage.getItem("completed-tasks")!,
+    );
+    return storedCompleted || [];
+  });
 
   // State for task edit
   const [taskEdit, setTaskEdit] = useState({
@@ -76,6 +81,21 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
       setTaskList(storedTaskList);
     }
   }, []);
+
+  // Check on component mount if completed tasks array exists in local storage
+  useEffect(() => {
+    const storedCompletedList = JSON.parse(
+      localStorage.getItem("completed-tasks")!,
+    );
+    if (storedCompletedList) {
+      setCompleted(storedCompletedList);
+    }
+  }, []);
+
+  // Update completed tasks in local storage on completed change
+  useEffect(() => {
+    localStorage.setItem("completed-tasks", JSON.stringify(completed));
+  }, [completed]);
 
   // Update tasks in local storage on taskList state change
   useEffect(() => {
