@@ -58,6 +58,11 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     setTaskList(
       taskList.map((task) => (task.id === id ? { ...task, ...updItem } : task)),
     );
+
+    setTaskEdit({
+      task: {} as Task,
+      edit: false,
+    });
   };
 
   // Check on component mount if tasks array exists in local storage
