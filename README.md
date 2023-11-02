@@ -14,6 +14,7 @@ Now this app sreves a couple of pourpouses, user can create various tasks, custo
 - [ ] Stats Page content
 - [ ] Graphs and charts in Stats Page
 - [ ] Daily reset for the tasks
+- [ ] Add category icon
 
 ## **Tech Stack**
 
