@@ -69,6 +69,7 @@ const Form = () => {
           <input
             onChange={handleTaskInput}
             type="text"
+            maxLength={25}
             value={taskInput}
             placeholder="Write down new task..."
             className="input input-bordered"

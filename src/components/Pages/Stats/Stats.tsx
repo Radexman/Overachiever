@@ -1,4 +1,5 @@
-import { useContext, CSSProperties } from "react";
+import { FaChartPie } from "react-icons/fa";
+import { useContext } from "react";
 import AppContext from "../../../context/AppContext";
 import RadialChart from "../../layout/RadialChart/RadialChart";
 
@@ -7,6 +8,7 @@ const Stats = () => {
 
   const tasksTotal = taskList.length + completed.length;
   const completedTasks = completed.length;
+  const tasksRemaining = tasksTotal - completedTasks;
   const completedPercentage = (completedTasks / tasksTotal) * 100;
 
   return (
@@ -19,11 +21,18 @@ const Stats = () => {
           informations
         </div>
         {/* Statistics Section */}
-        <div>
-          <RadialChart
-            percentage={completedPercentage}
-            textColor="text-secondary-focus"
-          />
+        <div className="stats bg-secondary-content shadow-md shadow-primary-focus">
+          <div className="stat">
+            <div className="stat-figure text-primary">
+              <RadialChart
+                percentage={completedPercentage}
+                textColor="text-secondary-focus"
+              />
+            </div>
+            <div className="stat-value">{`${completedPercentage.toFixed()}%`}</div>
+            <div className="stat-title">All Tasks Completed</div>
+            <div className="stat-desc text-secondary">{`${tasksRemaining} tasks remaining`}</div>
+          </div>
         </div>
       </div>
     </div>

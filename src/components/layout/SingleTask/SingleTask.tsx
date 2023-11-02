@@ -16,7 +16,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
 
   return (
     <div
-      className={`collapse-arrow collapse rounded-md p-0 text-left ${
+      className={`collapse collapse-arrow rounded-md p-0 text-left ${
         important ? "bg-primary text-primary-content" : "bg-secondary-content"
       }`}
     >
@@ -26,15 +26,19 @@ const SingleTask = ({ task }: SingleTaskProps) => {
         <div className="flex flex-col space-y-4">
           {details && <div>{details}</div>}
           <div className="btn-group">
-            <button onClick={() => completeTask(task)} className="btn w-[33%]">
-              Complete
+            <button
+              onClick={() => completeTask(task)}
+              className="btn btn-sm w-[33%] hover:bg-green-700"
+            >
               <IoIosCheckmarkCircleOutline size={25} />
             </button>
-            <button onClick={() => editTask(task)} className="btn w-[33%]">
-              Update
+            <button
+              onClick={() => editTask(task)}
+              className="btn btn-sm w-[33%] hover:bg-secondary-focus"
+            >
               <BiMessageAltEdit size={25} />
             </button>
-            <button className="btn w-[33%]">
+            <button className="btn btn-sm w-[33%] hover:bg-red-700">
               <Modal id={id} />
             </button>
           </div>

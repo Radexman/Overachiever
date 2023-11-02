@@ -19,7 +19,6 @@ const Modal = ({ id }: ModalProps) => {
         }
       >
         <div className="flex items-center">
-          <p className="uppercase">Delete</p>
           <MdDeleteForever size={25} />
         </div>
       </button>
