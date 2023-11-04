@@ -7,7 +7,7 @@ const RadialChart = ({ percentage, textColor, bgColor }: RadialChartProps) => {
       className={`radial-progress ${textColor} ${bgColor}`}
       style={{ "--value": percentage, "--size": "7.5rem" } as CSSProperties}
     >
-      {`${percentage.toFixed()}%`}
+      {`${isNaN(percentage) ? "0" : percentage.toFixed()}%`}
     </div>
   );
 };

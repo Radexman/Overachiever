@@ -29,7 +29,11 @@ const Stats = () => {
                 textColor="text-secondary-focus"
               />
             </div>
-            <div className="stat-value">{`${completedPercentage.toFixed()}%`}</div>
+            <div className="stat-value">
+              {`${
+                isNaN(completedPercentage) ? "0" : completedPercentage.toFixed()
+              }%`}
+            </div>
             <div className="stat-title">All Tasks Completed</div>
             <div className="stat-desc text-secondary">{`${tasksRemaining} tasks remaining`}</div>
           </div>
