@@ -93,6 +93,33 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     }
   }, []);
 
+  // Function to reset state
+  useEffect(() => {
+    const resetState = () => {
+      setTaskList([]);
+      setCompleted([]);
+    };
+
+    // Interval to check if it's past midnight
+    const interval = setInterval(() => {
+      const now = new Date();
+      const midnight = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 1,
+        0,
+        0,
+        0,
+      );
+
+      if (now >= midnight) {
+        resetState();
+      }
+    }, 3600000); // Check every hour
+
+    return () => clearInterval(interval);
+  }, []);
+
   // Update completed tasks in local storage on completed change
   useEffect(() => {
     localStorage.setItem("completed-tasks", JSON.stringify(completed));
@@ -109,6 +136,9 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     const localTheme = localStorage.getItem("theme");
     document.querySelector("html")?.setAttribute("data-theme", localTheme!);
   }, [theme]);
+
+  // Allow Notifications
+  useEffect(() => {}, []);
 
   // Toggle theme switch
   const toggleTheme = (e: ChangeEvent<HTMLInputElement>) => {

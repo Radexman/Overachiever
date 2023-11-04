@@ -16,6 +16,8 @@ Now this app sreves a couple of pourpouses, user can create various tasks, custo
 - [ ] Daily reset for the tasks
 - [ ] Add category icon
 
+- [ ] Complete Day Feature - create button that cleares all states (start new day). Before all state is removed show popup with summary of all completed and not completed tasks.
+
 ## **Tech Stack**
 
 - React

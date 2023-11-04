@@ -65,7 +65,7 @@ const Stats = () => {
             <div className="stat-figure text-primary">
               <RadialChart
                 percentage={importantTasksPercentage}
-                textColor="text-secondary-focus"
+                textColor="text-primary"
               />
             </div>
             <div className="stat-value">
@@ -75,7 +75,9 @@ const Stats = () => {
                   : importantTasksPercentage.toFixed()
               }%`}
             </div>
-            <div className="stat-title">Important Tasks Completed</div>
+            <div className="stat-title text-primary">
+              Important Tasks Completed
+            </div>
             <div className="stat-desc text-secondary">{`${totalRemainingImportantTasks} tasks remaining`}</div>
           </div>
           {/* Single Stat Regular */}
@@ -93,16 +95,17 @@ const Stats = () => {
                   : regularTasksPercentage.toFixed()
               }%`}
             </div>
-            <div className="stat-title">Regular Tasks Completed</div>
+            <div className="stat-title text-secondary-focus">
+              Regular Tasks Completed
+            </div>
             <div className="stat-desc text-secondary">{`${totalRemainingRegularTasks} tasks remaining`}</div>
           </div>
           {/* Single Stat All */}
-
           <div className="stat">
             <div className="stat-figure text-primary">
               <RadialChart
                 percentage={completedPercentage}
-                textColor="text-secondary-focus"
+                textColor="text-secondary"
               />
             </div>
             <div className="stat-value">
@@ -110,7 +113,7 @@ const Stats = () => {
                 isNaN(completedPercentage) ? "0" : completedPercentage.toFixed()
               }%`}
             </div>
-            <div className="stat-title">All Tasks Completed</div>
+            <div className="stat-title text-secondary">All Tasks Completed</div>
             <div className="stat-desc text-secondary">{`${tasksRemaining} tasks remaining`}</div>
           </div>
         </div>
