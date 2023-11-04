@@ -6,9 +6,9 @@ const TaskList = () => {
   const { taskList } = useContext(AppContext);
 
   return (
-    <div className="mx-auto mb-32 max-w-[100vw] space-y-4 text-center md:mx-0 md:text-left">
+    <div className="w-full space-y-3 lg:w-1/2">
       <h2 className="text-3xl font-bold">Task List</h2>
-      <p className="text-lg">
+      <p className="text-md">
         Tasks marked as important will be on the top of the list
       </p>
       <div className="space-y-4 rounded-lg bg-secondary p-8">

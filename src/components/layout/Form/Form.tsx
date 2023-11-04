@@ -50,9 +50,9 @@ const Form = () => {
   };
 
   return (
-    <div className="mx-auto space-y-4 md:mx-0 md:text-left">
+    <div className="w-full space-y-3 lg:w-1/2">
       <h2 className="text-3xl font-bold">Create New Task</h2>
-      <p className="text-lg">
+      <p className="text-md">
         Fill the form to create new task, check the box if it is important.
       </p>
       <form
@@ -69,7 +69,7 @@ const Form = () => {
           <input
             onChange={handleTaskInput}
             type="text"
-            maxLength={25}
+            maxLength={22}
             value={taskInput}
             placeholder="Write down new task..."
             className="input input-bordered"
