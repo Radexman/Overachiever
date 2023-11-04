@@ -1,7 +1,8 @@
-import { FaChartPie } from "react-icons/fa";
+// import { FaChartPie } from "react-icons/fa";
 import { useContext } from "react";
 import AppContext from "../../../context/AppContext";
 import RadialChart from "../../layout/RadialChart/RadialChart";
+import Profile from "../../layout/Profile/Profile";
 
 const Stats = () => {
   const { taskList, completed } = useContext(AppContext);
@@ -11,17 +12,64 @@ const Stats = () => {
   const tasksRemaining = tasksTotal - completedTasks;
   const completedPercentage = (completedTasks / tasksTotal) * 100;
 
+  // Important Tasks Calculations
+  let importantTotalTasks = 0;
+  for (const task of taskList) {
+    if (task.important) {
+      importantTotalTasks++;
+    }
+  }
+
+  // Important Tasks Completed
+  let importantTasksCompleted = 0;
+  for (const task of completed) {
+    if (task.important) {
+      importantTasksCompleted++;
+    }
+  }
+
   return (
-    <div className="container mx-auto pt-10">
+    <div className="container mx-auto px-4 py-10">
       {/* Profile Section */}
-      <h1 className="text-3xl font-bold">Statistics Section</h1>
-      <div className="flex items-center justify-between">
-        <div>
-          In this section you can view you current progress and other usefull
-          informations
-        </div>
+      <Profile />
+      {`Important tasks ${importantTotalTasks}, Important tasks completed ${importantTasksCompleted}`}
+      <div className="flex items-center justify-center">
         {/* Statistics Section */}
-        <div className="stats bg-secondary-content shadow-md shadow-primary-focus">
+        <div className="stats stats-vertical w-full bg-secondary-content shadow-md shadow-primary-focus lg:stats-horizontal lg:w-auto">
+          {/* Single Stat Important */}
+          <div className="stat">
+            <div className="stat-figure text-primary">
+              <RadialChart
+                percentage={completedPercentage}
+                textColor="text-secondary-focus"
+              />
+            </div>
+            <div className="stat-value">
+              {`${
+                isNaN(completedPercentage) ? "0" : completedPercentage.toFixed()
+              }%`}
+            </div>
+            <div className="stat-title">All Tasks Completed</div>
+            <div className="stat-desc text-secondary">{`${tasksRemaining} tasks remaining`}</div>
+          </div>
+          {/* Single Stat Regular */}
+          <div className="stat">
+            <div className="stat-figure text-primary">
+              <RadialChart
+                percentage={completedPercentage}
+                textColor="text-secondary-focus"
+              />
+            </div>
+            <div className="stat-value">
+              {`${
+                isNaN(completedPercentage) ? "0" : completedPercentage.toFixed()
+              }%`}
+            </div>
+            <div className="stat-title">All Tasks Completed</div>
+            <div className="stat-desc text-secondary">{`${tasksRemaining} tasks remaining`}</div>
+          </div>
+          {/* Single Stat All */}
+
           <div className="stat">
             <div className="stat-figure text-primary">
               <RadialChart

@@ -6,9 +6,7 @@ const Navbar = () => {
   return (
     <nav className="navbar flex justify-between bg-secondary px-8 py-4 text-slate-50 md:py-2">
       <NavLink to="/">
-        <span className="font-brand text-4xl font-bold md:text-6xl">
-          Overachiever
-        </span>
+        <span className="font-brand text-4xl font-bold">Overachiever</span>
       </NavLink>
       <div className="flex-none">
         <ul className="menu menu-horizontal hidden px-1 md:flex">
