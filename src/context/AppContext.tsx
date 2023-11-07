@@ -36,7 +36,7 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     return storedState || [];
   });
 
-  // Create task list state and fetch it from local storage
+  // Create completed task list state and fetch it from local storage
   const [completed, setCompleted] = useState<Task[]>(() => {
     const storedCompleted = JSON.parse(
       localStorage.getItem("completed-tasks")!,
@@ -44,16 +44,51 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     return storedCompleted || [];
   });
 
+  // Create state for app theme and fetch it from local storage
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme")! : "emerald",
+  );
+
   // State for task edit
   const [taskEdit, setTaskEdit] = useState({
     task: {} as Task,
     edit: false,
   });
 
-  // Create state for app theme and fetch it from local storage
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme")! : "emerald",
-  );
+  // Check on component mount if tasks array exists in local storage
+  useEffect(() => {
+    const storedTaskList = JSON.parse(localStorage.getItem("tasks")!);
+    if (storedTaskList) {
+      setTaskList(storedTaskList);
+    }
+  }, []);
+
+  // Check on component mount if completed tasks array exists in local storage
+  useEffect(() => {
+    const storedCompletedList = JSON.parse(
+      localStorage.getItem("completed-tasks")!,
+    );
+    if (storedCompletedList) {
+      setCompleted(storedCompletedList);
+    }
+  }, []);
+
+  // Update tasks in local storage on taskList state change
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(taskList));
+  }, [taskList]);
+
+  // Update completed tasks in local storage on completed change
+  useEffect(() => {
+    localStorage.setItem("completed-tasks", JSON.stringify(completed));
+  }, [completed]);
+
+  // Toggle on state change app theme
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html")?.setAttribute("data-theme", localTheme!);
+  }, [theme]);
 
   // Edit task
   const editTask = (task: Task) => {
@@ -74,71 +109,6 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
       edit: false,
     });
   };
-
-  // Check on component mount if tasks array exists in local storage
-  useEffect(() => {
-    const storedTaskList = JSON.parse(localStorage.getItem("tasks")!);
-    if (storedTaskList) {
-      setTaskList(storedTaskList);
-    }
-  }, []);
-
-  // Check on component mount if completed tasks array exists in local storage
-  useEffect(() => {
-    const storedCompletedList = JSON.parse(
-      localStorage.getItem("completed-tasks")!,
-    );
-    if (storedCompletedList) {
-      setCompleted(storedCompletedList);
-    }
-  }, []);
-
-  // Function to reset state
-  useEffect(() => {
-    const resetState = () => {
-      setTaskList([]);
-      setCompleted([]);
-    };
-
-    // Interval to check if it's past midnight
-    const interval = setInterval(() => {
-      const now = new Date();
-      const midnight = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate() + 1,
-        0,
-        0,
-        0,
-      );
-
-      if (now >= midnight) {
-        resetState();
-      }
-    }, 3600000); // Check every hour
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Update completed tasks in local storage on completed change
-  useEffect(() => {
-    localStorage.setItem("completed-tasks", JSON.stringify(completed));
-  }, [completed]);
-
-  // Update tasks in local storage on taskList state change
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(taskList));
-  }, [taskList]);
-
-  // Toggle on state change app theme
-  useEffect(() => {
-    localStorage.setItem("theme", theme);
-    const localTheme = localStorage.getItem("theme");
-    document.querySelector("html")?.setAttribute("data-theme", localTheme!);
-  }, [theme]);
-
-  // Allow Notifications
-  useEffect(() => {}, []);
 
   // Toggle theme switch
   const toggleTheme = (e: ChangeEvent<HTMLInputElement>) => {
