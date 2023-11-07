@@ -1,22 +1,38 @@
-import { useContext } from "react";
-import AppContext from "../../../context/AppContext";
+// import AppContext from "../../../context/AppContext";
 import { MdDeleteForever } from "react-icons/md";
+import { Task } from "../../../Types/TaskType";
+import { ActionTypes } from "../../../Types/ActionTypes";
 
-type ModalProps = {
-  id: string;
+type ButtonModalProps = {
+  task: Task;
+  actionType: ActionTypes;
 };
 
-const Modal = ({ id }: ModalProps) => {
-  const { removeTask } = useContext(AppContext);
+const ButtonModal = ({ actionType }: ButtonModalProps) => {
+  const pickHoverColor = (actionType: ActionTypes) => {
+    switch (actionType) {
+      case "complete":
+        return "bg-green-600";
+      case "edit":
+        return "bg-primary-focus";
+      case "remove":
+        return "bg-red-600";
+      default:
+        return "bg-slate-600";
+    }
+  };
 
   return (
-    <div>
+    <>
       <button
         onClick={() =>
           (
             document.getElementById("my_modal_5") as HTMLDialogElement | null
           )?.showModal()
         }
+        className={`btn btn-sm w-[33%] ${`hover:${pickHoverColor(
+          actionType,
+        )}`}`}
       >
         <div className="flex items-center">
           <MdDeleteForever size={25} />
@@ -32,19 +48,14 @@ const Modal = ({ id }: ModalProps) => {
           </p>
           <div className="modal-action">
             <form method="dialog">
-              <button
-                className="btn btn-primary"
-                onClick={() => removeTask(id)}
-              >
-                Delete Task
-              </button>
+              <button className="btn btn-primary">Delete Task</button>
               <button className="btn">Close</button>
             </form>
           </div>
         </div>
       </dialog>
-    </div>
+    </>
   );
 };
 
-export default Modal;
+export default ButtonModal;

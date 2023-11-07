@@ -1,8 +1,4 @@
-import { IoIosCheckmarkCircleOutline } from "react-icons/io";
-import { BiMessageAltEdit } from "react-icons/bi";
-import { useContext } from "react";
-import AppContext from "../../../context/AppContext";
-import Modal from "../Modal/Modal";
+import ButtonModal from "../Modal/ButtonModal";
 import { Task } from "../../../Types/TaskType";
 
 type SingleTaskProps = {
@@ -10,13 +6,11 @@ type SingleTaskProps = {
 };
 
 const SingleTask = ({ task }: SingleTaskProps) => {
-  const { todo, important, id, details } = task;
-
-  const { editTask, completeTask } = useContext(AppContext);
+  const { todo, important, details } = task;
 
   return (
     <div
-      className={`collapse collapse-arrow rounded-md p-0 text-left ${
+      className={`collapse-arrow collapse rounded-md p-0 text-left ${
         important ? "bg-primary text-primary-content" : "bg-secondary-content"
       }`}
     >
@@ -25,22 +19,10 @@ const SingleTask = ({ task }: SingleTaskProps) => {
       <div className="collapse-content">
         <div className="flex flex-col space-y-4">
           {details && <div>{details}</div>}
-          <div className="btn-group">
-            <button
-              onClick={() => completeTask(task)}
-              className="btn btn-sm w-[33%] hover:bg-green-700"
-            >
-              <IoIosCheckmarkCircleOutline size={25} />
-            </button>
-            <button
-              onClick={() => editTask(task)}
-              className="btn btn-sm w-[33%] hover:bg-secondary-focus"
-            >
-              <BiMessageAltEdit size={25} />
-            </button>
-            <button className="btn btn-sm w-[33%] hover:bg-red-700">
-              <Modal id={id} />
-            </button>
+          <div className="btn-group btn-group-horizontal">
+            <ButtonModal actionType="complete" task={task} />
+            <ButtonModal actionType="edit" task={task} />
+            <ButtonModal actionType="remove" task={task} />
           </div>
         </div>
       </div>
