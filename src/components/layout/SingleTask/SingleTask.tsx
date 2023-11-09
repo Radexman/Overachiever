@@ -10,7 +10,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
 
   return (
     <div
-      className={`collapse-arrow collapse rounded-md p-0 text-left ${
+      className={`collapse collapse-arrow rounded-md p-0 text-left ${
         important ? "bg-primary text-primary-content" : "bg-secondary-content"
       }`}
     >
@@ -19,7 +19,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
       <div className="collapse-content">
         <div className="flex flex-col space-y-4">
           {details && <div>{details}</div>}
-          <div className="btn-group btn-group-horizontal">
+          <div>
             <ButtonModal actionType="complete" task={task} />
             <ButtonModal actionType="edit" task={task} />
             <ButtonModal actionType="remove" task={task} />

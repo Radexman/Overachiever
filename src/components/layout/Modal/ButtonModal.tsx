@@ -16,6 +16,7 @@ type ModalTypes = {
   details: string;
   button: string;
   icon: ReactNode;
+  bgColor: string;
 };
 
 const ButtonModal = ({ actionType, task }: ButtonModalProps) => {
@@ -27,36 +28,32 @@ const ButtonModal = ({ actionType, task }: ButtonModalProps) => {
   const modalId = `my_modal_${actionType}`;
 
   useEffect(() => {
-    customizeModal(actionType);
-  });
-
-  const customizeModal = (actionType: ActionTypes) => {
-    switch (actionType) {
-      case "complete":
-        setCustomModal({
-          heading: "Complete task",
-          details: "Are you sure?",
-          button: "Complete",
-          icon: <CompleteIcon />,
-        });
-        break;
-      case "edit":
-        setCustomModal({
-          heading: "Edit task",
-          details: "Are you sure?",
-          button: "Edit",
-          icon: <EditIcon />,
-        });
-        break;
-      case "remove":
-        setCustomModal({
-          heading: "Remove task",
-          details: "Are you sure?",
-          button: "Remove",
-          icon: <RemoveIcon />,
-        });
+    if (actionType === "complete") {
+      setCustomModal({
+        heading: "Complete task?",
+        details: "Are you sure?",
+        button: "Complete",
+        icon: <CompleteIcon />,
+        bgColor: "green-600",
+      });
+    } else if (actionType === "edit") {
+      setCustomModal({
+        heading: "Edit task?",
+        details: "Are you sure?",
+        button: "Edit",
+        icon: <EditIcon />,
+        bgColor: "primary-focus",
+      });
+    } else if (actionType === "remove") {
+      setCustomModal({
+        heading: "Remove task?",
+        details: "Are you sure?",
+        button: "Remove",
+        icon: <RemoveIcon />,
+        bgColor: "red-600",
+      });
     }
-  };
+  }, [actionType]);
 
   return (
     <>
@@ -66,7 +63,7 @@ const ButtonModal = ({ actionType, task }: ButtonModalProps) => {
             document.getElementById(modalId) as HTMLDialogElement | null
           )?.showModal()
         }
-        className={`btn btn-sm w-[33%]`}
+        className="btn btn-sm w-[33%] rounded-none"
       >
         <div className="flex items-center text-2xl">{customModal.icon}</div>
       </button>
@@ -80,8 +77,10 @@ const ButtonModal = ({ actionType, task }: ButtonModalProps) => {
           </p>
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn btn-primary">{customModal.button}</button>
-              <button className="btn">Close</button>
+              <button className="btn btn-primary w-24 rounded-none rounded-l-md">
+                {customModal.button}
+              </button>
+              <button className="btn rounded-none rounded-r-lg">Close</button>
             </form>
           </div>
         </div>
