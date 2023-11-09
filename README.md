@@ -8,13 +8,14 @@ Now this app sreves a couple of pourpouses, user can create various tasks, custo
 
 ## **To Do**
 
-- [ ] Completed tasks state
+- [x] Completed tasks state
 - [ ] Notifications for important tasks
 - [ ] About Page content
 - [ ] Stats Page content
-- [ ] Graphs and charts in Stats Page
+- [x] Graphs and charts in Stats Page
 - [ ] Daily reset for the tasks
 - [ ] Add category icon
+- [ ] Modal component
 
 - [ ] Complete Day Feature - create button that cleares all states (start new day). Before all state is removed show popup with summary of all completed and not completed tasks.
 
