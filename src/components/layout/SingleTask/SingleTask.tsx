@@ -1,5 +1,7 @@
-import ButtonModal from "../Modal/ButtonModal";
 import { Task } from "../../../Types/TaskType";
+import CompleteModal from "../Modal/CompleteModal";
+import EditModal from "../Modal/EditModal";
+import RemoveModal from "../Modal/RemoveModal";
 
 type SingleTaskProps = {
   task: Task;
@@ -10,7 +12,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
 
   return (
     <div
-      className={`collapse collapse-arrow rounded-md p-0 text-left ${
+      className={`collapse-arrow collapse rounded-md p-0 text-left ${
         important ? "bg-primary text-primary-content" : "bg-secondary-content"
       }`}
     >
@@ -20,9 +22,9 @@ const SingleTask = ({ task }: SingleTaskProps) => {
         <div className="flex flex-col space-y-4">
           {details && <div>{details}</div>}
           <div>
-            <ButtonModal actionType="complete" task={task} />
-            <ButtonModal actionType="edit" task={task} />
-            <ButtonModal actionType="remove" task={task} />
+            <CompleteModal task={task} />
+            <EditModal task={task} />
+            <RemoveModal id={task.id} />
           </div>
         </div>
       </div>
