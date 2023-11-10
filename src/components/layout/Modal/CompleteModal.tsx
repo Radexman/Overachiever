@@ -13,7 +13,7 @@ const CompleteModal = ({ task }: CompleteModalProps) => {
   return (
     <>
       <button
-        className="btn btn-sm w-[33%] rounded-none hover:bg-green-600"
+        className="btn btn-sm w-[33%] rounded-none rounded-l-md border-none hover:bg-green-600"
         onClick={() =>
           (
             document.getElementById(
@@ -27,7 +27,7 @@ const CompleteModal = ({ task }: CompleteModalProps) => {
       <dialog id="complete_modal" className="modal">
         <div className="modal-box">
           <h3 className="text-lg font-bold text-primary">Complete Task</h3>
-          <p className="py-4">
+          <p className="py-4 text-primary">
             This action will remove this task and mark is as completed
           </p>
           <div className="modal-action">
@@ -35,7 +35,7 @@ const CompleteModal = ({ task }: CompleteModalProps) => {
               <div className="btn-group">
                 <button
                   onClick={() => completeTask(task)}
-                  className="btn btn-primary"
+                  className="btn btn-primary w-24"
                 >
                   Complete
                 </button>

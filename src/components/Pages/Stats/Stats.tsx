@@ -56,10 +56,10 @@ const Stats = () => {
   return (
     <div className="container mx-auto px-4 py-10">
       {/* Profile Section */}
-      <Profile />
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col justify-between gap-8 lg:flex-row lg:gap-20">
+        <Profile />
         {/* Statistics Section */}
-        <div className="stats stats-vertical w-full bg-secondary-content shadow-md shadow-primary-focus lg:stats-horizontal lg:w-auto">
+        <div className="stats stats-vertical w-full bg-secondary-content shadow-md shadow-primary-focus lg:max-w-xl">
           {/* Single Stat Important */}
           <div className="stat">
             <div className="stat-figure text-primary">

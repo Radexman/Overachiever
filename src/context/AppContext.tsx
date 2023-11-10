@@ -91,7 +91,7 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
   }, [theme]);
 
   // Edit task
-  const editTask = (task: Task, id?: string) => {
+  const editTask = (task: Task) => {
     setTaskEdit({
       task,
       edit: true,
@@ -129,7 +129,7 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
   };
 
   // Complete task
-  const completeTask = (task: Task, id?: string) => {
+  const completeTask = (task: Task) => {
     setCompleted([...completed, task]);
     removeTask(task.id);
   };

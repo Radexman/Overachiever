@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import AppContext from "../../../context/AppContext";
-import { IoIosCheckmarkCircleOutline as CompleteIcon } from "react-icons/io";
+import { MdDeleteForever as RemoveIcon } from "react-icons/md";
 
 type RemoveModalProps = {
   id: string;
@@ -12,19 +12,19 @@ const RemoveModal = ({ id }: RemoveModalProps) => {
   return (
     <>
       <button
-        className="btn btn-sm w-[33%] rounded-none hover:bg-red-600"
+        className="btn btn-sm w-[33%] rounded-none rounded-r-md border-none hover:bg-red-600"
         onClick={() =>
           (
             document.getElementById("remove_modal") as HTMLDialogElement | null
           )?.showModal()
         }
       >
-        <CompleteIcon size={25} />
+        <RemoveIcon size={25} />
       </button>
       <dialog id="remove_modal" className="modal">
         <div className="modal-box">
           <h3 className="text-lg font-bold text-primary">Remove Task</h3>
-          <p className="py-4">
+          <p className="py-4 text-primary">
             This action will remove this task and not mark it as completed
           </p>
           <div className="modal-action">
@@ -32,7 +32,7 @@ const RemoveModal = ({ id }: RemoveModalProps) => {
               <div className="btn-group">
                 <button
                   onClick={() => removeTask(id)}
-                  className="btn btn-primary"
+                  className="btn btn-primary w-24"
                 >
                   Remove
                 </button>

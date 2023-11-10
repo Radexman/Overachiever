@@ -1,7 +1,10 @@
 import { Task } from "../../../Types/TaskType";
-import CompleteModal from "../Modal/CompleteModal";
-import EditModal from "../Modal/EditModal";
-import RemoveModal from "../Modal/RemoveModal";
+import { useContext, useState } from "react";
+import AppContext from "../../../context/AppContext";
+import { AiOutlineEdit as EditIcon } from "react-icons/ai";
+import { MdDeleteForever as RemoveIcon } from "react-icons/md";
+import { IoIosCheckmarkCircleOutline as CompleteIcon } from "react-icons/io";
+import CustomModal from "../Modal/CustomModal";
 
 type SingleTaskProps = {
   task: Task;
@@ -9,10 +12,11 @@ type SingleTaskProps = {
 
 const SingleTask = ({ task }: SingleTaskProps) => {
   const { todo, important, details } = task;
+  const { editTask, completeTask, removeTask } = useContext(AppContext);
 
   return (
     <div
-      className={`collapse-arrow collapse rounded-md p-0 text-left ${
+      className={`collapse collapse-arrow relative rounded-md p-0 text-left ${
         important ? "bg-primary text-primary-content" : "bg-secondary-content"
       }`}
     >
@@ -22,12 +26,28 @@ const SingleTask = ({ task }: SingleTaskProps) => {
         <div className="flex flex-col space-y-4">
           {details && <div>{details}</div>}
           <div>
-            <CompleteModal task={task} />
-            <EditModal task={task} />
-            <RemoveModal id={task.id} />
+            <button
+              onClick={() => completeTask(task)}
+              className="btn btn-sm w-[33%] rounded-none rounded-l-md border-none hover:bg-green-600"
+            >
+              <CompleteIcon size={25} />
+            </button>
+            <button
+              onClick={() => editTask(task)}
+              className="btn btn-sm w-[33%] rounded-none border-none hover:bg-primary-focus"
+            >
+              <EditIcon size={25} />
+            </button>
+            <button
+              onClick={() => removeTask(task.id)}
+              className="btn btn-sm w-[33%] rounded-none rounded-r-md border-none hover:bg-red-600"
+            >
+              <RemoveIcon size={25} />
+            </button>
           </div>
         </div>
       </div>
+      {/* <CustomModal /> */}
     </div>
   );
 };

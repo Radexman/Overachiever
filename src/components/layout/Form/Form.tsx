@@ -38,7 +38,7 @@ const Form = () => {
       id: uuidv4(),
     };
 
-    if (taskEdit.edit === true) {
+    if (taskEdit.edit) {
       updateTask(taskEdit.task.id, newTask);
     } else {
       addTask(newTask);
