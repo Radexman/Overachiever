@@ -1,3 +1,4 @@
+import { AiOutlineUser as UserIcon } from "react-icons/ai";
 import { useState, useEffect, useContext, ChangeEvent, FormEvent } from "react";
 import AppContext from "../../../context/AppContext";
 
@@ -57,11 +58,17 @@ const Profile = () => {
           {/* Profile Picture */}
           <div className="avatar">
             <div className="w-24 rounded-full ring ring-primary">
-              <img
-                src={user?.imageUrl}
-                alt="Users avatar"
-                className="rounded-full"
-              />
+              {user?.imageUrl ? (
+                <img
+                  src={user?.imageUrl}
+                  alt="Users avatar"
+                  className="rounded-full"
+                />
+              ) : (
+                <div className="flex justify-center">
+                  <UserIcon size={100} />
+                </div>
+              )}
             </div>
           </div>
           <h2 className="text-2xl font-bold">
