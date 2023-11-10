@@ -6,6 +6,7 @@ import {
   ChangeEvent,
 } from "react";
 import { Task } from "../Types/TaskType";
+import { User } from "../Types/UserType";
 
 type ContextProviderProps = {
   children: ReactNode;
@@ -19,8 +20,10 @@ type ContextProps = {
     task: Task;
     edit: boolean;
   };
+  user: User | undefined;
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
   addTask: (newTask: Task) => void;
+  createUser: (user: User) => void;
   completeTask: (task: Task) => void;
   removeTask: (id: string) => void;
   editTask: (task: Task) => void;
@@ -44,6 +47,12 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     return storedCompleted || [];
   });
 
+  // State for user profile
+  const [user, setUser] = useState<User>(() => {
+    const storedUser = JSON.parse(localStorage.getItem("stored-user")!);
+    return storedUser || {};
+  });
+
   // Create state for app theme and fetch it from local storage
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme")! : "emerald",
@@ -62,6 +71,19 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
       setTaskList(storedTaskList);
     }
   }, []);
+
+  // Check on component mount if user object exists in local storage
+  useEffect(() => {
+    const storedUserObject = JSON.parse(localStorage.getItem("stored-user")!);
+    if (storedUserObject) {
+      setUser(storedUserObject);
+    }
+  }, []);
+
+  // Update user object in local store on user change
+  useEffect(() => {
+    localStorage.setItem("stored-user", JSON.stringify(user));
+  }, [user]);
 
   // Check on component mount if completed tasks array exists in local storage
   useEffect(() => {
@@ -119,6 +141,11 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     }
   };
 
+  // Create new user
+  const createUser = (user: User) => {
+    setUser(user);
+  };
+
   // Add new task
   const addTask = (newTask: Task) => {
     if (newTask.important) {
@@ -146,8 +173,10 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         theme,
         taskEdit,
         completed,
+        user,
         toggleTheme,
         addTask,
+        createUser,
         completeTask,
         removeTask,
         editTask,
