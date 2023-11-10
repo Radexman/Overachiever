@@ -69,8 +69,8 @@ const Charts = () => {
                 : importantTasksPercentage.toFixed()
             }%`}
           </div>
-          <div className="stat-title font-bold text-primary">
-            Important Tasks Completed
+          <div className="stat-title text-sm text-primary">
+            Important Tasks Done
           </div>
           <div className="stat-desc text-secondary">{`${totalRemainingImportantTasks} tasks remaining`}</div>
         </div>
@@ -89,8 +89,8 @@ const Charts = () => {
                 : regularTasksPercentage.toFixed()
             }%`}
           </div>
-          <div className="stat-title font-bold text-secondary-focus">
-            Regular Tasks Completed
+          <div className="stat-title text-sm text-secondary-focus">
+            Regular Tasks Done
           </div>
           <div className="stat-desc text-secondary">{`${totalRemainingRegularTasks} tasks remaining`}</div>
         </div>
@@ -107,8 +107,8 @@ const Charts = () => {
               isNaN(completedPercentage) ? "0" : completedPercentage.toFixed()
             }%`}
           </div>
-          <div className="stat-title font-bold text-secondary">
-            All Tasks Completed
+          <div className="stat-title text-sm text-secondary">
+            All Tasks Done
           </div>
           <div className="stat-desc text-secondary">{`${tasksRemaining} tasks remaining`}</div>
         </div>

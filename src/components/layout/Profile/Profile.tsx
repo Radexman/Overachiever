@@ -86,8 +86,8 @@ const Profile = () => {
         >
           Edit Profile
         </button>
-        <div className="divider"></div>
         <div className={displayForm ? "block" : "hidden"}>
+          <div className="divider"></div>
           <form className="space-y-2" onSubmit={handleSubmit}>
             <div className="flex flex-col">
               <label
