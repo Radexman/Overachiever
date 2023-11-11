@@ -3,53 +3,7 @@ import AppContext from "../../context/AppContext";
 import RadialChart from "./RadialChart/RadialChart";
 
 const Charts = () => {
-  const { taskList, completed } = useContext(AppContext);
-
-  const tasksTotal = taskList.length + completed.length;
-  const completedTasks = completed.length;
-  const tasksRemaining = tasksTotal - completedTasks;
-  const completedPercentage = (completedTasks / tasksTotal) * 100;
-
-  // Regular tasks
-  let regularTotalTasks = 0;
-  let regularTasksCompleted = 0;
-
-  // Important Tasks Not Completed Amount
-  let importantTotalTasks = 0;
-  for (const task of taskList) {
-    if (task.important) {
-      importantTotalTasks++;
-    } else {
-      regularTotalTasks++;
-    }
-  }
-
-  // Important Tasks Completed Amount
-  let importantTasksCompleted = 0;
-  for (const task of completed) {
-    if (task.important) {
-      importantTasksCompleted++;
-    } else {
-      regularTasksCompleted++;
-    }
-  }
-
-  // Total Regular Tasks (Not Completed & Completed)
-  const totalRegularTasks = regularTotalTasks + regularTasksCompleted;
-  const totalRemainingRegularTasks = totalRegularTasks - regularTasksCompleted;
-
-  // Regular Tasks Percentage
-  const regularTasksPercentage =
-    (regularTasksCompleted / totalRegularTasks) * 100;
-
-  // Total Important Tasks (Not Completed & Completed)
-  const totalImportantTasks = importantTotalTasks + importantTasksCompleted;
-  const totalRemainingImportantTasks =
-    totalImportantTasks - importantTasksCompleted;
-
-  // Important Tasks Percentage
-  const importantTasksPercentage =
-    (importantTasksCompleted / totalImportantTasks) * 100;
+  const { chartCalculations } = useContext(AppContext);
 
   return (
     <div className="w-full space-y-3 lg:w-1/2">
@@ -58,59 +12,61 @@ const Charts = () => {
         <div className="stat">
           <div className="stat-figure text-primary">
             <RadialChart
-              percentage={importantTasksPercentage}
+              percentage={chartCalculations.importantTasksPercentage}
               textColor="text-primary"
             />
           </div>
           <div className="stat-value">
             {`${
-              isNaN(importantTasksPercentage)
+              isNaN(chartCalculations.importantTasksPercentage)
                 ? "0"
-                : importantTasksPercentage.toFixed()
+                : chartCalculations.importantTasksPercentage.toFixed()
             }%`}
           </div>
           <div className="stat-title text-sm text-primary">
             Important Tasks Done
           </div>
-          <div className="stat-desc text-secondary">{`${totalRemainingImportantTasks} tasks remaining`}</div>
+          <div className="stat-desc text-secondary">{`${chartCalculations.totalRemainingImportantTasks} tasks remaining`}</div>
         </div>
         {/* Single Stat Regular */}
         <div className="stat">
           <div className="stat-figure text-primary">
             <RadialChart
-              percentage={regularTasksPercentage}
+              percentage={chartCalculations.regularTasksPercentage}
               textColor="text-secondary-focus"
             />
           </div>
           <div className="stat-value">
             {`${
-              isNaN(regularTasksPercentage)
+              isNaN(chartCalculations.regularTasksPercentage)
                 ? "0"
-                : regularTasksPercentage.toFixed()
+                : chartCalculations.regularTasksPercentage.toFixed()
             }%`}
           </div>
           <div className="stat-title text-sm text-secondary-focus">
             Regular Tasks Done
           </div>
-          <div className="stat-desc text-secondary">{`${totalRemainingRegularTasks} tasks remaining`}</div>
+          <div className="stat-desc text-secondary">{`${chartCalculations.totalRemainingRegularTasks} tasks remaining`}</div>
         </div>
         {/* Single Stat All */}
         <div className="stat">
           <div className="stat-figure text-primary">
             <RadialChart
-              percentage={completedPercentage}
+              percentage={chartCalculations.completedPercentage}
               textColor="text-secondary"
             />
           </div>
           <div className="stat-value">
             {`${
-              isNaN(completedPercentage) ? "0" : completedPercentage.toFixed()
+              isNaN(chartCalculations.completedPercentage)
+                ? "0"
+                : chartCalculations.completedPercentage.toFixed()
             }%`}
           </div>
           <div className="stat-title text-sm text-secondary">
             All Tasks Done
           </div>
-          <div className="stat-desc text-secondary">{`${tasksRemaining} tasks remaining`}</div>
+          <div className="stat-desc text-secondary">{`${chartCalculations.tasksRemaining} tasks remaining`}</div>
         </div>
       </div>
     </div>

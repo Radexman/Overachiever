@@ -20,7 +20,15 @@ type ContextProps = {
     task: Task;
     edit: boolean;
   };
-  user: User | undefined;
+  chartCalculations: {
+    importantTasksPercentage: number;
+    totalRemainingImportantTasks: number;
+    regularTasksPercentage: number;
+    totalRemainingRegularTasks: number;
+    completedPercentage: number;
+    tasksRemaining: number;
+  };
+  user: User;
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
   addTask: (newTask: Task) => void;
   createUser: (user: User) => void;
@@ -112,6 +120,32 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     document.querySelector("html")?.setAttribute("data-theme", localTheme!);
   }, [theme]);
 
+  // Function to convert Blob URL to Base64
+  const convertBlobToBase64 = (blobUrl: string): Promise<string> => {
+    return fetch(blobUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        return new Promise<string>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            const base64Data = reader.result as string;
+            resolve(base64Data);
+          };
+          reader.readAsDataURL(blob);
+        });
+      });
+  };
+
+  // Convert Blob URL to Base64 and update user
+  const convertAndSetUser = async (user: User) => {
+    if (user.imageUrl && user.imageUrl.startsWith("blob:")) {
+      const base64Data = await convertBlobToBase64(user.imageUrl);
+      setUser({ ...user, imageUrl: base64Data });
+    } else {
+      setUser(user);
+    }
+  };
+
   // Edit task
   const editTask = (task: Task) => {
     setTaskEdit({
@@ -142,8 +176,8 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
   };
 
   // Create new user
-  const createUser = (user: User) => {
-    setUser(user);
+  const createUser = async (user: User) => {
+    await convertAndSetUser(user);
   };
 
   // Add new task
@@ -166,6 +200,62 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     setTaskList(taskList.filter((task) => task.id !== id));
   };
 
+  // Chart calculations
+  const tasksTotal = taskList.length + completed.length;
+  const completedTasks = completed.length;
+  const tasksRemaining = tasksTotal - completedTasks;
+  const completedPercentage = (completedTasks / tasksTotal) * 100;
+
+  // Regular tasks
+  let regularTotalTasks = 0;
+  let regularTasksCompleted = 0;
+
+  // Important Tasks Not Completed Amount
+  let importantTotalTasks = 0;
+  for (const task of taskList) {
+    if (task.important) {
+      importantTotalTasks++;
+    } else {
+      regularTotalTasks++;
+    }
+  }
+
+  // Important Tasks Completed Amount
+  let importantTasksCompleted = 0;
+  for (const task of completed) {
+    if (task.important) {
+      importantTasksCompleted++;
+    } else {
+      regularTasksCompleted++;
+    }
+  }
+
+  // Total Regular Tasks (Not Completed & Completed)
+  const totalRegularTasks = regularTotalTasks + regularTasksCompleted;
+  const totalRemainingRegularTasks = totalRegularTasks - regularTasksCompleted;
+
+  // Regular Tasks Percentage
+  const regularTasksPercentage =
+    (regularTasksCompleted / totalRegularTasks) * 100;
+
+  // Total Important Tasks (Not Completed & Completed)
+  const totalImportantTasks = importantTotalTasks + importantTasksCompleted;
+  const totalRemainingImportantTasks =
+    totalImportantTasks - importantTasksCompleted;
+
+  // Important Tasks Percentage
+  const importantTasksPercentage =
+    (importantTasksCompleted / totalImportantTasks) * 100;
+
+  const chartCalculations = {
+    importantTasksPercentage,
+    totalRemainingImportantTasks,
+    regularTasksPercentage,
+    totalRemainingRegularTasks,
+    completedPercentage,
+    tasksRemaining,
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -174,6 +264,7 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         taskEdit,
         completed,
         user,
+        chartCalculations,
         toggleTheme,
         addTask,
         createUser,

@@ -1,4 +1,9 @@
-import { AiOutlineUser as UserIcon } from "react-icons/ai";
+import {
+  AiOutlineUser as UserIcon,
+  AiOutlineThunderbolt as Thunder,
+} from "react-icons/ai";
+import { FaListUl as Regular } from "react-icons/fa";
+import { MdOutlinePlaylistAddCheckCircle as ListAll } from "react-icons/md";
 import { useState, useEffect, useContext, ChangeEvent, FormEvent } from "react";
 import AppContext from "../../../context/AppContext";
 
@@ -36,6 +41,7 @@ const Profile = () => {
     setBio(e.target.value);
   };
 
+  // Submit Profile Form
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const user = {
@@ -55,12 +61,11 @@ const Profile = () => {
         className={`space-y-4 rounded-lg bg-secondary-content p-4 shadow-md shadow-primary-focus`}
       >
         <div className="flex items-center gap-4">
-          {/* Profile Picture */}
           <div className="avatar">
             <div className="w-24 rounded-full ring ring-primary">
-              {user?.imageUrl ? (
+              {user.imageUrl ? (
                 <img
-                  src={user?.imageUrl}
+                  src={user.imageUrl}
                   alt="Users avatar"
                   className="rounded-full"
                 />
@@ -71,12 +76,28 @@ const Profile = () => {
               )}
             </div>
           </div>
-          <h2 className="text-2xl font-bold">
-            {user?.username ? user.username : "User Name"}
-          </h2>
+          <div className="flex flex-col gap-2">
+            <h2 className="text-2xl font-bold">
+              {user.username ? user.username : "User Name"}
+            </h2>
+            <div className="space-x-2">
+              <div className="badge badge-info badge-outline gap-2">
+                <Thunder />
+                Important
+              </div>
+              <div className="badge badge-success badge-outline gap-2">
+                <Regular />
+                Regular
+              </div>
+              <div className="badge badge-warning badge-outline gap-2">
+                <ListAll />
+                All
+              </div>
+            </div>
+          </div>
         </div>
         <p className="text-lg">
-          {user?.bio
+          {user.bio
             ? user.bio
             : "I am mysterious individual who hasn't filed their profile section yet."}
         </p>
