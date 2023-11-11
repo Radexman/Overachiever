@@ -1,11 +1,7 @@
-import {
-  AiOutlineUser as UserIcon,
-  AiOutlineThunderbolt as Thunder,
-} from "react-icons/ai";
-import { FaListUl as Regular } from "react-icons/fa";
-import { MdOutlinePlaylistAddCheckCircle as ListAll } from "react-icons/md";
+import { AiOutlineUser as UserIcon } from "react-icons/ai";
 import { useState, useEffect, useContext, ChangeEvent, FormEvent } from "react";
 import AppContext from "../../../context/AppContext";
+import Badge from "../Badge/Badge";
 
 const Profile = () => {
   const [displayForm, setDisplayForm] = useState(false);
@@ -14,7 +10,7 @@ const Profile = () => {
   const [imageUrl, setImageUrl] = useState<string | undefined>();
   const [bio, setBio] = useState<string>();
 
-  const { user, createUser } = useContext(AppContext);
+  const { user, createUser, chartCalculations } = useContext(AppContext);
 
   useEffect(() => {
     if (avatar) {
@@ -81,22 +77,23 @@ const Profile = () => {
               {user.username ? user.username : "User Name"}
             </h2>
             <div className="space-x-2">
-              <div className="badge badge-info badge-outline gap-2">
-                <Thunder />
-                Important
-              </div>
-              <div className="badge badge-success badge-outline gap-2">
-                <Regular />
-                Regular
-              </div>
-              <div className="badge badge-warning badge-outline gap-2">
-                <ListAll />
-                All
-              </div>
+              <Badge
+                taskType="important"
+                taskAmount={chartCalculations.importantTasksCompleted}
+              />
+              <Badge
+                taskType="regular"
+                taskAmount={chartCalculations.regularTasksCompleted}
+              />
+              <Badge
+                taskType="all"
+                taskAmount={chartCalculations.completedTasks}
+              />
             </div>
           </div>
         </div>
         <p className="text-lg">
+          gui
           {user.bio
             ? user.bio
             : "I am mysterious individual who hasn't filed their profile section yet."}

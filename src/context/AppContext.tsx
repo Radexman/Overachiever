@@ -23,10 +23,13 @@ type ContextProps = {
   chartCalculations: {
     importantTasksPercentage: number;
     totalRemainingImportantTasks: number;
+    importantTasksCompleted: number;
     regularTasksPercentage: number;
+    regularTasksCompleted: number;
     totalRemainingRegularTasks: number;
     completedPercentage: number;
     tasksRemaining: number;
+    completedTasks: number;
   };
   user: User;
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -249,11 +252,14 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
 
   const chartCalculations = {
     importantTasksPercentage,
+    importantTasksCompleted,
     totalRemainingImportantTasks,
     regularTasksPercentage,
+    regularTasksCompleted,
     totalRemainingRegularTasks,
     completedPercentage,
     tasksRemaining,
+    completedTasks,
   };
 
   return (
