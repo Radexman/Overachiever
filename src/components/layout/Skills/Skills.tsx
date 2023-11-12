@@ -4,7 +4,7 @@ const Skills = () => {
   const [displayAllSkills, setDisplayAllSkills] = useState(false);
 
   return (
-    <div className="w-full space-y-4 rounded-lg p-4 shadow-sm shadow-primary-focus lg:w-1/2">
+    <div className="w-full space-y-4 rounded-lg p-4 lg:w-1/2">
       <h2 className="text-3xl font-bold">Skills Section</h2>
       <p>
         In this section you can check how well you're doing in each skill as

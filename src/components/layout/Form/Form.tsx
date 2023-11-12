@@ -57,12 +57,12 @@ const Form = () => {
       </p>
       <form
         onSubmit={handleSubmit}
-        className="rounded-lg bg-secondary px-8 py-4"
+        className="space-y-2 rounded-lg p-4 py-4 shadow-sm shadow-primary-focus "
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-1">
           <label
             htmlFor="task"
-            className="text-left text-lg font-bold text-slate-50"
+            className="text-left text-sm font-bold text-primary-focus"
           >
             Task Name
           </label>
@@ -72,13 +72,13 @@ const Form = () => {
             maxLength={22}
             value={taskInput}
             placeholder="Write down new task..."
-            className="input input-bordered"
+            className="input input-bordered input-secondary text-sm"
           />
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-1">
           <label
             htmlFor="task-details"
-            className="text-left text-lg font-bold text-slate-50"
+            className="text-left text-sm font-bold text-primary-focus"
           >
             Task Details
           </label>
@@ -87,18 +87,18 @@ const Form = () => {
             onChange={handleDetailsInput}
             value={detailsInput}
             placeholder="Write down task details (optional)"
-            className="input input-bordered block h-36 p-4"
+            className="input input-bordered input-secondary block h-36 p-4 text-sm"
           ></textarea>
         </div>
         <div className="form-control">
           <label className="label cursor-pointer">
-            <span className="label-text text-lg font-bold text-slate-50">
+            <span className="label-text text-sm font-bold text-primary-focus">
               Important
             </span>
             <input
               type="checkbox"
               onChange={handleImportantChange}
-              className="checkbox-primary checkbox checkbox-lg border-2 border-secondary-content"
+              className="checkbox-primary checkbox checkbox-lg border-2 border-primary"
               checked={importantInput === true ? true : false}
             />
           </label>
@@ -106,9 +106,9 @@ const Form = () => {
         <button
           type="submit"
           disabled={!taskInput}
-          className="btn btn-primary w-full md:btn-wide"
+          className="btn btn-secondary btn-outline w-full md:btn-wide"
         >
-          Submit
+          Create Task
         </button>
       </form>
     </div>

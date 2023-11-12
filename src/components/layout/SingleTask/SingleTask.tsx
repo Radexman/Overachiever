@@ -1,10 +1,9 @@
 import { Task } from "../../../Types/TaskType";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import AppContext from "../../../context/AppContext";
 import { AiOutlineEdit as EditIcon } from "react-icons/ai";
 import { MdDeleteForever as RemoveIcon } from "react-icons/md";
 import { IoIosCheckmarkCircleOutline as CompleteIcon } from "react-icons/io";
-import CustomModal from "../Modal/CustomModal";
 
 type SingleTaskProps = {
   task: Task;
@@ -16,12 +15,20 @@ const SingleTask = ({ task }: SingleTaskProps) => {
 
   return (
     <div
-      className={`collapse collapse-arrow relative rounded-md p-0 text-left ${
-        important ? "bg-primary text-primary-content" : "bg-secondary-content"
+      className={`collapse collapse-arrow relative rounded-md text-left shadow-md ${
+        important
+          ? "border-warning shadow-warning"
+          : "border-success shadow-success"
       }`}
     >
       <input type="radio" name="my-accordion-2" />
-      <div className="collapse-title text-xl font-medium">{todo}</div>
+      <div
+        className={`collapse-title text-xl font-medium ${
+          important ? "text-warning" : "text-success"
+        }`}
+      >
+        {todo}
+      </div>
       <div className="collapse-content">
         <div className="flex flex-col space-y-4">
           {details && <div>{details}</div>}

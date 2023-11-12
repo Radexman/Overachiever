@@ -105,7 +105,7 @@ const Profile = () => {
         <div className={displayForm ? "block" : "hidden"}>
           <div className="divider"></div>
           <form className="space-y-2" onSubmit={handleSubmit}>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1">
               <label
                 htmlFor="username"
                 className="text-left text-sm font-bold text-primary-focus"
@@ -117,11 +117,11 @@ const Profile = () => {
                 value={username}
                 maxLength={30}
                 type="text"
-                className="input input-bordered input-md"
+                className="input input-bordered input-secondary input-md"
                 placeholder="Enter your username here"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1">
               <label
                 htmlFor="avatr"
                 className="text-left text-sm font-bold text-primary-focus"
@@ -132,10 +132,10 @@ const Profile = () => {
                 onChange={handleAvatarInput}
                 type="file"
                 accept="image/"
-                className="file-input file-input-bordered w-full"
+                className="file-input file-input-bordered file-input-primary input-secondary w-full text-sm"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-1">
               <label
                 htmlFor="bio"
                 className="text-left text-sm font-bold text-primary-focus"
@@ -148,13 +148,13 @@ const Profile = () => {
                 name="bio"
                 placeholder="Describe yourself and the goals you want to achieve"
                 id="bio"
-                className="input input-bordered block h-24 p-4"
+                className="input input-bordered input-secondary block h-36 p-4 text-sm"
               ></textarea>
             </div>
             <button
               type="submit"
               disabled={!username}
-              className="btn  btn-primary w-full md:btn-wide"
+              className="btn btn-secondary btn-outline w-full md:btn-wide"
             >
               Update Profile
             </button>
