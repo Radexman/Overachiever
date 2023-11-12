@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import AppContext from "../../../context/AppContext";
 import SingleTask from "../SingleTask/SingleTask";
+import SingleCompletedTask from "../SingleCompletedTask/SingleCompletedTask";
 
 const TaskList = () => {
-  const [displayNotCompletedTasks, setdisplayNotCompletedTasks] =
+  const [displayNotCompletedTasks, setDisplayNotCompletedTasks] =
     useState(true);
+  const [displayCompletedTasks, setDisplayCompletedTasks] = useState(false);
 
-  const { taskList } = useContext(AppContext);
+  const { taskList, completed } = useContext(AppContext);
 
   return (
     <div className="w-full space-y-3 lg:w-1/2">
@@ -17,7 +19,7 @@ const TaskList = () => {
       </p>
       <div>
         <button
-          onClick={() => setdisplayNotCompletedTasks(!displayNotCompletedTasks)}
+          onClick={() => setDisplayNotCompletedTasks(!displayNotCompletedTasks)}
           className="btn btn-secondary btn-outline my-3 w-full"
         >
           {!displayNotCompletedTasks
@@ -26,17 +28,39 @@ const TaskList = () => {
         </button>
         {/*  Tasks to complete */}
         <div
-          className={`space-y-4 ${
+          className={`mb-6 space-y-4 ${
             displayNotCompletedTasks ? "block" : "hidden"
           }`}
         >
           <div className="divider text-lg font-bold">Tasks To Complete</div>
           {taskList.length === 0 ? (
-            <h3 className="text-md font-bold text-primary-content">
+            <h3 className="text-md text-center font-bold">
               Task list is empty. Don't be shy, add something!
             </h3>
           ) : (
             taskList.map((task, id) => <SingleTask key={id} task={task} />)
+          )}
+        </div>
+        <button
+          onClick={() => setDisplayCompletedTasks(!displayCompletedTasks)}
+          className="btn btn-primary btn-outline my-3 w-full"
+        >
+          {!displayCompletedTasks
+            ? "Show Completed Tasks"
+            : "Hide Completed Tasks"}
+        </button>
+        <div
+          className={`space-y-4 ${displayCompletedTasks ? "block" : "hidden"}`}
+        >
+          <div className="divider text-lg font-bold">Completed Tasks</div>
+          {completed.length === 0 ? (
+            <h3 className="text-md text-center font-bold">
+              No tasks completed yet
+            </h3>
+          ) : (
+            completed.map((task, id) => (
+              <SingleCompletedTask key={id} task={task} />
+            ))
           )}
         </div>
       </div>

@@ -32,7 +32,6 @@ const Form = () => {
 
   const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setCategory(e.target.value);
-    console.log(category);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
