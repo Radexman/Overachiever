@@ -76,6 +76,7 @@ const Profile = () => {
             <h2 className="text-2xl font-bold">
               {user.username ? user.username : "User Name"}
             </h2>
+            <p className="text-xs text-primary">Tasks completed today</p>
             <div className="space-x-2">
               <Badge
                 taskType="important"
@@ -93,7 +94,6 @@ const Profile = () => {
           </div>
         </div>
         <p className="text-lg">
-          gui
           {user.bio
             ? user.bio
             : "I am mysterious individual who hasn't filed their profile section yet."}
@@ -102,7 +102,7 @@ const Profile = () => {
           onClick={() => setDisplayForm(!displayForm)}
           className="btn btn-primary btn-sm p-2"
         >
-          Edit Profile
+          {!displayForm ? "Edit Profile" : "Hide Form"}
         </button>
         <div className={displayForm ? "block" : "hidden"}>
           <div className="divider"></div>

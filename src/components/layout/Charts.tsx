@@ -13,7 +13,7 @@ const Charts = () => {
           <div className="stat-figure text-primary">
             <RadialChart
               percentage={chartCalculations.importantTasksPercentage}
-              textColor="text-primary"
+              textColor="text-info"
             />
           </div>
           <div className="stat-value">
@@ -23,7 +23,7 @@ const Charts = () => {
                 : chartCalculations.importantTasksPercentage.toFixed()
             }%`}
           </div>
-          <div className="stat-title text-sm text-primary">
+          <div className="stat-title text-sm text-info">
             Important Tasks Done
           </div>
           <div className="stat-desc text-secondary">{`${chartCalculations.totalRemainingImportantTasks} tasks remaining`}</div>
@@ -33,7 +33,7 @@ const Charts = () => {
           <div className="stat-figure text-primary">
             <RadialChart
               percentage={chartCalculations.regularTasksPercentage}
-              textColor="text-secondary-focus"
+              textColor="text-success"
             />
           </div>
           <div className="stat-value">
@@ -43,7 +43,7 @@ const Charts = () => {
                 : chartCalculations.regularTasksPercentage.toFixed()
             }%`}
           </div>
-          <div className="stat-title text-sm text-secondary-focus">
+          <div className="stat-title text-sm text-success">
             Regular Tasks Done
           </div>
           <div className="stat-desc text-secondary">{`${chartCalculations.totalRemainingRegularTasks} tasks remaining`}</div>
@@ -53,7 +53,7 @@ const Charts = () => {
           <div className="stat-figure text-primary">
             <RadialChart
               percentage={chartCalculations.completedPercentage}
-              textColor="text-secondary"
+              textColor="text-warning"
             />
           </div>
           <div className="stat-value">
@@ -63,9 +63,7 @@ const Charts = () => {
                 : chartCalculations.completedPercentage.toFixed()
             }%`}
           </div>
-          <div className="stat-title text-sm text-secondary">
-            All Tasks Done
-          </div>
+          <div className="stat-title text-sm text-warning">All Tasks Done</div>
           <div className="stat-desc text-secondary">{`${chartCalculations.tasksRemaining} tasks remaining`}</div>
         </div>
       </div>
