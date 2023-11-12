@@ -24,13 +24,13 @@ const Badge = ({ taskType, taskAmount }: BadgeProps) => {
 
   useEffect(() => {
     customizeBadge(taskType);
-  });
+  }, []);
 
   const customizeBadge = (taskType: "important" | "regular" | "all") => {
     switch (taskType) {
       case "important":
         setBadgeCustomization({
-          color: "badge-info",
+          color: "badge-warning",
           icon: <IconImportant />,
           text: "Important",
         });
@@ -44,7 +44,7 @@ const Badge = ({ taskType, taskAmount }: BadgeProps) => {
         break;
       case "all":
         setBadgeCustomization({
-          color: "badge-warning",
+          color: "badge-info",
           icon: <IconAll />,
           text: "All",
         });

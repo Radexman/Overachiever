@@ -53,10 +53,10 @@ const Profile = () => {
 
   return (
     <div className="w-full space-y-3 lg:w-1/2">
-      <div className="space-y-4 rounded-lg bg-secondary-content p-4 shadow-md shadow-primary-focus">
+      <div className="space-y-5 rounded-lg p-4 shadow-sm shadow-primary-focus">
         <div className="flex items-center gap-4">
           <div className="avatar">
-            <div className="w-28 rounded-full ring ring-primary">
+            <div className="w-24 rounded-full ring ring-primary lg:w-28">
               {user.imageUrl ? (
                 <img
                   src={user.imageUrl}
@@ -71,9 +71,9 @@ const Profile = () => {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <p className="text-3xl font-bold">
+            <h2 className="text-3xl font-bold">
               {user.username ? user.username : "User Name"}
-            </p>
+            </h2>
             <p className="text-xs text-primary">Tasks completed today</p>
             <div className="space-x-2">
               <Badge
@@ -91,14 +91,14 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <p className="text-lg">
+        <p>
           {user.bio
             ? user.bio
             : "I am mysterious individual who hasn't filed their profile section yet."}
         </p>
         <button
           onClick={() => setDisplayForm(!displayForm)}
-          className="btn btn-primary btn-sm p-2"
+          className="btn btn-secondary btn-outline btn-sm rounded-lg p-2"
         >
           {!displayForm ? "Edit Profile" : "Hide Form"}
         </button>

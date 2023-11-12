@@ -7,13 +7,13 @@ const Charts = () => {
 
   return (
     <div className="w-full space-y-3">
-      <div className="stats stats-vertical w-full bg-secondary-content shadow-md shadow-primary-focus lg:stats-horizontal">
+      <div className="stats stats-vertical w-full shadow-sm shadow-primary-focus lg:stats-horizontal">
         {/* Single Stat Important */}
         <div className="stat">
           <div className="stat-figure text-primary">
             <RadialChart
               percentage={chartCalculations.importantTasksPercentage}
-              textColor="text-info"
+              textColor="text-warning"
             />
           </div>
           <div className="stat-value">
@@ -23,7 +23,7 @@ const Charts = () => {
                 : chartCalculations.importantTasksPercentage.toFixed()
             }%`}
           </div>
-          <div className="stat-title text-info">Important Tasks Done</div>
+          <div className="stat-title text-warning">Important Tasks Done</div>
           <div className="stat-desc text-secondary">{`${chartCalculations.totalRemainingImportantTasks} tasks remaining`}</div>
         </div>
         {/* Single Stat Regular */}
@@ -49,7 +49,7 @@ const Charts = () => {
           <div className="stat-figure text-primary">
             <RadialChart
               percentage={chartCalculations.completedPercentage}
-              textColor="text-warning"
+              textColor="text-info"
             />
           </div>
           <div className="stat-value">
@@ -59,7 +59,7 @@ const Charts = () => {
                 : chartCalculations.completedPercentage.toFixed()
             }%`}
           </div>
-          <div className="stat-title text-warning">All Tasks Done</div>
+          <div className="stat-title text-info">All Tasks Done</div>
           <div className="stat-desc text-secondary">{`${chartCalculations.tasksRemaining} tasks remaining`}</div>
         </div>
       </div>

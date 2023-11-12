@@ -33,6 +33,16 @@ This feature should:
 - If this is the first day that user is doing there should be an empty comparison array but upon the first completion the state of completed day has to be pushed to the array that holds stats purely for comparison pourpouses (eg. in percentage, was it less or more than previous day that user did?).
 - On each raport generation the current state od the app needs to be cleared and completed tasks needs to be moved into previous day comparison array.
 
+## **Task Category**
+
+- Main
+- Work
+- Study
+- Workout
+- Cooking
+- Hobby
+- Housekeeping
+
 ## **Tech Stack**
 
 - React
