@@ -1,4 +1,5 @@
 import { Task } from "../../../Types/TaskType";
+import { FaFlask } from "react-icons/fa";
 import { useContext } from "react";
 import AppContext from "../../../context/AppContext";
 import { AiOutlineEdit as EditIcon } from "react-icons/ai";
@@ -15,18 +16,17 @@ const SingleTask = ({ task }: SingleTaskProps) => {
 
   return (
     <div
-      className={`collapse collapse-arrow relative rounded-md text-left shadow-md ${
-        important
-          ? "border-warning shadow-warning"
-          : "border-success shadow-success"
-      }`}
+      className={`collapse collapse-arrow relative rounded-md border-[1px] text-left shadow-sm ${
+        important ? "" : ""
+      } border-secondary shadow-sm shadow-secondary`}
     >
       <input type="radio" name="my-accordion-2" />
       <div
-        className={`collapse-title text-xl font-medium ${
-          important ? "text-warning" : "text-success"
-        }`}
+        className={`collapse-title flex items-center gap-2 text-xl font-medium `}
       >
+        <p className="text-success">
+          <FaFlask />
+        </p>
         {todo}
       </div>
       <div className="collapse-content">
@@ -41,7 +41,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
             </button>
             <button
               onClick={() => editTask(task)}
-              className="btn btn-sm w-[33%] rounded-none border-none hover:bg-primary-focus"
+              className="btn btn-sm w-[33%] rounded-none border-none hover:bg-info"
             >
               <EditIcon size={25} />
             </button>
