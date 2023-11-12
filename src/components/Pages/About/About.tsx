@@ -1,15 +1,21 @@
+import { Link } from "react-router-dom";
+import { FaExclamationTriangle } from "react-icons/fa";
+
 const About = () => {
   return (
-    <div className="flex items-start pt-12 sm:items-center">
-      <div className="max-w-2xl px-4">
-        <h1 className="text-center text-4xl sm:text-left">About Page</h1>
-        <p className="pt-4 text-center text-lg sm:text-left">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quia
-          temporibus inventore fuga est distinctio vel quas mollitia consectetur
-          error. Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-          quia temporibus inventore fuga est distinctio vel quas mollitia
-          consectetur error.
+    <div className="container mx-auto flex min-h-[90vh] items-center justify-center">
+      <div className="flex max-w-lg flex-col items-center space-y-3 px-4 text-center">
+        <FaExclamationTriangle size={150} />
+        <h1 className="text-6xl">Work in Progress</h1>
+        <p className="text-lg">
+          Sorry this section of an app is still in developement. Come back
+          later.
         </p>
+        <Link to="/">
+          <button className="btn btn-secondary btn-outline btn-wide">
+            Back To Home
+          </button>
+        </Link>
       </div>
     </div>
   );

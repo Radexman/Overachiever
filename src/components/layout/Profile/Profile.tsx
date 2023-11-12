@@ -53,12 +53,10 @@ const Profile = () => {
 
   return (
     <div className="w-full space-y-3 lg:w-1/2">
-      <div
-        className={`space-y-4 rounded-lg bg-secondary-content p-4 shadow-md shadow-primary-focus`}
-      >
+      <div className="space-y-4 rounded-lg bg-secondary-content p-4 shadow-md shadow-primary-focus">
         <div className="flex items-center gap-4">
           <div className="avatar">
-            <div className="w-24 rounded-full ring ring-primary">
+            <div className="w-28 rounded-full ring ring-primary">
               {user.imageUrl ? (
                 <img
                   src={user.imageUrl}
@@ -67,15 +65,15 @@ const Profile = () => {
                 />
               ) : (
                 <div className="flex justify-center">
-                  <UserIcon size={100} />
+                  <UserIcon size={120} />
                 </div>
               )}
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h2 className="text-2xl font-bold">
+            <p className="text-3xl font-bold">
               {user.username ? user.username : "User Name"}
-            </h2>
+            </p>
             <p className="text-xs text-primary">Tasks completed today</p>
             <div className="space-x-2">
               <Badge
@@ -112,11 +110,12 @@ const Profile = () => {
                 htmlFor="username"
                 className="text-left text-sm font-bold text-primary-focus"
               >
-                Your Username
+                Username
               </label>
               <input
                 onChange={handleUsernameInput}
                 value={username}
+                maxLength={30}
                 type="text"
                 className="input input-bordered input-md"
                 placeholder="Enter your username here"
@@ -154,7 +153,7 @@ const Profile = () => {
             </div>
             <button
               type="submit"
-              disabled={!username || !bio}
+              disabled={!username}
               className="btn  btn-primary w-full md:btn-wide"
             >
               Update Profile

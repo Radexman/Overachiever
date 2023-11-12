@@ -6,8 +6,8 @@ const Charts = () => {
   const { chartCalculations } = useContext(AppContext);
 
   return (
-    <div className="w-full space-y-3 lg:w-1/2">
-      <div className="stats stats-vertical w-full bg-secondary-content shadow-md shadow-primary-focus lg:max-w-xl">
+    <div className="w-full space-y-3">
+      <div className="stats stats-vertical w-full bg-secondary-content shadow-md shadow-primary-focus lg:stats-horizontal">
         {/* Single Stat Important */}
         <div className="stat">
           <div className="stat-figure text-primary">
@@ -23,9 +23,7 @@ const Charts = () => {
                 : chartCalculations.importantTasksPercentage.toFixed()
             }%`}
           </div>
-          <div className="stat-title text-sm text-info">
-            Important Tasks Done
-          </div>
+          <div className="stat-title text-info">Important Tasks Done</div>
           <div className="stat-desc text-secondary">{`${chartCalculations.totalRemainingImportantTasks} tasks remaining`}</div>
         </div>
         {/* Single Stat Regular */}
@@ -43,9 +41,7 @@ const Charts = () => {
                 : chartCalculations.regularTasksPercentage.toFixed()
             }%`}
           </div>
-          <div className="stat-title text-sm text-success">
-            Regular Tasks Done
-          </div>
+          <div className="stat-title text-success">Regular Tasks Done</div>
           <div className="stat-desc text-secondary">{`${chartCalculations.totalRemainingRegularTasks} tasks remaining`}</div>
         </div>
         {/* Single Stat All */}
@@ -63,7 +59,7 @@ const Charts = () => {
                 : chartCalculations.completedPercentage.toFixed()
             }%`}
           </div>
-          <div className="stat-title text-sm text-warning">All Tasks Done</div>
+          <div className="stat-title text-warning">All Tasks Done</div>
           <div className="stat-desc text-secondary">{`${chartCalculations.tasksRemaining} tasks remaining`}</div>
         </div>
       </div>
