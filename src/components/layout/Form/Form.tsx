@@ -1,5 +1,4 @@
 import { useState, ChangeEvent, useContext, FormEvent, useEffect } from "react";
-// import { MdWorkOutline as WorkIcon } from "react-icons/md";
 import AppContext from "../../../context/AppContext";
 import { v4 as uuidv4 } from "uuid";
 
