@@ -56,7 +56,7 @@ const Profile = () => {
       <div
         className={`space-y-5 rounded-lg p-4 shadow-sm shadow-primary-focus ${
           theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
-        } p-4 py-4 shadow-sm shadow-primary-focus`}
+        } p-4 py-4 shadow-primary-focus`}
       >
         <div className="flex items-center gap-4">
           <div className="avatar">
