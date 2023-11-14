@@ -55,7 +55,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
 
   return (
     <div
-      className={`collapse-arrow collapse relative rounded-md border-[1px] border-secondary text-left shadow-sm shadow-secondary`}
+      className={`collapse collapse-arrow relative rounded-md border-[1px] border-secondary text-left shadow-sm shadow-secondary`}
     >
       <input type="radio" name="my-accordion-2" />
       <div
@@ -72,7 +72,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
               data-tip="Complete Task"
               className="btn btn-sm tooltip w-[33%] rounded-none rounded-l-md border-r-0 border-t border-secondary hover:bg-green-600/70"
             >
-              <button onClick={() => completeTask(task)}>
+              <button className="pt-[1px]" onClick={() => completeTask(task)}>
                 <CompleteIcon size={25} />
               </button>
             </div>
@@ -80,7 +80,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
               data-tip="Edit Task"
               className="btn btn-sm tooltip w-[33%] rounded-none border-l-0 border-r-0 border-t border-secondary hover:bg-info/70"
             >
-              <button onClick={() => editTask(task)}>
+              <button className="pt-[1px]" onClick={() => editTask(task)}>
                 <EditIcon size={25} />
               </button>
             </div>
@@ -88,7 +88,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
               data-tip="Remove Task"
               className="btn btn-sm tooltip w-[33%] rounded-none rounded-r-md border-l-0 border-t border-secondary hover:bg-red-600/80"
             >
-              <button onClick={() => removeTask(task.id)}>
+              <button className="pt-[1px]" onClick={() => removeTask(task.id)}>
                 <RemoveIcon size={25} />
               </button>
             </div>

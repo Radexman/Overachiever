@@ -49,21 +49,38 @@ const SingleCompletedTask = ({ task }: SingleTaskProps) => {
   };
 
   return (
-    <div
-      className={`collapse-arrow collapse relative rounded-md border-[1px] border-secondary text-left shadow-sm shadow-secondary`}
-    >
-      <input type="radio" name="my-accordion-2" />
-      <div
-        className={`collapse-title flex items-center gap-2 text-xl font-medium `}
-      >
-        <p className={important ? "text-warning" : "text-success"}>{icon}</p>
-        {todo}
-      </div>
-      <div className="collapse-content">
-        <div className="flex flex-col space-y-4">
-          {details && <div>{details}</div>}
+    <div>
+      {details ? (
+        <div
+          className={`collapse-arrow collapse relative rounded-md border-[1px] border-secondary text-left shadow-sm shadow-secondary`}
+        >
+          <input type="radio" name="my-accordion-2" />
+          <div
+            className={`collapse-title flex items-center gap-2 text-xl font-medium `}
+          >
+            <p className={important ? "text-warning" : "text-success"}>
+              {icon}
+            </p>
+            {todo}
+          </div>
+          <div className="collapse-content">
+            <div className="flex flex-col space-y-4">
+              {details && <div>{details}</div>}
+            </div>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="flex items-center gap-2 rounded-md border-[1px] border-secondary p-4 text-left shadow-sm shadow-secondary">
+          <p
+            className={`text-xl font-medium ${
+              important ? "text-warning" : "text-success"
+            }`}
+          >
+            {icon}
+          </p>
+          <p className="text-xl font-semibold">{todo}</p>
+        </div>
+      )}
     </div>
   );
 };
