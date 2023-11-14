@@ -4,9 +4,11 @@ import ThemeToggler from "../Navbar Features/ThemeToggler";
 
 const Navbar = () => {
   return (
-    <nav className="navbar flex justify-between bg-secondary px-8 py-4 text-slate-50 md:py-2">
+    <nav className="navbar flex justify-between bg-secondary-content/80 px-8 py-4 md:py-2">
       <NavLink to="/">
-        <span className="font-brand text-4xl font-bold">Overachiever</span>
+        <span className="pl-0 font-brand text-5xl font-bold text-info md:pl-10">
+          Overachiever
+        </span>
       </NavLink>
       <div className="flex-none">
         <ul className="menu menu-horizontal hidden px-1 md:flex">

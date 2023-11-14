@@ -7,10 +7,10 @@ const Tracker = () => {
 
   return (
     <div className="dropdown dropdown-hover indicator">
-      <span className="badge indicator-item badge-secondary h-6 w-6 rounded-full  bg-primary font-bold">
+      <span className="badge indicator-item badge-info h-6 w-6 rounded-full  bg-info font-bold">
         {taskList.length}
       </span>
-      <div className="grid h-12 w-12 place-items-center rounded-full bg-primary">
+      <div className="grid h-12 w-12 place-items-center rounded-full bg-info">
         <FaClipboardList size={30} />
       </div>
       <div className="menu dropdown-content rounded-box z-[1] mt-12 w-32 bg-base-100 p-2 font-bold text-primary-focus shadow-sm shadow-primary-focus">
