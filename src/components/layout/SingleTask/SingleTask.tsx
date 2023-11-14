@@ -55,7 +55,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
 
   return (
     <div
-      className={`collapse-arrow collapse relative rounded-md border-[1px] border-secondary text-left shadow-sm shadow-secondary`}
+      className={`collapse collapse-arrow relative rounded-md border-[1px] border-secondary text-left shadow-sm shadow-secondary`}
     >
       <input type="radio" name="my-accordion-2" />
       <div
@@ -70,19 +70,19 @@ const SingleTask = ({ task }: SingleTaskProps) => {
           <div>
             <button
               onClick={() => completeTask(task)}
-              className="btn btn-sm w-[33%] rounded-none rounded-l-md border-none hover:bg-green-600"
+              className="btn btn-sm w-[33%] rounded-none rounded-l-md border-r-0 border-t border-secondary hover:bg-green-600/70"
             >
               <CompleteIcon size={25} />
             </button>
             <button
               onClick={() => editTask(task)}
-              className="btn btn-sm w-[33%] rounded-none border-none hover:bg-info"
+              className="btn btn-sm w-[33%] rounded-none border-l-0 border-r-0 border-t border-secondary hover:bg-info/70"
             >
               <EditIcon size={25} />
             </button>
             <button
               onClick={() => removeTask(task.id)}
-              className="btn btn-sm w-[33%] rounded-none rounded-r-md border-none hover:bg-red-600"
+              className="btn btn-sm w-[33%] rounded-none rounded-r-md border-l-0 border-t border-secondary hover:bg-red-600/80"
             >
               <RemoveIcon size={25} />
             </button>

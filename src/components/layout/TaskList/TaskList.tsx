@@ -43,7 +43,7 @@ const TaskList = () => {
         </div>
         <button
           onClick={() => setDisplayCompletedTasks(!displayCompletedTasks)}
-          className="btn btn-primary btn-outline my-3 w-full"
+          className="btn btn-info btn-outline my-3 w-full"
         >
           {!displayCompletedTasks
             ? "Show Completed Tasks"

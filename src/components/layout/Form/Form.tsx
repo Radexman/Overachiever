@@ -88,6 +88,7 @@ const Form = () => {
             Category
           </label>
           <select
+            value={category}
             onChange={handleCategoryChange}
             className="select select-secondary w-full"
           >

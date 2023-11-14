@@ -4,7 +4,7 @@ import ThemeToggler from "../Navbar Features/ThemeToggler";
 
 const Navbar = () => {
   return (
-    <nav className="navbar flex justify-between bg-secondary-content/80 px-8 py-4 md:py-2">
+    <nav className="navbar flex justify-between bg-secondary-content px-8 py-4 shadow-xl md:py-2">
       <NavLink to="/">
         <span className="pl-0 font-brand text-5xl font-bold text-info md:pl-10">
           Overachiever
@@ -15,7 +15,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/"
-              className="btn-ghost px-6 text-xl hover:bg-primary-focus hover:text-slate-900"
+              className="btn-ghost rounded-md px-5 text-xl hover:bg-info hover:text-slate-900"
             >
               Home
             </NavLink>
@@ -23,7 +23,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/tasks"
-              className="btn-ghost px-6 text-xl hover:bg-primary-focus hover:text-slate-900"
+              className="btn-ghost rounded-md px-5 text-xl hover:bg-info hover:text-slate-900"
             >
               Tasks
             </NavLink>
@@ -31,7 +31,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/stats"
-              className="btn-ghost px-6 text-xl hover:bg-primary-focus hover:text-slate-900"
+              className="btn-ghost rounded-md px-5 text-xl hover:bg-info hover:text-slate-900"
             >
               Stats
             </NavLink>
@@ -39,7 +39,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/about"
-              className="btn-ghost px-6 text-xl hover:bg-primary-focus hover:text-slate-900"
+              className="btn-ghost rounded-md px-5 text-xl hover:bg-info hover:text-slate-900"
             >
               About
             </NavLink>
