@@ -10,7 +10,7 @@ const Profile = () => {
   const [imageUrl, setImageUrl] = useState<string | undefined>();
   const [bio, setBio] = useState<string>();
 
-  const { user, createUser, chartCalculations } = useContext(AppContext);
+  const { user, createUser, chartCalculations, theme } = useContext(AppContext);
 
   useEffect(() => {
     if (avatar) {
@@ -53,10 +53,14 @@ const Profile = () => {
 
   return (
     <div className="w-full space-y-3 lg:w-1/2">
-      <div className="space-y-5 rounded-lg p-4 shadow-sm shadow-primary-focus">
+      <div
+        className={`space-y-5 rounded-lg p-4 shadow-sm shadow-primary-focus ${
+          theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
+        } p-4 py-4 shadow-sm shadow-primary-focus`}
+      >
         <div className="flex items-center gap-4">
           <div className="avatar">
-            <div className="w-24 rounded-full ring ring-primary lg:w-28">
+            <div className="w-20 rounded-full ring ring-secondary lg:w-28">
               {user.imageUrl ? (
                 <img
                   src={user.imageUrl}
@@ -106,10 +110,7 @@ const Profile = () => {
           <div className="divider"></div>
           <form className="space-y-2" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-1">
-              <label
-                htmlFor="username"
-                className="text-left text-sm font-bold text-primary-focus"
-              >
+              <label htmlFor="username" className="text-left text-sm font-bold">
                 Username
               </label>
               <input
@@ -122,24 +123,18 @@ const Profile = () => {
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label
-                htmlFor="avatr"
-                className="text-left text-sm font-bold text-primary-focus"
-              >
+              <label htmlFor="avatr" className="text-left text-sm font-bold">
                 Profile Picture
               </label>
               <input
                 onChange={handleAvatarInput}
                 type="file"
                 accept="image/"
-                className="file-input file-input-bordered file-input-primary input-secondary w-full text-sm"
+                className="file-input file-input-bordered file-input-info input-secondary w-full text-sm"
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label
-                htmlFor="bio"
-                className="text-left text-sm font-bold text-primary-focus"
-              >
+              <label htmlFor="bio" className="text-left text-sm font-bold">
                 Bio
               </label>
               <textarea

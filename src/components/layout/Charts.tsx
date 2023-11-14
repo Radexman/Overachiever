@@ -3,11 +3,23 @@ import AppContext from "../../context/AppContext";
 import RadialChart from "./RadialChart/RadialChart";
 
 const Charts = () => {
-  const { chartCalculations } = useContext(AppContext);
+  const { chartCalculations, theme } = useContext(AppContext);
 
   return (
-    <div className="w-full space-y-3">
-      <div className="stats stats-vertical w-full shadow-sm shadow-primary-focus lg:stats-horizontal">
+    <div
+      className={`w-full space-y-3 rounded-lg shadow-sm shadow-primary-focus ${
+        theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
+      }`}
+    >
+      <div className=" space-y-3 p-4">
+        <h2 className="text-3xl font-bold">Your progress today</h2>
+        <p>
+          In this section you can preview how well are you doing today. Yellow
+          graph represents important tasks, green regular and blue all tasks for
+          today.
+        </p>
+      </div>
+      <div className={`stats stats-vertical w-full lg:stats-horizontal `}>
         {/* Single Stat Important */}
         <div className="stat">
           <div className="stat-figure text-primary">

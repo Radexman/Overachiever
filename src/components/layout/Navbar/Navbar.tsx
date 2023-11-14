@@ -33,7 +33,7 @@ const Navbar = () => {
               to="/stats"
               className="btn-ghost rounded-md px-5 text-xl hover:bg-info hover:text-slate-900"
             >
-              Stats
+              Profile
             </NavLink>
           </li>
           <li>

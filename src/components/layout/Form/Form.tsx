@@ -65,9 +65,7 @@ const Form = () => {
       <form
         onSubmit={handleSubmit}
         className={`space-y-2 rounded-lg ${
-          theme === "emerald"
-            ? "border-[1px] border-secondary shadow-md shadow-info"
-            : "border-0"
+          theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
         } p-4 py-4 shadow-sm shadow-primary-focus`}
       >
         <div className="flex flex-col gap-2">
