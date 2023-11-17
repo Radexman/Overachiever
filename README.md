@@ -20,6 +20,8 @@ Now this app sreves a couple of pourpouses, user can create various tasks, custo
 - [x] Create profile context
 
 - [ ] Complete Day Feature - create button that cleares all states (start new day). Before all state is removed show popup with summary of all completed and not completed tasks.
+- [ ] Segregate prop types into seperate files
+- [ ] Test all components
 
 ### **Complete Day Feature Overwiev**
 

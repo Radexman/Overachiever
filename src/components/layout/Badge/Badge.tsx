@@ -1,18 +1,8 @@
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineThunderbolt as IconImportant } from "react-icons/ai";
 import { FaListUl as IconRegular } from "react-icons/fa";
 import { MdOutlinePlaylistAddCheckCircle as IconAll } from "react-icons/md";
-
-type BadgeProps = {
-  taskType: "important" | "regular" | "all";
-  taskAmount: number;
-};
-
-type BadgeCustomizationTypes = {
-  color: string;
-  icon: ReactNode;
-  text: string;
-};
+import { taskType, BadgeProps, BadgeCustomizationTypes } from "./Badge.types";
 
 const Badge = ({ taskType, taskAmount }: BadgeProps) => {
   const [badgeCustomization, setBadgeCustomization] =
@@ -26,7 +16,7 @@ const Badge = ({ taskType, taskAmount }: BadgeProps) => {
     customizeBadge(taskType);
   }, []);
 
-  const customizeBadge = (taskType: "important" | "regular" | "all") => {
+  const customizeBadge = (taskType: taskType) => {
     switch (taskType) {
       case "important":
         setBadgeCustomization({
@@ -60,9 +50,12 @@ const Badge = ({ taskType, taskAmount }: BadgeProps) => {
   };
 
   return (
-    <div className={`badge gap-2 ${badgeCustomization.color}`}>
+    <div
+      data-testid="badge"
+      className={`badge gap-2 ${badgeCustomization.color}`}
+    >
       {badgeCustomization.icon}
-      {`${badgeCustomization.text}  ${taskAmount}`}
+      {`${badgeCustomization.text} ${taskAmount}`}
     </div>
   );
 };
