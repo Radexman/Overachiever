@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import AppContext from "../../../Context/AppContext";
 import SingleTask from "../SingleTask/SingleTask";
 import SingleCompletedTask from "../SingleCompletedTask/SingleCompletedTask";
+import Button from "../Button/Button";
 
 const TaskList = () => {
   const [displayNotCompletedTasks, setDisplayNotCompletedTasks] =
@@ -18,14 +19,16 @@ const TaskList = () => {
         tasks will be at the top of the list
       </p>
       <div>
-        <button
-          onClick={() => setDisplayNotCompletedTasks(!displayNotCompletedTasks)}
-          className="btn btn-secondary btn-outline my-3 w-full"
-        >
-          {!displayNotCompletedTasks
-            ? "Show Tasks to Complete"
-            : "Hide Tasks to Complete"}
-        </button>
+        <Button
+          color="secondary"
+          full="w-full"
+          open={displayNotCompletedTasks}
+          togglerFunction={setDisplayNotCompletedTasks}
+          textContent={{
+            open: "Show Tasks To Complete",
+            close: "Hide Tasks To Complete",
+          }}
+        />
         {/*  Tasks to complete */}
         <div
           className={`mb-6 space-y-4 ${
