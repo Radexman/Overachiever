@@ -1,4 +1,4 @@
-import { Task } from "../../../Types/TaskType";
+import { SingleTaskProps, categoryType } from "./SingleCompletedTask.types";
 import { useState, useEffect, ReactNode } from "react";
 import { MdWorkOutline as WorkIcon } from "react-icons/md";
 import { FaFlask as StudyIcon } from "react-icons/fa";
@@ -11,10 +11,6 @@ import {
   BsFillHouseHeartFill as HousekeepingIcon,
 } from "react-icons/bs";
 
-type SingleTaskProps = {
-  task: Task;
-};
-
 const SingleCompletedTask = ({ task }: SingleTaskProps) => {
   const [icon, setIcon] = useState<ReactNode | null>();
   const { todo, category, important, details } = task;
@@ -23,7 +19,7 @@ const SingleCompletedTask = ({ task }: SingleTaskProps) => {
     customizeIcon(category);
   }, [task]);
 
-  const customizeIcon = (category: string | undefined): void => {
+  const customizeIcon = (category: categoryType): void => {
     switch (category) {
       case "Work":
         setIcon(<WorkIcon />);
@@ -52,7 +48,7 @@ const SingleCompletedTask = ({ task }: SingleTaskProps) => {
     <div>
       {details ? (
         <div
-          className={`collapse-arrow collapse relative rounded-md border-[1px] border-secondary text-left shadow-sm shadow-secondary`}
+          className={`collapse collapse-arrow relative rounded-md border-[1px] border-secondary text-left shadow-sm shadow-secondary`}
         >
           <input type="radio" name="my-accordion-2" />
           <div

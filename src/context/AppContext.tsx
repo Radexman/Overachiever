@@ -1,45 +1,7 @@
-import {
-  ReactNode,
-  createContext,
-  useState,
-  useEffect,
-  ChangeEvent,
-} from "react";
-import { Task } from "../Types/TaskType";
-import { User } from "../Types/UserType";
-
-type ContextProviderProps = {
-  children: ReactNode;
-};
-
-type ContextProps = {
-  taskList: Task[];
-  completed: Task[];
-  theme: string;
-  taskEdit: {
-    task: Task;
-    edit: boolean;
-  };
-  chartCalculations: {
-    importantTasksPercentage: number;
-    totalRemainingImportantTasks: number;
-    importantTasksCompleted: number;
-    regularTasksPercentage: number;
-    regularTasksCompleted: number;
-    totalRemainingRegularTasks: number;
-    completedPercentage: number;
-    tasksRemaining: number;
-    completedTasks: number;
-  };
-  user: User;
-  toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
-  addTask: (newTask: Task) => void;
-  createUser: (user: User) => void;
-  completeTask: (task: Task) => void;
-  removeTask: (id: string) => void;
-  editTask: (task: Task) => void;
-  updateTask: (id: string, updItem: Task) => void;
-};
+import { createContext, useState, useEffect, ChangeEvent } from "react";
+import { Task } from "../Types/Task.types";
+import { User } from "../Types/User.types";
+import { ContextProviderProps, ContextProps } from "./AppContext.types";
 
 const AppContext = createContext({} as ContextProps);
 

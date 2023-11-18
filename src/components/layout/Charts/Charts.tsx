@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import AppContext from "../../context/AppContext";
-import RadialChart from "./RadialChart/RadialChart";
+import AppContext from "../../../Context/AppContext";
+import RadialChart from "../RadialChart/RadialChart";
 
 const Charts = () => {
   const { chartCalculations, theme } = useContext(AppContext);

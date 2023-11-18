@@ -1,6 +1,6 @@
 import Profile from "../../layout/Profile/Profile";
 import Skills from "../../layout/Skills/Skills";
-import Charts from "../../layout/Charts";
+import Charts from "../../layout/Charts/Charts";
 
 const Stats = () => {
   return (

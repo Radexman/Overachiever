@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import Tracker from "../Navbar Features/Tracker";
-import ThemeToggler from "../Navbar Features/ThemeToggler";
+import Tracker from "../Tracker/Tracker";
+import ThemeToggler from "../ThemeToggler/ThemeToggler";
 
 const Navbar = () => {
   return (

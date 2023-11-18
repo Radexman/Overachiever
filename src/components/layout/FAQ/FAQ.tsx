@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import AppContext from "../../../context/AppContext";
+import AppContext from "../../../Context/AppContext";
 
 const FAQ = () => {
   const { theme } = useContext(AppContext);
@@ -12,7 +12,7 @@ const FAQ = () => {
           theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
         }`}
       >
-        <div className="collapse join-item collapse-arrow border border-base-300">
+        <div className="collapse-arrow collapse join-item border border-base-300">
           <input type="radio" name="my-accordion-4" />
           <div className="collapse-title text-xl font-medium">
             Click to open this one and close others

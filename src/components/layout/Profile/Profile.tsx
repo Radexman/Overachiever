@@ -1,6 +1,6 @@
 import { AiOutlineUser as UserIcon } from "react-icons/ai";
 import { useState, useEffect, useContext, ChangeEvent, FormEvent } from "react";
-import AppContext from "../../../context/AppContext";
+import AppContext from "../../../Context/AppContext";
 import Badge from "../Badge/Badge";
 
 const Profile = () => {

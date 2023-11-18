@@ -1,6 +1,6 @@
-import { Task } from "../../../Types/TaskType";
+import { SingleTaskProps, categoryType } from "./SingleTask.type";
 import { useContext, useState, useEffect, ReactNode } from "react";
-import AppContext from "../../../context/AppContext";
+import AppContext from "../../../Context/AppContext";
 import { AiOutlineEdit as EditIcon } from "react-icons/ai";
 import { MdDeleteForever as RemoveIcon } from "react-icons/md";
 import { IoIosCheckmarkCircleOutline as CompleteIcon } from "react-icons/io";
@@ -15,10 +15,6 @@ import {
   BsFillHouseHeartFill as HousekeepingIcon,
 } from "react-icons/bs";
 
-type SingleTaskProps = {
-  task: Task;
-};
-
 const SingleTask = ({ task }: SingleTaskProps) => {
   const [icon, setIcon] = useState<ReactNode | null>();
   const { todo, category, important, details } = task;
@@ -28,7 +24,7 @@ const SingleTask = ({ task }: SingleTaskProps) => {
     customizeIcon(category);
   }, [task]);
 
-  const customizeIcon = (category: string | undefined): void => {
+  const customizeIcon = (category: categoryType): void => {
     switch (category) {
       case "Work":
         setIcon(<WorkIcon />);

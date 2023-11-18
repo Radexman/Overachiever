@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar/Navbar";
-import MobileNavbar from "./components/layout/Navbar/MobileNavbar";
+import MobileNavbar from "./components/layout/MobileNavbar/MobileNavbar";
 import Home from "./components/Pages/Home/Home";
 import Tasks from "./components/Pages/Tasks/Tasks";
 import Stats from "./components/Pages/Stats/Stats";
 import About from "./components/Pages/About/About";
-import { AppContextProvider } from "./context/AppContext";
+import { AppContextProvider } from "./Context/AppContext";
 
 const App = () => {
   return (
