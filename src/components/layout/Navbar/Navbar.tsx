@@ -6,7 +6,10 @@ const Navbar = () => {
   return (
     <nav className="navbar flex justify-between bg-secondary-content px-8 py-4 shadow-xl md:py-2">
       <NavLink to="/">
-        <span className="pl-0 font-brand text-5xl font-bold text-info md:pl-10">
+        <span
+          role="button"
+          className="pl-0 font-brand text-5xl font-bold text-info md:pl-10"
+        >
           Overachiever
         </span>
       </NavLink>

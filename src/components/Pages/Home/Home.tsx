@@ -4,6 +4,7 @@ import imageTwo from "../../../assets/hero-img.svg";
 const Home = () => {
   return (
     <div
+      data-testid="home"
       className="bg-cover bg-center md:min-h-[90vh]"
       style={{
         backgroundImage: `url(${imageTwo})`,

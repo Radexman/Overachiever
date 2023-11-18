@@ -1,5 +1,5 @@
 import { CSSProperties } from "styled-components";
-import RadialChartProps from "../../../Types/RadialChart";
+import { RadialChartProps } from "./RadialChart.types";
 
 const RadialChart = ({ percentage, textColor, bgColor }: RadialChartProps) => {
   return (

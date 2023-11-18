@@ -73,6 +73,7 @@ const Form = () => {
             Task Name
           </label>
           <input
+            id="task"
             onChange={handleTaskInput}
             type="text"
             maxLength={22}
@@ -86,6 +87,7 @@ const Form = () => {
             Category
           </label>
           <select
+            id="category"
             value={category}
             onChange={handleCategoryChange}
             className="select select-secondary w-full"
@@ -114,11 +116,12 @@ const Form = () => {
           ></textarea>
         </div>
         <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text font-bold">
+          <label htmlFor="task-important" className="label cursor-pointer">
+            <span data-testid="task-important" className="label-text font-bold">
               {importantInput ? "Task Is Important" : "Task Is Regular"}
             </span>
             <input
+              id="task-important"
               type="checkbox"
               onChange={handleImportantChange}
               className={`checkbox-info checkbox checkbox-lg border-2 border-info`}

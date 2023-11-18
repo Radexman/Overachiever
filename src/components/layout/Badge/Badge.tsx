@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AiOutlineThunderbolt as IconImportant } from "react-icons/ai";
 import { FaListUl as IconRegular } from "react-icons/fa";
 import { MdOutlinePlaylistAddCheckCircle as IconAll } from "react-icons/md";
-import { taskType, BadgeProps, BadgeCustomizationTypes } from "./Badge.types";
+import { taskType, BadgeCustomizationTypes, BadgeProps } from "./Badge.types";
 
 const Badge = ({ taskType, taskAmount }: BadgeProps) => {
   const [badgeCustomization, setBadgeCustomization] =
