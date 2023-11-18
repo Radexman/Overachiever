@@ -25,7 +25,10 @@ export type ContextProps = {
     tasksRemaining: number;
     completedTasks: number;
   };
+  displayReport: boolean;
   user: User;
+  createReport: () => void;
+  closeReport: () => void;
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
   addTask: (newTask: Task) => void;
   createUser: (user: User) => void;

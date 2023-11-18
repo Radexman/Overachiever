@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import AppContext from "../../../Context/AppContext";
+
 const Modal = () => {
+  const { createReport } = useContext(AppContext);
+
   return (
     <dialog id="finish-day-modal" className="modal">
       <div className="modal-box">
@@ -10,7 +15,10 @@ const Modal = () => {
         <div className="modal-action">
           <form method="dialog">
             <div className="join">
-              <button className="btn btn-secondary join-item">
+              <button
+                onClick={createReport}
+                className="btn btn-secondary join-item"
+              >
                 Finish Day
               </button>
               <button className="btn join-item">Close</button>

@@ -31,6 +31,16 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     localStorage.getItem("theme") ? localStorage.getItem("theme")! : "emerald",
   );
 
+  const [displayReport, setDisplayReport] = useState(false);
+
+  const createReport = () => {
+    setDisplayReport(true);
+  };
+
+  const closeReport = () => {
+    setDisplayReport(false);
+  };
+
   // State for task edit
   const [taskEdit, setTaskEdit] = useState({
     task: {} as Task,
@@ -233,6 +243,9 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         completed,
         user,
         chartCalculations,
+        displayReport,
+        createReport,
+        closeReport,
         toggleTheme,
         addTask,
         createUser,
