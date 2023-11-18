@@ -18,7 +18,7 @@ const Skills = () => {
         max="100"
       ></progress>
       <Button
-        color="primary"
+        color="info"
         size="sm"
         open={displayAllSkills}
         togglerFunction={setDisplayAllSkills}

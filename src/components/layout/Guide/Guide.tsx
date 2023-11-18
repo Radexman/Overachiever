@@ -8,10 +8,10 @@ const Guide = () => {
         track
       </p>
       <ul className="steps steps-vertical font-semibold">
-        <li className="step step-primary">
+        <li className="step step-info">
           Customize your profile, set up username and avatar
         </li>
-        <li className="step step-primary">
+        <li className="step step-info">
           Add Tasks and customize them as you wish
         </li>
         <li className="step">Complete and add tasks throughout the day</li>

@@ -13,8 +13,8 @@ const FAQ = () => {
           theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
         }`}
       >
-        <div className="collapse-arrow collapse join-item border border-base-300">
-          <div className="collapse-arrow collapse join-item border border-base-300">
+        <div className="collapse join-item collapse-arrow border border-base-300">
+          <div className="collapse join-item collapse-arrow border border-base-300">
             <input type="radio" name="my-accordion-4" />
             <div className="collapse-title text-left text-xl font-medium">
               Why should I use this app?
@@ -23,7 +23,7 @@ const FAQ = () => {
               <p>
                 This app helps you keep your finger on the pulse. It will be
                 easier for you to keep track of all the important things you
-                should do that day and the tasks you have completed.
+                should do that day and the tasks you have completed
               </p>
             </div>
           </div>
@@ -39,7 +39,7 @@ const FAQ = () => {
               add it to the list. At the end of a given day, finish the day by
               clicking the "Finish Day" button. This action will generate a
               final report for you with information on how you did that day and
-              will delete all unfinished tasks.
+              will delete all unfinished tasks
             </p>
           </div>
         </div>
@@ -53,7 +53,7 @@ const FAQ = () => {
               No. This application does not collect any data about its users.
               The application uses the browser as a database and does not have
               any login systems or collect user information. This app is a
-              typical Companion App.
+              typical Companion App
             </p>
           </div>
         </div>
@@ -67,7 +67,7 @@ const FAQ = () => {
               The skill system is a collection of skill bars that develop with
               you. As you progress, the tasks you complete will develop specific
               skill groups. Completing an important task will increase your
-              skill bars faster than regular tasks.
+              skill bars faster than regular tasks
             </p>
           </div>
         </div>
@@ -80,7 +80,7 @@ const FAQ = () => {
             <p>
               Colorful graphs and skill bars implement gamification mechanics.
               Game mechanics used in real life are motivating and provide a
-              pleasant shot of dopamine when we engage in certain activities.
+              pleasant shot of dopamine when we engage in certain activities
             </p>
           </div>
         </div>

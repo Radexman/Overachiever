@@ -3,6 +3,7 @@ import { useState, useEffect, useContext, ChangeEvent, FormEvent } from "react";
 import AppContext from "../../../Context/AppContext";
 import Badge from "../Badge/Badge";
 import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
 
 const Profile = () => {
   const [displayForm, setDisplayForm] = useState(false);
@@ -111,6 +112,19 @@ const Profile = () => {
             close: "Hide Form",
           }}
         />
+        <button
+          className="btn btn-secondary btn-sm ml-2 p-2"
+          onClick={() =>
+            (
+              document.getElementById(
+                "finish-day-modal",
+              ) as HTMLDialogElement | null
+            )?.showModal()
+          }
+        >
+          Finish Day
+        </button>
+        <Modal />
         <div className={displayForm ? "block" : "hidden"}>
           <div className="divider"></div>
           <form className="space-y-2" onSubmit={handleSubmit}>

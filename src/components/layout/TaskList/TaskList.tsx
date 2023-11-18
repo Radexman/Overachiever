@@ -45,7 +45,7 @@ const TaskList = () => {
           )}
         </div>
         <Button
-          color="primary"
+          color="info"
           full="w-full"
           open={displayCompletedTasks}
           togglerFunction={setDisplayCompletedTasks}
