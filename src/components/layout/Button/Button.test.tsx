@@ -2,8 +2,6 @@ import { render, screen } from "@testing-library/react";
 import Button from "./Button";
 import userEvent from "@testing-library/user-event";
 
-// Button should accept type which will be in charge of color, size, function and text object with two text warinat toggler
-
 describe("Button component should", () => {
   test("render correctly", () => {
     render(

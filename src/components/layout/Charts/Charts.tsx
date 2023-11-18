@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import AppContext from "../../../Context/AppContext";
 import RadialChart from "../RadialChart/RadialChart";
+import { getCurrentDay } from "../../../utilities/helperFunctions";
 
 const Charts = () => {
   const { chartCalculations, theme } = useContext(AppContext);
@@ -12,7 +13,9 @@ const Charts = () => {
       }`}
     >
       <div className=" space-y-3 p-4">
-        <h2 className="text-3xl font-bold">Your Progress Today</h2>
+        <h2 className="text-3xl font-bold">
+          Your Progress On {getCurrentDay()}
+        </h2>
         <p>
           In this section you can preview how well are you doing today. Yellow
           graph represents important tasks, green regular and blue all tasks for
