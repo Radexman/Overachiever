@@ -2,6 +2,7 @@ import { AiOutlineUser as UserIcon } from "react-icons/ai";
 import { useState, useEffect, useContext, ChangeEvent, FormEvent } from "react";
 import AppContext from "../../../Context/AppContext";
 import Badge from "../Badge/Badge";
+import Button from "../Button/Button";
 
 const Profile = () => {
   const [displayForm, setDisplayForm] = useState(false);
@@ -100,12 +101,16 @@ const Profile = () => {
             ? user.bio
             : "I am mysterious individual who hasn't filed their profile section yet."}
         </p>
-        <button
-          onClick={() => setDisplayForm(!displayForm)}
-          className="btn btn-secondary btn-outline btn-sm rounded-lg p-2"
-        >
-          {!displayForm ? "Edit Profile" : "Hide Form"}
-        </button>
+        <Button
+          color="secondary"
+          size="sm"
+          open={displayForm}
+          togglerFunction={setDisplayForm}
+          textContent={{
+            open: "Edit Profile",
+            close: "Hide Form",
+          }}
+        />
         <div className={displayForm ? "block" : "hidden"}>
           <div className="divider"></div>
           <form className="space-y-2" onSubmit={handleSubmit}>

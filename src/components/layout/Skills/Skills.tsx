@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../Button/Button";
 
 const Skills = () => {
   const [displayAllSkills, setDisplayAllSkills] = useState(false);
@@ -16,12 +17,16 @@ const Skills = () => {
         value={10}
         max="100"
       ></progress>
-      <button
-        onClick={() => setDisplayAllSkills(!displayAllSkills)}
-        className="btn btn-secondary btn-outline btn-sm p-2"
-      >
-        {!displayAllSkills ? "Show All Skills" : "Hide All Skills"}
-      </button>
+      <Button
+        color="primary"
+        size="sm"
+        open={displayAllSkills}
+        togglerFunction={setDisplayAllSkills}
+        textContent={{
+          open: "Show All Skills",
+          close: "Hide All Skills",
+        }}
+      />
       <div className={displayAllSkills ? "block" : "hidden"}>
         <div className="divider"></div>
         <h3 className="text-3xl font-bold">More Skills</h3>

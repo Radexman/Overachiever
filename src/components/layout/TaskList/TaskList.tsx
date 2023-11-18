@@ -18,7 +18,7 @@ const TaskList = () => {
         Important tasks have yellow outline while regular have green. Important
         tasks will be at the top of the list
       </p>
-      <div>
+      <div className="space-y-3">
         <Button
           color="secondary"
           full="w-full"
@@ -44,14 +44,16 @@ const TaskList = () => {
             taskList.map((task, id) => <SingleTask key={id} task={task} />)
           )}
         </div>
-        <button
-          onClick={() => setDisplayCompletedTasks(!displayCompletedTasks)}
-          className="btn btn-info btn-outline my-3 w-full"
-        >
-          {!displayCompletedTasks
-            ? "Show Completed Tasks"
-            : "Hide Completed Tasks"}
-        </button>
+        <Button
+          color="primary"
+          full="w-full"
+          open={displayCompletedTasks}
+          togglerFunction={setDisplayCompletedTasks}
+          textContent={{
+            open: "Show Completed Tasks",
+            close: "Hide Completed Tasks",
+          }}
+        />
         <div
           className={`space-y-4 ${displayCompletedTasks ? "block" : "hidden"}`}
         >
