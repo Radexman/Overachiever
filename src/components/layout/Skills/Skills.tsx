@@ -9,9 +9,9 @@ const Skills = () => {
       <h2 className="text-3xl font-bold">Skills Section</h2>
       <p>
         In this section you can check how well you're doing in each skill as
-        well as in your global profile level.
+        well as in your global profile level
       </p>
-      <h3 className="text-xl font-bold">Main Level: 34</h3>
+      <p className="text-xl font-bold">Main Level: 34</p>
       <progress
         className="progress progress-primary h-5 w-full"
         value={10}

@@ -19,7 +19,7 @@ const Charts = () => {
         <p>
           In this section you can preview how well are you doing today. Yellow
           graph represents important tasks, green regular and blue all tasks for
-          today.
+          today
         </p>
       </div>
       <div className={`stats stats-vertical w-full lg:stats-horizontal `}>

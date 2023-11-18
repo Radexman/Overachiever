@@ -11,7 +11,7 @@ describe("Form component should", () => {
     );
 
     const headingElement = screen.getByRole("heading", {
-      level: 2,
+      level: 1,
       name: "Create New Task",
     });
     expect(headingElement).toBeInTheDocument();

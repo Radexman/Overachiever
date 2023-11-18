@@ -18,7 +18,7 @@ const Home = () => {
           <p className="mb-5 text-xl">
             Create, track and update your daily tasks and chores. Never again
             miss a meeting or something that you ought to do. View your current
-            progress and get notified about upcoming assignments.
+            progress and get notified about upcoming assignments
           </p>
           <Link to="/tasks">
             <button className="btn btn-secondary btn-outline btn-wide my-4">

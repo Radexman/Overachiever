@@ -76,9 +76,9 @@ const Profile = () => {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h2 className="text-3xl font-bold">
+            <h1 className="text-3xl font-bold">
               {user.username ? user.username : "User Name"}
-            </h2>
+            </h1>
             <p className="text-xs text-primary">Tasks completed today</p>
             <div className="space-x-2">
               <Badge

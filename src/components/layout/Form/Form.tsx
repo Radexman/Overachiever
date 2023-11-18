@@ -57,7 +57,7 @@ const Form = () => {
 
   return (
     <div className="w-full space-y-3 lg:w-1/2">
-      <h2 className="text-3xl font-bold">Create New Task</h2>
+      <h1 className="text-3xl font-bold">Create New Task</h1>
       <p className="text-md">
         Fill the form to create new task, choose the type of task and checking
         the button will mark it as important. Task details are optional
