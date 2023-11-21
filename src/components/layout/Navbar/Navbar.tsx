@@ -8,7 +8,7 @@ const Navbar = () => {
       <NavLink to="/">
         <span
           role="button"
-          className="pl-0 font-brand text-5xl font-bold text-info md:pl-10"
+          className="pl-0 font-brand text-4xl font-bold text-info md:pl-10 md:text-5xl"
         >
           Overachiever
         </span>
