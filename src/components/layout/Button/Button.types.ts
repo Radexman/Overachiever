@@ -3,6 +3,7 @@ export type ButtonProps = {
   size?: "sm" | "md" | "wide";
   full?: "w-full";
   open: boolean;
+  disabled?: boolean;
   togglerFunction: (open: boolean) => void;
   textContent: {
     open: string;

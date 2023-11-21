@@ -5,15 +5,16 @@ const Button = ({
   size,
   full,
   open,
+  disabled,
   togglerFunction,
   textContent,
 }: ButtonProps) => {
   return (
     <button
       onClick={() => togglerFunction(!open)}
-      className={`btn btn-outline rounded-lg p-2 btn-${color} ${
-        size ? `btn-${size}` : `${full}`
-      }`}
+      className={`btn btn-outline rounded-lg p-2 ${
+        disabled && "btn-disabled"
+      } btn-${color} ${size ? `btn-${size}` : `${full}`}`}
     >
       {!open ? textContent.open : textContent.close}
     </button>

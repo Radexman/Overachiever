@@ -12,7 +12,8 @@ const Profile = () => {
   const [imageUrl, setImageUrl] = useState<string | undefined>();
   const [bio, setBio] = useState<string>();
 
-  const { user, createUser, chartCalculations, theme } = useContext(AppContext);
+  const { user, createUser, chartCalculations, theme, taskList, completed } =
+    useContext(AppContext);
 
   useEffect(() => {
     if (avatar) {
@@ -113,7 +114,9 @@ const Profile = () => {
           }}
         />
         <button
-          className="btn btn-secondary btn-sm ml-2 p-2"
+          className={`btn btn-secondary btn-sm ml-2 p-2 ${
+            taskList.length === 0 && completed.length === 0 && "btn-disabled"
+          }`}
           onClick={() =>
             (
               document.getElementById(
