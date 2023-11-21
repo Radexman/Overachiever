@@ -14,10 +14,10 @@ const FinalRaport = () => {
   const {
     theme,
     displayReport,
-    closeReport,
     chartCalculations,
     user,
     completed,
+    finishDay,
   } = useContext(AppContext);
 
   return (
@@ -221,7 +221,7 @@ const FinalRaport = () => {
         </div>
       </div>
       <button
-        onClick={closeReport}
+        onClick={finishDay}
         className="btn btn-secondary btn-outline w-full"
       >
         Close Report

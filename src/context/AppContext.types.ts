@@ -28,7 +28,6 @@ export type ContextProps = {
   displayReport: boolean;
   user: User;
   createReport: () => void;
-  closeReport: () => void;
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
   addTask: (newTask: Task) => void;
   createUser: (user: User) => void;
@@ -36,4 +35,5 @@ export type ContextProps = {
   removeTask: (id: string) => void;
   editTask: (task: Task) => void;
   updateTask: (id: string, updItem: Task) => void;
+  finishDay: () => void;
 };

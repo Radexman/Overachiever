@@ -20,6 +20,14 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     return storedCompleted || [];
   });
 
+  // Create task list that is used for comparison
+  const [yesterdayTasks, setYesterdayTasks] = useState<Task[]>(() => {
+    const storedYesterdayTasks = JSON.parse(
+      localStorage.getItem("yesterday-tasks")!,
+    );
+    return storedYesterdayTasks || [];
+  });
+
   // State for user profile
   const [user, setUser] = useState<User>(() => {
     const storedUser = JSON.parse(localStorage.getItem("stored-user")!);
@@ -35,10 +43,6 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
 
   const createReport = () => {
     setDisplayReport(true);
-  };
-
-  const closeReport = () => {
-    setDisplayReport(false);
   };
 
   // State for task edit
@@ -62,6 +66,21 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
       setUser(storedUserObject);
     }
   }, []);
+
+  // Check on component mount if yesterday tasks exists in local storage
+  useEffect(() => {
+    const storedYesterdayTasks = JSON.parse(
+      localStorage.getItem("yesterday-tasks")!,
+    );
+    if (storedYesterdayTasks) {
+      setYesterdayTasks(storedYesterdayTasks);
+    }
+  }, []);
+
+  // Update yesterday tasks in local storage on state change
+  useEffect(() => {
+    localStorage.setItem("yesterday-tasks", JSON.stringify(yesterdayTasks));
+  }, [yesterdayTasks]);
 
   // Update user object in local store on user change
   useEffect(() => {
@@ -175,6 +194,14 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     setTaskList(taskList.filter((task) => task.id !== id));
   };
 
+  // Finish Day Report State Clean
+  const finishDay = () => {
+    setYesterdayTasks(completed);
+    setTaskList([]);
+    setCompleted([]);
+    setDisplayReport(false);
+  };
+
   // Chart calculations
   const tasksTotal = taskList.length + completed.length;
   const completedTasks = completed.length;
@@ -245,7 +272,6 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         chartCalculations,
         displayReport,
         createReport,
-        closeReport,
         toggleTheme,
         addTask,
         createUser,
@@ -253,6 +279,7 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         removeTask,
         editTask,
         updateTask,
+        finishDay,
       }}
     >
       {children}
