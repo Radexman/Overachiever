@@ -45,6 +45,10 @@ const FinalRaport = () => {
           You have sucesfully completed {getCurrentDay()} <br />
           Here is how it went
         </p>
+        <p>
+          You can exit report back to your profile by clicking button at the end
+          of this report
+        </p>
       </div>
       <div
         className={`w-full rounded-lg shadow-sm shadow-primary-focus ${
@@ -216,6 +220,12 @@ const FinalRaport = () => {
           ))}
         </div>
       </div>
+      <button
+        onClick={closeReport}
+        className="btn btn-secondary btn-outline w-full"
+      >
+        Close Report
+      </button>
     </div>
   );
 };

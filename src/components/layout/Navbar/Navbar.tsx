@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import AppContext from "../../../Context/AppContext";
 import { NavLink } from "react-router-dom";
 import Tracker from "../Tracker/Tracker";
 import ThemeToggler from "../ThemeToggler/ThemeToggler";
 
 const Navbar = () => {
+  const { displayReport } = useContext(AppContext);
+
   return (
     <nav className="navbar flex justify-between bg-secondary-content px-8 py-4 shadow-xl md:py-2">
       <NavLink to="/">
@@ -18,7 +22,9 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/"
-              className="btn-ghost rounded-md px-5 text-xl hover:bg-info hover:text-slate-900"
+              className={`rounded-md px-5 text-xl hover:bg-info hover:text-slate-900 ${
+                displayReport ? "btn-disabled" : "btn-ghost"
+              }`}
             >
               Home
             </NavLink>
@@ -26,7 +32,9 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/tasks"
-              className="btn-ghost rounded-md px-5 text-xl hover:bg-info hover:text-slate-900"
+              className={`rounded-md px-5 text-xl hover:bg-info hover:text-slate-900 ${
+                displayReport ? "btn-disabled" : "btn-ghost"
+              }`}
             >
               Tasks
             </NavLink>
@@ -34,7 +42,9 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/stats"
-              className="btn-ghost rounded-md px-5 text-xl hover:bg-info hover:text-slate-900"
+              className={`rounded-md px-5 text-xl hover:bg-info hover:text-slate-900 ${
+                displayReport ? "btn-disabled" : "btn-ghost"
+              }`}
             >
               Profile
             </NavLink>
@@ -42,7 +52,9 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/about"
-              className="btn-ghost rounded-md px-5 text-xl hover:bg-info hover:text-slate-900"
+              className={`rounded-md px-5 text-xl hover:bg-info hover:text-slate-900 ${
+                displayReport ? "btn-disabled" : "btn-ghost"
+              }`}
             >
               About
             </NavLink>
