@@ -9,6 +9,6 @@ export type BadgeProps = {
 
 export type BadgeCustomizationTypes = {
   color: string;
-  icon: ReactNode;
+  icon?: ReactNode;
   text: string;
 };

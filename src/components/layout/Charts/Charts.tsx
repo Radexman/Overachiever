@@ -7,11 +7,7 @@ const Charts = () => {
   const { chartCalculations, theme } = useContext(AppContext);
 
   return (
-    <div
-      className={`w-full space-y-3 rounded-lg p-4 shadow-sm shadow-primary-focus ${
-        theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
-      }`}
-    >
+    <div className={`w-full space-y-3 p-4 `}>
       <div className=" space-y-3">
         <h2 className="text-3xl font-bold">
           Your Progress On {getCurrentDay()}
@@ -22,7 +18,11 @@ const Charts = () => {
           today
         </p>
       </div>
-      <div className={`stats stats-vertical w-full lg:stats-horizontal `}>
+      <div
+        className={`stats stats-vertical w-full lg:stats-horizontal ${
+          theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0 "
+        } shadow-sm shadow-primary-focus`}
+      >
         {/* Single Stat Important */}
         <div className="stat">
           <div className="stat-figure text-primary">

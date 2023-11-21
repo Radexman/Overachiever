@@ -56,12 +56,8 @@ const Profile = () => {
 
   return (
     <div className="w-full space-y-3 lg:w-1/2">
-      <div
-        className={`space-y-5 rounded-lg p-4 shadow-sm shadow-primary-focus ${
-          theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
-        } shadow-primary-focus`}
-      >
-        <div className="flex items-center gap-4">
+      <div className={`space-y-5 rounded-lg p-4`}>
+        <div className="flex items-start gap-4">
           <div className="avatar">
             <div className="w-20 rounded-full ring ring-secondary lg:w-28">
               {user.imageUrl ? (
@@ -130,7 +126,14 @@ const Profile = () => {
         <Modal />
         <div className={displayForm ? "block" : "hidden"}>
           <div className="divider"></div>
-          <form className="space-y-2" onSubmit={handleSubmit}>
+          <form
+            className={`space-y-2 rounded-lg p-4 ${
+              theme === "emerald"
+                ? "shadow-md shadow-slate-500"
+                : "shadow-sm shadow-primary-focus"
+            }`}
+            onSubmit={handleSubmit}
+          >
             <div className="flex flex-col gap-1">
               <label htmlFor="username" className="text-left text-sm font-bold">
                 Username
