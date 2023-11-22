@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, useContext, FormEvent, useEffect } from "react";
 import AppContext from "../../../Context/AppContext";
 import { v4 as uuidv4 } from "uuid";
+import Alert from "../Alert/Alert";
 
 const Form = () => {
   const [taskInput, setTaskInput] = useState<string>();
@@ -58,9 +59,9 @@ const Form = () => {
   return (
     <div className="w-full space-y-3 lg:w-1/2">
       <h1 className="text-3xl font-bold">Create New Task</h1>
-      <p className="text-md">
-        Fill the form to create new task, choose the type of task and checking
-        the button will mark it as important. Task details are optional
+      <p className="text-md pb-3">
+        To create a new task, fill out the form provided. Choose the task type
+        and mark its importance by checking the designated checkmark
       </p>
       <form
         onSubmit={handleSubmit}
@@ -129,10 +130,11 @@ const Form = () => {
             />
           </label>
         </div>
+
         <button
           type="submit"
           disabled={!taskInput || category === undefined}
-          className="btn btn-secondary btn-outline w-full md:btn-wide"
+          className="btn btn-secondary btn-outline block flex-1 md:btn-wide md:flex-none"
         >
           Create Task
         </button>

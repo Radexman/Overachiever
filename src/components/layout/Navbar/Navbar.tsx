@@ -8,7 +8,7 @@ const Navbar = () => {
   const { displayReport } = useContext(AppContext);
 
   return (
-    <nav className="navbar flex justify-between bg-secondary-content px-8 py-4 shadow-xl md:py-2">
+    <nav className="navbar flex items-center justify-between bg-secondary-content px-8 py-4 shadow-xl md:py-2">
       <NavLink to="/">
         <span
           role="button"
@@ -60,11 +60,11 @@ const Navbar = () => {
             </NavLink>
           </li>
         </ul>
-        <ul className="flex space-x-4 pl-4">
+        <ul className="flex items-center justify-center space-x-4 pl-4">
           <li>
             <Tracker />
           </li>
-          <li>
+          <li className="pt-1">
             <ThemeToggler />
           </li>
         </ul>

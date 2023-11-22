@@ -15,10 +15,10 @@ const TaskList = () => {
     <div className="w-full space-y-3 lg:w-1/2">
       <h2 className="text-3xl font-bold">Task List</h2>
       <p className="text-md">
-        Important tasks have yellow outline while regular have green. Important
-        tasks will be at the top of the list
+        Icons signify task categories, yellow for important tasks and green for
+        regular ones
       </p>
-      <div className="space-y-3">
+      <div className="space-y-3 pt-3">
         <Button
           color="secondary"
           full="w-full"

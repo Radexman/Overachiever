@@ -5,14 +5,14 @@ const ThemeToggler = () => {
   const { toggleTheme, theme } = useContext(AppContext);
 
   return (
-    <label className="swap swap-rotate ">
+    <label className="swap swap-rotate">
       <input
         type="checkbox"
         onChange={toggleTheme}
         checked={theme === "emerald" ? false : true}
       />
       <svg
-        className="swap-on h-10 w-10 fill-current"
+        className="swap-on h-12 w-12 fill-current"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
