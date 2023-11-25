@@ -1,7 +1,6 @@
 import { useState, ChangeEvent, useContext, FormEvent, useEffect } from "react";
 import AppContext from "../../../Context/AppContext";
 import { v4 as uuidv4 } from "uuid";
-import Alert from "../Alert/Alert";
 
 const Form = () => {
   const [taskInput, setTaskInput] = useState<string>();
@@ -9,7 +8,8 @@ const Form = () => {
   const [detailsInput, setDetailsInput] = useState<string>();
   const [importantInput, setImportantInput] = useState<boolean>();
 
-  const { addTask, taskEdit, updateTask, theme } = useContext(AppContext);
+  const { addTask, taskEdit, updateTask, theme, formRef } =
+    useContext(AppContext);
 
   useEffect(() => {
     if (taskEdit.edit === true) {
@@ -64,6 +64,7 @@ const Form = () => {
         and mark its importance by checking the designated checkmark
       </p>
       <form
+        ref={formRef}
         onSubmit={handleSubmit}
         className={`space-y-2 rounded-lg ${
           theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
@@ -130,11 +131,10 @@ const Form = () => {
             />
           </label>
         </div>
-
         <button
           type="submit"
           disabled={!taskInput || category === undefined}
-          className="btn btn-secondary btn-outline block flex-1 md:btn-wide md:flex-none"
+          className="btn btn-secondary btn-outline w-full md:btn-wide"
         >
           Create Task
         </button>

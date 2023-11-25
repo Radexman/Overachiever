@@ -91,7 +91,6 @@ const SingleTask = ({ task }: SingleTaskProps) => {
           </div>
         </div>
       </div>
-      {/* <CustomModal /> */}
     </div>
   );
 };

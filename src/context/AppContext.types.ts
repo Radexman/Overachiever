@@ -1,4 +1,4 @@
-import { ReactNode, ChangeEvent } from "react";
+import { ReactNode, ChangeEvent, MutableRefObject } from "react";
 import { Task } from "../Types/Task.types";
 import { User } from "../Types/User.types";
 
@@ -33,6 +33,7 @@ export type ContextProps = {
   createUser: (user: User) => void;
   completeTask: (task: Task) => void;
   removeTask: (id: string) => void;
+  formRef: MutableRefObject<HTMLFormElement | null>;
   editTask: (task: Task) => void;
   updateTask: (id: string, updItem: Task) => void;
   finishDay: () => void;

@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, ChangeEvent } from "react";
+import { createContext, useState, useEffect, ChangeEvent, useRef } from "react";
 import { Task } from "../Types/Task.types";
 import { User } from "../Types/User.types";
 import { ContextProviderProps, ContextProps } from "./AppContext.types";
@@ -140,12 +140,16 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     }
   };
 
+  // Form ref
+  const formRef = useRef<HTMLFormElement | null>(null);
+
   // Edit task
   const editTask = (task: Task) => {
     setTaskEdit({
       task,
       edit: true,
     });
+    formRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   // Update task
@@ -277,6 +281,7 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         createUser,
         completeTask,
         removeTask,
+        formRef,
         editTask,
         updateTask,
         finishDay,
