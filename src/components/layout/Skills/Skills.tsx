@@ -1,3 +1,4 @@
+import { IoIosWarning } from "react-icons/io";
 import { useState } from "react";
 import Button from "../Button/Button";
 
@@ -8,8 +9,8 @@ const Skills = () => {
     <div className="w-full space-y-4 rounded-lg p-4 lg:w-1/2">
       <h2 className="text-3xl font-bold">Skills Section</h2>
       <p>
-        In this section you can check how well you're doing in each skill as
-        well as in your global profile level
+        This section allows you to assess your performance in individual skills
+        and your overall profile level
       </p>
       <p className="text-xl font-bold">Main Level: 34</p>
       <progress
@@ -29,12 +30,10 @@ const Skills = () => {
       />
       <div className={displayAllSkills ? "block" : "hidden"}>
         <div className="divider"></div>
-        <h3 className="text-3xl font-bold">More Skills</h3>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam,
-          adipisci porro, fugit placeat impedit harum hic sit accusantium ab
-          expedita, facilis consequuntur quibusdam sapiente qui.
-        </p>
+        <div className="flex flex-col items-center justify-center space-y-2 text-center">
+          <IoIosWarning size={80} />
+          <p>This section of an app is still in development, come back later</p>
+        </div>
       </div>
     </div>
   );

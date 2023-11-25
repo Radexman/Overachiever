@@ -285,6 +285,7 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         editTask,
         updateTask,
         finishDay,
+        yesterdayTasks,
       }}
     >
       {children}

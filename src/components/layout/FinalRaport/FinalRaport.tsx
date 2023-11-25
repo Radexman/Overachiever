@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { AiOutlineUser as UserIcon } from "react-icons/ai";
 import { AiOutlineThunderbolt as IconImportant } from "react-icons/ai";
 import { FaListUl as IconRegular } from "react-icons/fa";
-import { MdOutlinePlaylistAddCheckCircle as IconAll } from "react-icons/md";
 import { IoCheckmarkCircleOutline as IconCheckmark } from "react-icons/io5";
 import { FaRegCircleXmark as IconXmark } from "react-icons/fa6";
+import { FaRegCalendarCheck as IconAll } from "react-icons/fa";
 import AppContext from "../../../Context/AppContext";
 import { getCurrentDay } from "../../../utilities/helperFunctions";
 import RadialChart from "../RadialChart/RadialChart";
@@ -18,7 +18,13 @@ const FinalRaport = () => {
     user,
     completed,
     finishDay,
+    yesterdayTasks,
   } = useContext(AppContext);
+
+  const dailyAllRatio =
+    ((chartCalculations.completedTasks - yesterdayTasks.length) /
+      yesterdayTasks.length) *
+    100;
 
   return (
     <div className={`${!displayReport ? "hidden" : "block"} space-y-8`}>
@@ -45,17 +51,17 @@ const FinalRaport = () => {
           You have sucesfully completed {getCurrentDay()} <br />
           Here is how it went
         </p>
-        <p>
+        <p className="px-6 py-5 text-sm">
           You can exit report back to your profile by clicking button at the end
           of this report
         </p>
       </div>
       <div
-        className={`w-full rounded-lg shadow-sm shadow-primary-focus ${
+        className={`w-full rounded-lg shadow-none md:shadow-sm md:shadow-primary-focus ${
           theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
         }`}
       >
-        <div className="px-2 py-4 text-center md:p-4 lg:text-left">
+        <div className="px-2 py-2 text-center md:p-4 lg:text-left">
           <h3 className="mb-3 text-2xl font-bold md:mb-0 md:text-3xl">
             Number Of Completed Tasks
           </h3>
@@ -73,6 +79,7 @@ const FinalRaport = () => {
               {chartCalculations.importantTasksCompleted}
             </div>
             <div className="stat-title text-warning">Important Tasks</div>
+            <div className="stat-desc">{dailyAllRatio}%</div>
           </div>
 
           <div className="stat">
@@ -95,11 +102,11 @@ const FinalRaport = () => {
         </div>
       </div>
       <div
-        className={`w-full rounded-lg shadow-sm shadow-primary-focus ${
+        className={`w-full rounded-lg shadow-none md:shadow-sm md:shadow-primary-focus ${
           theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
         }`}
       >
-        <div className="px-2 py-4 text-center md:p-4 lg:text-left">
+        <div className="px-2 py-2 text-center md:p-4 lg:text-left">
           <h3 className="mb-3 text-2xl font-bold md:mb-0 md:text-3xl">
             Percentage Graphs
           </h3>
@@ -165,11 +172,11 @@ const FinalRaport = () => {
       </div>
       {/* Table */}
       <div
-        className={`w-full space-y-3 rounded-lg shadow-sm shadow-primary-focus ${
+        className={`w-full space-y-3 rounded-lg shadow-none md:shadow-sm md:shadow-primary-focus ${
           theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
         }`}
       >
-        <div className="px-2 py-4 text-center md:p-4 lg:text-left">
+        <div className="px-2 py-2 text-center md:p-4 lg:text-left">
           <h3 className="mb-3 text-2xl font-bold md:mb-0 md:text-3xl">
             Tasks Completed
           </h3>

@@ -37,4 +37,5 @@ export type ContextProps = {
   editTask: (task: Task) => void;
   updateTask: (id: string, updItem: Task) => void;
   finishDay: () => void;
+  yesterdayTasks: Task[];
 };

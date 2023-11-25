@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import AppContext from "../../../Context/AppContext";
 import { HiOutlineHome as Home } from "react-icons/hi";
-import { FaTasks as Tasks } from "react-icons/fa";
-import { BsFillPieChartFill as Chart } from "react-icons/bs";
-import { AiOutlineQuestionCircle as Faq } from "react-icons/ai";
+import { FaClipboardQuestion as Faq } from "react-icons/fa6";
+import { FaListUl } from "react-icons/fa";
+import { FaAddressCard } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const MobileNavbar = () => {
@@ -25,7 +25,7 @@ const MobileNavbar = () => {
           className={`nav-link group ${displayReport && "btn-disabled"}`}
         >
           <button className="nav-button">
-            <Tasks size={25} />
+            <FaListUl size={25} />
           </button>
         </NavLink>
         <NavLink
@@ -33,7 +33,7 @@ const MobileNavbar = () => {
           className={`nav-link group ${displayReport && "btn-disabled"}`}
         >
           <button className="nav-button">
-            <Chart size={25} />
+            <FaAddressCard size={25} />
           </button>
         </NavLink>
         <NavLink

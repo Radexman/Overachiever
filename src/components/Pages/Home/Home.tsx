@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div
       data-testid="home"
-      className="min-h-[80vh] bg-cover bg-center md:min-h-[90vh]"
+      className="min-h-[80vh] bg-cover bg-center md:min-h-[88vh]"
       style={{
         backgroundImage: `url(${imageTwo})`,
       }}

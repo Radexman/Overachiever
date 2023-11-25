@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AiOutlineThunderbolt as IconImportant } from "react-icons/ai";
 import { FaListUl as IconRegular } from "react-icons/fa";
-import { MdOutlinePlaylistAddCheckCircle as IconAll } from "react-icons/md";
+import { FaRegCalendarCheck as IconAll } from "react-icons/fa";
 import { taskType, BadgeCustomizationTypes, BadgeProps } from "./Badge.types";
 
 const Badge = ({ taskType, taskAmount }: BadgeProps) => {

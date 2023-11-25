@@ -13,9 +13,10 @@ const Charts = () => {
           Your Progress On {getCurrentDay()}
         </h2>
         <p>
-          In this section you can preview how well are you doing today. Yellow
-          graph represents important tasks, green regular and blue all tasks for
-          today
+          In this section, you have the opportunity to preview your current
+          progress. The yellow graph signifies crucial tasks, the green graph
+          denotes regular tasks, and the blue graph encompasses all tasks
+          scheduled for today
         </p>
       </div>
       <div
