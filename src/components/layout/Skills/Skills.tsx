@@ -1,6 +1,8 @@
 import { IoIosWarning } from "react-icons/io";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AppContext from "../../../Context/AppContext";
 import Button from "../Button/Button";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 const Skills = () => {
   const [displayAllSkills, setDisplayAllSkills] = useState(false);
@@ -13,11 +15,7 @@ const Skills = () => {
         and your overall profile level
       </p>
       <p className="text-xl font-bold">Main Level: 34</p>
-      <progress
-        className="progress progress-primary h-5 w-full"
-        value={10}
-        max="100"
-      ></progress>
+
       <Button
         color="info"
         size="sm"

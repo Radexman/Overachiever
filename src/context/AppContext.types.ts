@@ -16,8 +16,8 @@ export type ContextProps = {
   };
   chartCalculations: {
     importantTasksPercentage: number;
-    totalRemainingImportantTasks: number;
     importantTasksCompleted: number;
+    totalRemainingImportantTasks: number;
     regularTasksPercentage: number;
     regularTasksCompleted: number;
     totalRemainingRegularTasks: number;
