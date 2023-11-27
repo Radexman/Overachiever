@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import AppContext from "../../../Context/AppContext";
 import Button from "../Button/Button";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import LevelProgression from "../SkillProgression";
 
 const Skills = () => {
   const [displayAllSkills, setDisplayAllSkills] = useState(false);
@@ -15,7 +16,7 @@ const Skills = () => {
         and your overall profile level
       </p>
       <p className="text-xl font-bold">Main Level: 34</p>
-
+      <LevelProgression />
       <Button
         color="info"
         size="sm"
