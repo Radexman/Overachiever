@@ -1,6 +1,7 @@
 import { ReactNode, ChangeEvent, MutableRefObject } from "react";
 import { Task } from "../Types/Task.types";
 import { User } from "../Types/User.types";
+import { Level } from "../Types/Level.types";
 
 export type ContextProviderProps = {
   children: ReactNode;
@@ -27,6 +28,8 @@ export type ContextProps = {
   };
   displayReport: boolean;
   user: User;
+  userLevel: Level;
+  setUserLevel: (level: Level) => void;
   createReport: () => void;
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
   addTask: (newTask: Task) => void;

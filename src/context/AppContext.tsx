@@ -2,6 +2,7 @@ import { createContext, useState, useEffect, ChangeEvent, useRef } from "react";
 import { Task } from "../Types/Task.types";
 import { User } from "../Types/User.types";
 import { ContextProviderProps, ContextProps } from "./AppContext.types";
+import { Level } from "../Types/Level.types";
 
 const AppContext = createContext({} as ContextProps);
 
@@ -10,6 +11,12 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
   const [taskList, setTaskList] = useState<Task[]>(() => {
     const storedState = JSON.parse(localStorage.getItem("tasks")!);
     return storedState || [];
+  });
+
+  // Create user global level
+  const [userLevel, setUserLevel] = useState<Level>(() => {
+    const storedUserLevel = JSON.parse(localStorage.getItem("user-level")!);
+    return storedUserLevel || {};
   });
 
   // Create completed task list state and fetch it from local storage
@@ -51,11 +58,21 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     edit: false,
   });
 
+  // Create user state for level progression
+
   // Check on component mount if tasks array exists in local storage
   useEffect(() => {
     const storedTaskList = JSON.parse(localStorage.getItem("tasks")!);
     if (storedTaskList) {
       setTaskList(storedTaskList);
+    }
+  }, []);
+
+  // Check on component munt if user level object exists
+  useEffect(() => {
+    const storedUserLevel = JSON.parse(localStorage.getItem("user-level")!);
+    if (storedUserLevel) {
+      setUserLevel(storedUserLevel);
     }
   }, []);
 
@@ -81,6 +98,11 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
   useEffect(() => {
     localStorage.setItem("yesterday-tasks", JSON.stringify(yesterdayTasks));
   }, [yesterdayTasks]);
+
+  // Update user level in local storage on state change
+  useEffect(() => {
+    localStorage.setItem("user-level", JSON.stringify(userLevel));
+  }, [userLevel]);
 
   // Update user object in local store on user change
   useEffect(() => {
@@ -273,8 +295,10 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         taskEdit,
         completed,
         user,
+        userLevel,
         chartCalculations,
         displayReport,
+        setUserLevel,
         createReport,
         toggleTheme,
         addTask,
