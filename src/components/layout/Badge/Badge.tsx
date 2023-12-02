@@ -52,7 +52,7 @@ const Badge = ({ taskType, taskAmount }: BadgeProps) => {
   return (
     <div
       data-testid="badge"
-      className={`badge gap-2 text-xs ${badgeCustomization.color}`}
+      className={`text-md badge gap-2 md:text-xs ${badgeCustomization.color}`}
     >
       <div className="hidden md:block">{badgeCustomization.icon}</div>
       {`${badgeCustomization.text} ${taskAmount}`}

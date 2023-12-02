@@ -57,9 +57,9 @@ const Profile = () => {
   return (
     <div className="w-full space-y-3 lg:w-1/2">
       <div className={`space-y-5 rounded-lg p-4`}>
-        <div className="flex items-start gap-4">
+        <div className="flex flex-col items-center gap-4 md:flex-row md:items-start">
           <div className="avatar">
-            <div className="w-20 rounded-full ring ring-secondary lg:w-28">
+            <div className="w-36 rounded-full ring ring-secondary md:w-20 lg:w-28">
               {user.imageUrl ? (
                 <img
                   src={user.imageUrl}
@@ -73,11 +73,13 @@ const Profile = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-col gap-2">
-            <h1 className="text-3xl font-bold">
+          <div className="flex w-full flex-col gap-2 text-center md:text-left">
+            <h1 className="text-4xl font-bold md:text-3xl">
               {user.username ? user.username : "User Name"}
             </h1>
-            <p className="text-xs text-primary">Tasks completed today</p>
+            <p className="text-sm text-primary md:text-xs">
+              Tasks completed today
+            </p>
             <div className="space-x-2">
               <Badge
                 taskType="important"

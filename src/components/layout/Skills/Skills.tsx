@@ -18,18 +18,18 @@ const Skills = () => {
   // }, []);
 
   return (
-    <div className="w-full space-y-4 rounded-lg p-4 lg:w-1/2">
+    <div className="w-full space-y-3 rounded-lg p-4 lg:w-1/2">
       <h2 className="text-3xl font-bold">Skills Section</h2>
       <p>
         This section allows you to assess your performance and your overall
         profile level
       </p>
-      <p className="text-xl font-bold">Main Level - {userLevel.mainLevel}</p>
+      <p className="text-xl font-bold">Main Level {userLevel.mainLevel}</p>
       <p>
         Progress {userLevel.experience} / {userLevel.requieredExperience}
       </p>
       <ProgressBar
-        bgColor="progress-info"
+        bgColor="progress-secondary"
         completed={userLevel.experience}
         max={userLevel.requieredExperience}
       />
