@@ -30,6 +30,7 @@ export type ContextProps = {
   user: User;
   userLevel: Level;
   setUserLevel: (level: Level) => void;
+  handleExperienceGain: (amount: number) => void;
   createReport: () => void;
   toggleTheme: (e: ChangeEvent<HTMLInputElement>) => void;
   addTask: (newTask: Task) => void;

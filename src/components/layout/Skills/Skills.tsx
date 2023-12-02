@@ -1,12 +1,22 @@
 import { IoIosWarning } from "react-icons/io";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import AppContext from "../../../Context/AppContext";
 import Button from "../Button/Button";
 import ProgressBar from "../ProgressBar/ProgressBar";
-import LevelProgression from "../SkillProgression";
 
 const Skills = () => {
   const [displayAllSkills, setDisplayAllSkills] = useState(false);
+
+  const { userLevel, setUserLevel, handleExperienceGain } =
+    useContext(AppContext);
+
+  useEffect(() => {
+    setUserLevel({
+      mainLevel: 1,
+      experience: 0,
+      requieredExperience: 10,
+    });
+  }, []);
 
   return (
     <div className="w-full space-y-4 rounded-lg p-4 lg:w-1/2">
@@ -15,8 +25,16 @@ const Skills = () => {
         This section allows you to assess your performance in individual skills
         and your overall profile level
       </p>
-      <p className="text-xl font-bold">Main Level: 34</p>
-      <LevelProgression />
+      <p className="text-xl font-bold">Main Level: {userLevel.mainLevel}</p>
+      <p>
+        Experience: {userLevel.experience} / {userLevel.requieredExperience}
+      </p>
+      <ProgressBar
+        bgColor="progress-info"
+        completed={userLevel.experience}
+        max={userLevel.requieredExperience}
+      />
+      <button onClick={() => handleExperienceGain(2)}>Gain Experience</button>
       <Button
         color="info"
         size="sm"

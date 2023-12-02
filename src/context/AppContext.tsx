@@ -162,6 +162,21 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     }
   };
 
+  const handleExperienceGain = (amount: number) => {
+    const newExperience = userLevel.experience + amount;
+
+    if (newExperience >= userLevel.requieredExperience) {
+      let mainLevel = userLevel.mainLevel + 1;
+      let experience = (userLevel.experience = 0);
+      let requieredExperience = userLevel.requieredExperience * 2;
+
+      setUserLevel({ mainLevel, experience, requieredExperience });
+    } else {
+      let experience = userLevel.experience + amount;
+      setUserLevel({ ...userLevel, experience });
+    }
+  };
+
   // Form ref
   const formRef = useRef<HTMLFormElement | null>(null);
 
@@ -298,14 +313,15 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         userLevel,
         chartCalculations,
         displayReport,
+        formRef,
         setUserLevel,
         createReport,
         toggleTheme,
         addTask,
         createUser,
         completeTask,
+        handleExperienceGain,
         removeTask,
-        formRef,
         editTask,
         updateTask,
         finishDay,
