@@ -59,6 +59,21 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
   });
 
   // Create user state for level progression
+  const handleExperienceGain = (amount: number) => {
+    const newExperience = userLevel.experience + amount;
+
+    if (newExperience >= userLevel.requieredExperience) {
+      let mainLevel = userLevel.mainLevel + 1;
+      let experience = (userLevel.experience = 0);
+      let requieredExperience = userLevel.requieredExperience * 2;
+
+      setUserLevel({ mainLevel, experience, requieredExperience });
+    } else {
+      let experience = userLevel.experience + amount;
+      setUserLevel({ ...userLevel, experience });
+    }
+    console.log("Clicked");
+  };
 
   // Check on component mount if tasks array exists in local storage
   useEffect(() => {
@@ -124,6 +139,11 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     localStorage.setItem("tasks", JSON.stringify(taskList));
   }, [taskList]);
 
+  // Update user level in local storage
+  useEffect(() => {
+    localStorage.setItem("user-level", JSON.stringify(userLevel));
+  }, [userLevel]);
+
   // Update completed tasks in local storage on completed change
   useEffect(() => {
     localStorage.setItem("completed-tasks", JSON.stringify(completed));
@@ -162,20 +182,20 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     }
   };
 
-  const handleExperienceGain = (amount: number) => {
-    const newExperience = userLevel.experience + amount;
+  // const handleExperienceGain = (amount: number) => {
+  // const newExperience = userLevel.experience + amount;
 
-    if (newExperience >= userLevel.requieredExperience) {
-      let mainLevel = userLevel.mainLevel + 1;
-      let experience = (userLevel.experience = 0);
-      let requieredExperience = userLevel.requieredExperience * 2;
+  // if (newExperience >= userLevel.requieredExperience) {
+  //   let mainLevel = userLevel.mainLevel + 1;
+  //   let experience = (userLevel.experience = 0);
+  //   let requieredExperience = userLevel.requieredExperience * 2;
 
-      setUserLevel({ mainLevel, experience, requieredExperience });
-    } else {
-      let experience = userLevel.experience + amount;
-      setUserLevel({ ...userLevel, experience });
-    }
-  };
+  //   setUserLevel({ mainLevel, experience, requieredExperience });
+  // } else {
+  //   let experience = userLevel.experience + amount;
+  //   setUserLevel({ ...userLevel, experience });
+  // }
+  // };
 
   // Form ref
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -228,6 +248,11 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
   const completeTask = (task: Task) => {
     setCompleted([...completed, task]);
     removeTask(task.id);
+    if (task.important) {
+      handleExperienceGain(5);
+    } else {
+      handleExperienceGain(2);
+    }
   };
 
   // Remove task
@@ -320,7 +345,6 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
         addTask,
         createUser,
         completeTask,
-        handleExperienceGain,
         removeTask,
         editTask,
         updateTask,

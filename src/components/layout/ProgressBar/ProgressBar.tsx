@@ -4,7 +4,7 @@ const ProgressBar = ({ bgColor, completed, max }: ProgressBarProps) => {
   return (
     <progress
       className={`progress h-3 ${bgColor} w-full`}
-      value={completed}
+      value={completed ? completed : 0}
       max={max}
     ></progress>
   );
