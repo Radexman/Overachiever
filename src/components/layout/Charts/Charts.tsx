@@ -8,7 +8,7 @@ const Charts = () => {
 
   return (
     <div className="w-full space-y-3">
-      <div className="space-y-3 p-4">
+      <div className="space-y-3 p-4 text-center md:text-left">
         <h2 className="text-3xl font-bold">
           Your Progress On {getCurrentDay()}
         </h2>

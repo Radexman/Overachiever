@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div
       data-testid="home"
-      className="min-h-[80vh] bg-cover bg-center md:min-h-[88vh]"
+      className="min-h-[80vh] bg-cover bg-center md:min-h-[90vh]"
       style={{
         backgroundImage: `url(${imageTwo})`,
       }}
@@ -15,7 +15,7 @@ const Home = () => {
           <h1 className="mb-5 px-1 text-5xl font-bold md:px-0 xl:text-7xl">
             Achieve Your Daily Tasks With Ease
           </h1>
-          <p className="mb-5 px-3 text-xl md:px-0">
+          <p className="mb-5 px-4 text-xl md:px-0">
             Elevate your performance with detailed progress reports. Track your
             success, customize your tasks, and unleash your potential. Dive into
             detailed performance insights and redefine your achievement game!

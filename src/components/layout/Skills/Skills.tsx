@@ -9,18 +9,12 @@ const Skills = () => {
 
   const { userLevel } = useContext(AppContext);
 
-  // useEffect(() => {
-  //   setUserLevel({
-  //     mainLevel: 1,
-  //     experience: 0,
-  //     requieredExperience: 10,
-  //   });
-  // }, []);
-
   return (
     <div className="w-full space-y-3 rounded-lg p-4 lg:w-1/2">
-      <h2 className="text-3xl font-bold">Skills Section</h2>
-      <p>
+      <h2 className="text-center text-3xl font-bold md:text-left">
+        Skills Section
+      </h2>
+      <p className="text-center md:text-left">
         This section allows you to assess your performance and your overall
         profile level
       </p>

@@ -96,7 +96,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <p>
+        <p className="text-center md:text-left">
           {user.bio
             ? user.bio
             : "I am mysterious individual who hasn't filed their profile section yet."}
