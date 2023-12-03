@@ -56,7 +56,7 @@ const Profile = () => {
 
   return (
     <div className="w-full space-y-3 lg:w-1/2">
-      <div className={`space-y-5 rounded-lg p-4`}>
+      <div className="space-y-5 p-4">
         <div className="flex flex-col items-center gap-4 md:flex-row md:items-start">
           <div className="avatar">
             <div className="w-36 rounded-full ring ring-secondary md:w-20 lg:w-28">

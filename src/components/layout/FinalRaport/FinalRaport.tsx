@@ -94,7 +94,7 @@ const FinalRaport = () => {
             <div
               className={`stat-desc ${
                 dailyImportantRatio > 0 ? "text-green-400" : "text-red-400"
-              }`}
+              } ${yesterdayTasks.length || "hidden"}`}
             >
               {dailyImportantRatio.toFixed()}%{" "}
               {dailyImportantRatio > 0
@@ -116,7 +116,7 @@ const FinalRaport = () => {
             <div
               className={`stat-desc ${
                 dailyRegularRatio > 0 ? "text-green-400" : "text-red-400"
-              }`}
+              } ${yesterdayTasks.length || "hidden"}`}
             >
               {dailyRegularRatio.toFixed()}%{" "}
               {dailyRegularRatio > 0
@@ -136,7 +136,7 @@ const FinalRaport = () => {
             <div
               className={`stat-desc ${
                 dailyAllRatio > 0 ? "text-green-400" : "text-red-400"
-              }`}
+              } ${yesterdayTasks.length || "hidden"}`}
             >
               {dailyAllRatio.toFixed()}%{" "}
               {dailyAllRatio > 0
