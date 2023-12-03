@@ -278,6 +278,18 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
   let regularTotalTasks = 0;
   let regularTasksCompleted = 0;
 
+  // Yesterday tasks
+  let yesterdayRegularTasks = 0;
+  let yesterdayImportantTasks = 0;
+
+  for (const task of yesterdayTasks) {
+    if (task.important) {
+      yesterdayImportantTasks++;
+    } else {
+      yesterdayRegularTasks++;
+    }
+  }
+
   // Important Tasks Not Completed Amount
   let importantTotalTasks = 0;
   for (const task of taskList) {
@@ -316,6 +328,8 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
     (importantTasksCompleted / totalImportantTasks) * 100;
 
   const chartCalculations = {
+    yesterdayRegularTasks,
+    yesterdayImportantTasks,
     importantTasksPercentage,
     importantTasksCompleted,
     totalRemainingImportantTasks,

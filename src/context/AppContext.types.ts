@@ -16,6 +16,8 @@ export type ContextProps = {
     edit: boolean;
   };
   chartCalculations: {
+    yesterdayRegularTasks: number;
+    yesterdayImportantTasks: number;
     importantTasksPercentage: number;
     importantTasksCompleted: number;
     totalRemainingImportantTasks: number;

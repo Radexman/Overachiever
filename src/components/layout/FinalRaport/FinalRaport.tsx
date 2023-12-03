@@ -26,6 +26,18 @@ const FinalRaport = () => {
       yesterdayTasks.length) *
     100;
 
+  const dailyRegularRatio =
+    ((chartCalculations.regularTasksCompleted -
+      chartCalculations.yesterdayRegularTasks) /
+      chartCalculations.yesterdayRegularTasks) *
+    100;
+
+  const dailyImportantRatio =
+    ((chartCalculations.importantTasksCompleted -
+      chartCalculations.yesterdayImportantTasks) /
+      chartCalculations.yesterdayImportantTasks) *
+    100;
+
   return (
     <div className={`${!displayReport ? "hidden" : "block"} space-y-8`}>
       <div className="flex flex-col items-center justify-center space-y-4 pb-12 text-center">
@@ -79,7 +91,18 @@ const FinalRaport = () => {
               {chartCalculations.importantTasksCompleted}
             </div>
             <div className="stat-title text-warning">Important Tasks</div>
-            <div className="stat-desc">{dailyAllRatio}%</div>
+            <div
+              className={`stat-desc ${
+                dailyImportantRatio > 0 ? "text-green-400" : "text-red-400"
+              }`}
+            >
+              {dailyImportantRatio.toFixed()}%{" "}
+              {dailyImportantRatio > 0
+                ? "more than yesterday"
+                : dailyImportantRatio === 0
+                ? "same as yesterday"
+                : "less than yesterday"}
+            </div>
           </div>
 
           <div className="stat">
@@ -90,6 +113,18 @@ const FinalRaport = () => {
               {chartCalculations.regularTasksCompleted}
             </div>
             <div className="stat-title text-success">Regular Tasks</div>
+            <div
+              className={`stat-desc ${
+                dailyRegularRatio > 0 ? "text-green-400" : "text-red-400"
+              }`}
+            >
+              {dailyRegularRatio.toFixed()}%{" "}
+              {dailyRegularRatio > 0
+                ? "more than yesterday"
+                : dailyRegularRatio === 0
+                ? "same as yesterday"
+                : "less than yesterday"}
+            </div>
           </div>
 
           <div className="stat">
@@ -98,6 +133,18 @@ const FinalRaport = () => {
             </div>
             <div className="stat-value">{chartCalculations.completedTasks}</div>
             <div className="stat-title text-info">All Tasks</div>
+            <div
+              className={`stat-desc ${
+                dailyAllRatio > 0 ? "text-green-400" : "text-red-400"
+              }`}
+            >
+              {dailyAllRatio.toFixed()}%{" "}
+              {dailyAllRatio > 0
+                ? "more than yesterday"
+                : dailyAllRatio === 0
+                ? "same as yesterday"
+                : "less than yesterday"}
+            </div>
           </div>
         </div>
       </div>
