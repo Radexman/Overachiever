@@ -14,7 +14,7 @@ const Badge = ({ taskType, taskAmount }: BadgeProps) => {
 
   useEffect(() => {
     customizeBadge(taskType);
-  }, []);
+  }, [taskType]);
 
   const customizeBadge = (taskType: taskType) => {
     switch (taskType) {

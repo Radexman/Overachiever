@@ -3,7 +3,7 @@ import { ProgressBarProps } from "./ProgressBar.types";
 const ProgressBar = ({ bgColor, completed, max }: ProgressBarProps) => {
   return (
     <progress
-      className={`progress h-5 ${bgColor} w-full`}
+      className={`progress h-4 ${bgColor} w-full border border-secondary-focus`}
       value={completed ? completed : 0}
       max={max}
     ></progress>

@@ -32,7 +32,6 @@ const Profile = () => {
       setAvatar(files[0]);
     } else {
       setAvatar(null);
-      console.error("No file selected");
     }
   };
 

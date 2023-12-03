@@ -24,7 +24,6 @@ const Charts = () => {
           theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0 "
         } shadow-sm shadow-primary-focus`}
       >
-        {/* Single Stat Important */}
         <div className="stat">
           <div className="stat-figure text-primary">
             <RadialChart
@@ -42,7 +41,6 @@ const Charts = () => {
           <div className="stat-title text-warning">Important Tasks Done</div>
           <div className="stat-desc text-secondary">{`${chartCalculations.totalRemainingImportantTasks} tasks remaining`}</div>
         </div>
-        {/* Single Stat Regular */}
         <div className="stat">
           <div className="stat-figure text-primary">
             <RadialChart
@@ -60,7 +58,6 @@ const Charts = () => {
           <div className="stat-title text-success">Regular Tasks Done</div>
           <div className="stat-desc text-secondary">{`${chartCalculations.totalRemainingRegularTasks} tasks remaining`}</div>
         </div>
-        {/* Single Stat All */}
         <div className="stat">
           <div className="stat-figure text-primary">
             <RadialChart

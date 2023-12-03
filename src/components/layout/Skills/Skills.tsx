@@ -6,7 +6,6 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 
 const Skills = () => {
   const [displayAllSkills, setDisplayAllSkills] = useState(false);
-
   const { userLevel } = useContext(AppContext);
 
   return (
@@ -40,8 +39,11 @@ const Skills = () => {
       <div className={displayAllSkills ? "block" : "hidden"}>
         <div className="divider"></div>
         <div className="flex flex-col items-center justify-center space-y-2 text-center">
-          <IoIosWarning size={80} />
-          <p>This section of an app is still in development, come back later</p>
+          <IoIosWarning size={50} />
+          <p>
+            This section of an app is still in development, come back later.
+            This feature will contain more skill bars for each category
+          </p>
         </div>
       </div>
     </div>

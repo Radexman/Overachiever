@@ -75,11 +75,11 @@ const Form = () => {
             Task Name
           </label>
           <input
+            value={taskInput}
             id="task"
             onChange={handleTaskInput}
             type="text"
             maxLength={22}
-            value={taskInput}
             placeholder="Write down new task..."
             className="input input-bordered input-secondary"
           />
@@ -89,8 +89,8 @@ const Form = () => {
             Category
           </label>
           <select
-            id="category"
             value={category}
+            id="category"
             onChange={handleCategoryChange}
             className="select select-secondary w-full"
           >

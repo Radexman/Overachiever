@@ -29,7 +29,6 @@ const TaskList = () => {
             close: "Hide Tasks To Complete",
           }}
         />
-        {/*  Tasks to complete */}
         <div
           className={`mb-6 space-y-4 ${
             displayNotCompletedTasks ? "block" : "hidden"

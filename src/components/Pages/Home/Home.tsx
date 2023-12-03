@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import imageTwo from "../../../assets/hero-img.svg";
+import heroImg from "../../../assets/hero-img.svg";
 
 const Home = () => {
   return (
@@ -7,7 +7,7 @@ const Home = () => {
       data-testid="home"
       className="min-h-[80vh] bg-cover bg-center md:min-h-[90vh]"
       style={{
-        backgroundImage: `url(${imageTwo})`,
+        backgroundImage: `url(${heroImg})`,
       }}
     >
       <div className="flex justify-start pt-0 md:pt-36">

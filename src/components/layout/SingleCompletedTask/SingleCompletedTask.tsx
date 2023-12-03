@@ -17,7 +17,7 @@ const SingleCompletedTask = ({ task }: SingleTaskProps) => {
 
   useEffect(() => {
     customizeIcon(category);
-  }, [task]);
+  }, [task, category]);
 
   const customizeIcon = (category: categoryType): void => {
     switch (category) {

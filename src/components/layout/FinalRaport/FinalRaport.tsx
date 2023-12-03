@@ -164,7 +164,6 @@ const FinalRaport = () => {
           </p>
         </div>
         <div className={`stats stats-vertical w-full lg:stats-horizontal `}>
-          {/* Single Stat Important */}
           <div className="stat">
             <div className="stat-figure text-primary">
               <RadialChart
@@ -181,7 +180,6 @@ const FinalRaport = () => {
             </div>
             <div className="stat-title text-warning">Important Tasks Done</div>
           </div>
-          {/* Single Stat Regular */}
           <div className="stat">
             <div className="stat-figure text-primary">
               <RadialChart
@@ -198,7 +196,6 @@ const FinalRaport = () => {
             </div>
             <div className="stat-title text-success">Regular Tasks Done</div>
           </div>
-          {/* Single Stat All */}
           <div className="stat">
             <div className="stat-figure text-primary">
               <RadialChart
@@ -217,7 +214,6 @@ const FinalRaport = () => {
           </div>
         </div>
       </div>
-      {/* Table */}
       <div
         className={`w-full space-y-3 rounded-lg shadow-none md:shadow-sm md:shadow-primary-focus ${
           theme === "emerald" ? "shadow-lg shadow-slate-500" : "border-0"
@@ -245,7 +241,7 @@ const FinalRaport = () => {
             {completed.map((task, index) => {
               const { todo, category, details, important } = task;
               return (
-                <tr>
+                <tr key={index}>
                   <th>{index + 1}</th>
                   <td>{todo}</td>
                   <td>{category}</td>

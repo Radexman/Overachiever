@@ -6,6 +6,7 @@ import Tasks from "./components/Pages/Tasks/Tasks";
 import Stats from "./components/Pages/Stats/Stats";
 import About from "./components/Pages/About/About";
 import { AppContextProvider } from "./Context/AppContext";
+import NotFound from "./components/Pages/NotFound/NotFound";
 
 const App = () => {
   return (
@@ -19,7 +20,7 @@ const App = () => {
               <Route path="/tasks" element={<Tasks />} />
               <Route path="/stats" element={<Stats />} />
               <Route path="/about" element={<About />} />
-              {/* @TODO Add Notfound Component */}
+              <Route path="/*" element={<NotFound />} />
             </Routes>
           </main>
           <MobileNavbar />
