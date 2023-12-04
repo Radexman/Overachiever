@@ -12,8 +12,16 @@ const Profile = () => {
   const [imageUrl, setImageUrl] = useState<string | undefined>();
   const [bio, setBio] = useState<string>();
 
-  const { user, createUser, chartCalculations, theme, taskList, completed } =
-    useContext(AppContext);
+  const {
+    user,
+    createUser,
+    chartCalculations,
+    theme,
+    taskList,
+    completed,
+    setUserLevel,
+    userLevel,
+  } = useContext(AppContext);
 
   useEffect(() => {
     if (avatar) {
@@ -49,6 +57,14 @@ const Profile = () => {
     };
 
     createUser(user);
+
+    if (Object.keys(userLevel).length < 2) {
+      setUserLevel({
+        mainLevel: 1,
+        experience: 0,
+        requieredExperience: 10,
+      });
+    }
 
     setDisplayForm(false);
   };
@@ -95,7 +111,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <p className="text-center md:text-left">
+        <p className="w-full text-center md:text-left">
           {user.bio
             ? user.bio
             : "I am mysterious individual who hasn't filed their profile section yet."}

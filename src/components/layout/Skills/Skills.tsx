@@ -1,5 +1,5 @@
 import { IoIosWarning } from "react-icons/io";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import AppContext from "../../../Context/AppContext";
 import Button from "../Button/Button";
 import ProgressBar from "../ProgressBar/ProgressBar";
@@ -8,6 +8,8 @@ const Skills = () => {
   const [displayAllSkills, setDisplayAllSkills] = useState(false);
   const { userLevel } = useContext(AppContext);
 
+  useEffect(() => {}, []);
+
   return (
     <div className="w-full space-y-3 rounded-lg p-4 lg:w-1/2">
       <h2 className="text-center text-3xl font-bold md:text-left">
@@ -15,17 +17,31 @@ const Skills = () => {
       </h2>
       <p className="text-center md:text-left">
         This section allows you to assess your performance and your overall
-        profile level
+        profile level. You need to create / edit your profile first to se your
+        progress!
       </p>
-      <p className="text-xl font-bold">Main Level {userLevel.mainLevel}</p>
-      <p>
-        Progress {userLevel.experience} / {userLevel.requieredExperience}
+      <div
+        className={`${Object.keys(userLevel).length < 2 ? "hidden" : "block"}`}
+      >
+        <p className="text-xl font-bold">Main Level {userLevel.mainLevel}</p>
+        <p>
+          Progress{" "}
+          {userLevel.experience === null
+            ? "Create Profile to start!"
+            : userLevel.experience}{" "}
+          / {userLevel.requieredExperience}
+        </p>
+        <ProgressBar
+          bgColor="progress-secondary"
+          completed={userLevel.experience}
+          max={userLevel.requieredExperience}
+        />
+      </div>
+      <p
+        className={`${Object.keys(userLevel).length < 2 ? "block" : "hidden"}`}
+      >
+        Create profile to initialize your profile level
       </p>
-      <ProgressBar
-        bgColor="progress-secondary"
-        completed={userLevel.experience}
-        max={userLevel.requieredExperience}
-      />
       <Button
         color="info"
         size="sm"

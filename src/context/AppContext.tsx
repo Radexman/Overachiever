@@ -60,18 +60,19 @@ export const AppContextProvider = ({ children }: ContextProviderProps) => {
 
   // Create user state for level progression
   const handleExperienceGain = (amount: number) => {
-    const newExperience = userLevel.experience + amount;
+    setUserLevel((prevUserLevel) => {
+      const newExperience = prevUserLevel.experience + amount;
 
-    if (newExperience >= userLevel.requieredExperience) {
-      let mainLevel = userLevel.mainLevel + 1;
-      let experience = (userLevel.experience = 0);
-      let requieredExperience = userLevel.requieredExperience * 2;
+      if (newExperience >= prevUserLevel.requieredExperience) {
+        const mainLevel = prevUserLevel.mainLevel + 1;
+        const experience = 0;
+        const requieredExperience = prevUserLevel.requieredExperience * 2;
 
-      setUserLevel({ mainLevel, experience, requieredExperience });
-    } else {
-      let experience = userLevel.experience + amount;
-      setUserLevel({ ...userLevel, experience });
-    }
+        return { mainLevel, experience, requieredExperience };
+      } else {
+        return { ...prevUserLevel, experience: newExperience };
+      }
+    });
   };
 
   // Check on component mount if tasks array exists in local storage
