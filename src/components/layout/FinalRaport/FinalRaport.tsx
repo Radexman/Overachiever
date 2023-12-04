@@ -119,7 +119,9 @@ const FinalRaport = () => {
               } ${yesterdayTasks.length || "hidden"}`}
             >
               {dailyRegularRatio.toFixed()}%{" "}
-              {dailyRegularRatio > 0
+              {!isFinite(dailyRegularRatio)
+                ? ""
+                : dailyRegularRatio > 0
                 ? "more than yesterday"
                 : dailyRegularRatio === 0
                 ? "same as yesterday"

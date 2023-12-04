@@ -116,30 +116,32 @@ const Profile = () => {
             ? user.bio
             : "I am mysterious individual who hasn't filed their profile section yet."}
         </p>
-        <Button
-          color="secondary"
-          size="sm"
-          open={displayForm}
-          togglerFunction={setDisplayForm}
-          textContent={{
-            open: "Edit Profile",
-            close: "Hide Form",
-          }}
-        />
-        <button
-          className={`btn btn-secondary btn-sm ml-2 p-2 ${
-            taskList.length === 0 && completed.length === 0 && "btn-disabled"
-          }`}
-          onClick={() =>
-            (
-              document.getElementById(
-                "finish-day-modal",
-              ) as HTMLDialogElement | null
-            )?.showModal()
-          }
-        >
-          Finish Day
-        </button>
+        <div className="flex justify-center md:justify-start">
+          <Button
+            color="secondary"
+            size="sm"
+            open={displayForm}
+            togglerFunction={setDisplayForm}
+            textContent={{
+              open: "Edit Profile",
+              close: "Hide Form",
+            }}
+          />
+          <button
+            className={`btn btn-secondary btn-sm ml-2 p-2 ${
+              taskList.length === 0 && completed.length === 0 && "btn-disabled"
+            }`}
+            onClick={() =>
+              (
+                document.getElementById(
+                  "finish-day-modal",
+                ) as HTMLDialogElement | null
+              )?.showModal()
+            }
+          >
+            Finish Day
+          </button>
+        </div>
         <Modal />
         <div className={displayForm ? "block" : "hidden"}>
           <div className="divider"></div>
