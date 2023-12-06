@@ -40,7 +40,7 @@ const FinalRaport = () => {
 
   return (
     <div className={`${!displayReport ? "hidden" : "block"} space-y-8`}>
-      <div className="flex flex-col items-center justify-center space-y-2 pb-3 text-center">
+      <div className="flex flex-col items-center justify-center space-y-2 text-center">
         <div className="avatar">
           <div className="w-32 rounded-full ring ring-secondary md:w-40">
             {user.imageUrl ? (
@@ -178,7 +178,7 @@ const FinalRaport = () => {
       >
         <div className="px-2 py-2 text-center md:p-4 lg:text-left">
           <h3 className="mb-3 text-2xl font-bold md:mb-0 md:text-3xl">
-            Percentage Graphs
+            Completion of individual tasks
           </h3>
           <p>
             Each graph in a given category shows the number of tasks you have

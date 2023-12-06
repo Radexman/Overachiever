@@ -1,49 +1,27 @@
 # **Overachiever**
 
-This web app is a SPA build with React, Taiwlind CSS and Daisy UI styled components library. I also used TypeScript here.
+This web app is a SPA build with React, Taiwlind CSS and Daisy UI styled components library. I also used TypeScript here and started to test smaller chunks of an app with Jest and RTL.
 
 ## **Overview**
 
 Now this app sreves a couple of pourpouses, user can create various tasks, customize them and set the importance of each task. All of these actions are represented in the UI. Additionaly what separates this project from regular cookie cutter doto app is the statistics section where user can track their daily progress that they did by creating and compleating their tasks.
 
-## **To Do**
+### **Datailed Feedback And Progression**
 
-- [x] Completed tasks state
-- [ ] Notifications for important tasks
-- [ ] About Page content
-- [x] Stats Page content
-- [x] Graphs and charts in Stats Page
-- [ ] Daily reset for the tasks
-- [ ] Add category icon
-- [ ] Modal component
-- [x] Add profile creation form
-- [x] Create profile context
+This app provides detailed feedback on how user is performing on a day to day basis via graphs, percentages, lists of tasks and comparisons
+to previous day.Each task carries experience points which are rewarded at the task completion. This feature progresses main account level and gamifies whole user experience.
 
-- [ ] Complete Day Feature - create button that cleares all states (start new day). Before all state is removed show popup with summary of all completed and not completed tasks.
-- [ ] Segregate prop types into seperate files
-- [ ] Test all components
+### **User Profile**
 
-### **Complete Day Feature Overwiev**
+User can create their own small profile with username, short bio section and even profile picture to make their experience with this app more of their own.
 
-This functionality will be placed in the Stats section and the trigger will be button that first will ask for confirmation because this action will clear all the completed and not completed tasks.
+### **Local Storage**
 
-This feature should:
+User can create their own small profile with username, short bio section and even profile picture to make their experience with this app more of their own.
 
-- Disable the button and prevent user from clicking it if the task list is empty.
-- On click it should ask first for confirmation to proceed with action or to reject it.
-- Upon confirmation there should be a raport generated on how much user achieved that day (Graphs, Task amounts and personalized congratulatiuon messages).
-- If this is the first day that user is doing there should be an empty comparison array but upon the first completion the state of completed day has to be pushed to the array that holds stats purely for comparison pourpouses (eg. in percentage, was it less or more than previous day that user did?).
-- On each raport generation the current state od the app needs to be cleared and completed tasks needs to be moved into previous day comparison array.
+### **UX / UI**
 
-## **Task Category**
-
-- Main
-- Work
-- Study
-- Workout
-- Cooking
-- Hobby
-- Housekeeping
+This app was created with mobile first principle and looks great both on desktop and on smaller devices. Theme switcher allows users to use color palette that they prefer the most.
 
 ## **Tech Stack**
 
@@ -51,6 +29,9 @@ This feature should:
 - TypeScript
 - Tailwind CSS
 - Daisy UI
+- UUID
+- Jest
+- RTL
 
 ## **How To Use**
 

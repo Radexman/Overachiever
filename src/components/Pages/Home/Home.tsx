@@ -20,7 +20,7 @@ const Home = () => {
             success, customize your tasks, and unleash your potential. Dive into
             detailed performance insights and redefine your achievement game!
           </p>
-          <Link to="/tasks">
+          <Link to="/stats">
             <button className="btn btn-secondary btn-outline btn-wide my-4">
               Start Overachieving
             </button>
