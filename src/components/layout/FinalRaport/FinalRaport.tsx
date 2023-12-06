@@ -40,7 +40,7 @@ const FinalRaport = () => {
 
   return (
     <div className={`${!displayReport ? "hidden" : "block"} space-y-8`}>
-      <div className="flex flex-col items-center justify-center space-y-4 pb-12 text-center">
+      <div className="flex flex-col items-center justify-center space-y-2 pb-3 text-center">
         <div className="avatar">
           <div className="w-32 rounded-full ring ring-secondary md:w-40">
             {user.imageUrl ? (
@@ -93,14 +93,20 @@ const FinalRaport = () => {
             <div className="stat-title text-warning">Important Tasks</div>
             <div
               className={`stat-desc ${
-                dailyImportantRatio > 0 ? "text-green-400" : "text-red-400"
+                dailyImportantRatio > 0
+                  ? "text-green-400"
+                  : dailyImportantRatio === 0
+                  ? "text-salte-400"
+                  : "text-red-400"
               } ${yesterdayTasks.length || "hidden"}`}
             >
               {!isFinite(dailyImportantRatio)
-                ? ""
+                ? " "
                 : dailyImportantRatio.toFixed()}
-              {!isFinite(dailyImportantRatio) ? "" : "% "}
-              {dailyImportantRatio > 0
+              {!isFinite(dailyImportantRatio) ? " " : "% "}
+              {!isFinite(dailyImportantRatio)
+                ? ""
+                : dailyImportantRatio > 0
                 ? "more than yesterday"
                 : dailyImportantRatio === 0
                 ? "same as yesterday"
@@ -118,10 +124,15 @@ const FinalRaport = () => {
             <div className="stat-title text-success">Regular Tasks</div>
             <div
               className={`stat-desc ${
-                dailyRegularRatio > 0 ? "text-green-400" : "text-red-400"
+                dailyRegularRatio > 0
+                  ? "text-green-400"
+                  : dailyRegularRatio === 0
+                  ? "text-salte-400"
+                  : "text-red-400"
               } ${yesterdayTasks.length || "hidden"}`}
             >
-              {!isFinite(dailyRegularRatio) ? "" : dailyRegularRatio.toFixed()}{" "}
+              {!isFinite(dailyRegularRatio) ? " " : dailyRegularRatio.toFixed()}
+              {!isFinite(dailyImportantRatio) ? " " : "% "}
               {!isFinite(dailyRegularRatio)
                 ? ""
                 : dailyRegularRatio > 0
@@ -140,11 +151,18 @@ const FinalRaport = () => {
             <div className="stat-title text-info">All Tasks</div>
             <div
               className={`stat-desc ${
-                dailyAllRatio > 0 ? "text-green-400" : "text-red-400"
+                dailyAllRatio > 0
+                  ? "text-green-400"
+                  : dailyAllRatio === 0
+                  ? "text-salte-400"
+                  : "text-red-400"
               } ${yesterdayTasks.length || "hidden"}`}
             >
-              {dailyAllRatio.toFixed()}%{" "}
-              {dailyAllRatio > 0
+              {!isFinite(dailyAllRatio) ? " " : dailyAllRatio.toFixed()}
+              {!isFinite(dailyImportantRatio) ? " " : "% "}
+              {!isFinite(dailyAllRatio)
+                ? ""
+                : dailyAllRatio > 0
                 ? "more than yesterday"
                 : dailyAllRatio === 0
                 ? "same as yesterday"
