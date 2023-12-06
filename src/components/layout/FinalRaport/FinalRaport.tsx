@@ -96,7 +96,10 @@ const FinalRaport = () => {
                 dailyImportantRatio > 0 ? "text-green-400" : "text-red-400"
               } ${yesterdayTasks.length || "hidden"}`}
             >
-              {dailyImportantRatio.toFixed()}%{" "}
+              {!isFinite(dailyImportantRatio)
+                ? ""
+                : dailyImportantRatio.toFixed()}
+              {!isFinite(dailyImportantRatio) ? "" : "% "}
               {dailyImportantRatio > 0
                 ? "more than yesterday"
                 : dailyImportantRatio === 0
@@ -118,7 +121,7 @@ const FinalRaport = () => {
                 dailyRegularRatio > 0 ? "text-green-400" : "text-red-400"
               } ${yesterdayTasks.length || "hidden"}`}
             >
-              {dailyRegularRatio.toFixed()}%{" "}
+              {!isFinite(dailyRegularRatio) ? "" : dailyRegularRatio.toFixed()}{" "}
               {!isFinite(dailyRegularRatio)
                 ? ""
                 : dailyRegularRatio > 0
