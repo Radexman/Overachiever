@@ -2,6 +2,9 @@
 
 This web app is a SPA build with React, Taiwlind CSS and Daisy UI styled components library. I also used TypeScript here and started to test smaller chunks of an app with Jest and RTL.
 
+Link to the app:
+https://overachiever-app.netlify.app/
+
 ## **Overview**
 
 Now this app sreves a couple of pourpouses, user can create various tasks, customize them and set the importance of each task. All of these actions are represented in the UI. Additionaly what separates this project from regular cookie cutter doto app is the statistics section where user can track their daily progress that they did by creating and compleating their tasks.
