@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Navbar from "./Navbar";
 import userEvent from "@testing-library/user-event";
-import { AppContextProvider } from "../../../Context/AppContext";
+import { AppContextProvider } from "../../../context/AppContext";
 
 describe("Navbar component should", () => {
   test("render correctly", () => {

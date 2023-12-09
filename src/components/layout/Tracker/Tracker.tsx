@@ -1,12 +1,12 @@
 import { FaListUl } from "react-icons/fa";
 import { useContext } from "react";
-import AppContext from "../../../Context/AppContext";
+import AppContext from "../../../context/AppContext";
 
 const Tracker = () => {
   const { taskList } = useContext(AppContext);
 
   return (
-    <div className="dropdown-hover dropdown indicator">
+    <div className="dropdown dropdown-hover indicator">
       <span className="badge indicator-item badge-info h-6 w-6 rounded-full  bg-info font-bold">
         {taskList.length}
       </span>

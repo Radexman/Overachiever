@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import AppContext from "../../../Context/AppContext";
+import AppContext from "../../../context/AppContext";
 import RadialChart from "../RadialChart/RadialChart";
 import { getCurrentDay } from "../../../utilities/helperFunctions";
 

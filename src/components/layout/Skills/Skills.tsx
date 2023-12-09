@@ -1,6 +1,6 @@
 import { IoIosWarning } from "react-icons/io";
 import { useState, useContext, useEffect } from "react";
-import AppContext from "../../../Context/AppContext";
+import AppContext from "../../../context/AppContext";
 import Button from "../Button/Button";
 import ProgressBar from "../ProgressBar/ProgressBar";
 

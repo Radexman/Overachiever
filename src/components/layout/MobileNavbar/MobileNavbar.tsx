@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import AppContext from "../../../Context/AppContext";
+import AppContext from "../../../context/AppContext";
 import { HiOutlineHome as Home } from "react-icons/hi";
 import { FaClipboardQuestion as Faq } from "react-icons/fa6";
 import { FaListUl } from "react-icons/fa";

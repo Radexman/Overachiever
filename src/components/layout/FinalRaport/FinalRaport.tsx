@@ -5,7 +5,7 @@ import { FaListUl as IconRegular } from "react-icons/fa";
 import { IoCheckmarkCircleOutline as IconCheckmark } from "react-icons/io5";
 import { FaRegCircleXmark as IconXmark } from "react-icons/fa6";
 import { FaRegCalendarCheck as IconAll } from "react-icons/fa";
-import AppContext from "../../../Context/AppContext";
+import AppContext from "../../../context/AppContext";
 import { getCurrentDay } from "../../../utilities/helperFunctions";
 import RadialChart from "../RadialChart/RadialChart";
 import SingleCompletedTask from "../SingleCompletedTask/SingleCompletedTask";

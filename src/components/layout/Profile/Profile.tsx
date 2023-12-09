@@ -1,6 +1,6 @@
 import { AiOutlineUser as UserIcon } from "react-icons/ai";
 import { useState, useEffect, useContext, ChangeEvent, FormEvent } from "react";
-import AppContext from "../../../Context/AppContext";
+import AppContext from "../../../context/AppContext";
 import Badge from "../Badge/Badge";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";

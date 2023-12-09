@@ -1,6 +1,6 @@
 import { SingleTaskProps, categoryType } from "./SingleTask.type";
 import { useContext, useState, useEffect, ReactNode } from "react";
-import AppContext from "../../../Context/AppContext";
+import AppContext from "../../../context/AppContext";
 import { AiOutlineEdit as EditIcon } from "react-icons/ai";
 import { MdDeleteForever as RemoveIcon } from "react-icons/md";
 import { IoIosCheckmarkCircleOutline as CompleteIcon } from "react-icons/io";

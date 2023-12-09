@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { AppContextProvider } from "../../../Context/AppContext";
+import { AppContextProvider } from "../../../context/AppContext";
 import Form from "./Form";
 
 describe("Form component should", () => {

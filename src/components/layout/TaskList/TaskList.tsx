@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import AppContext from "../../../Context/AppContext";
+import AppContext from "../../../context/AppContext";
 import SingleTask from "../SingleTask/SingleTask";
 import SingleCompletedTask from "../SingleCompletedTask/SingleCompletedTask";
 import Button from "../Button/Button";

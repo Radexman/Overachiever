@@ -1,5 +1,5 @@
 import { useState, ChangeEvent, useContext, FormEvent, useEffect } from "react";
-import AppContext from "../../../Context/AppContext";
+import AppContext from "../../../context/AppContext";
 import { v4 as uuidv4 } from "uuid";
 
 const Form = () => {

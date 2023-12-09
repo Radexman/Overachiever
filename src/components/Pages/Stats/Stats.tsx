@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import AppContext from "../../../Context/AppContext";
+import AppContext from "../../../context/AppContext";
 import Profile from "../../layout/Profile/Profile";
 import Skills from "../../layout/Skills/Skills";
 import Charts from "../../layout/Charts/Charts";
