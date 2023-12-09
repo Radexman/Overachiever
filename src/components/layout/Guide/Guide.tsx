@@ -1,6 +1,6 @@
 const Guide = () => {
   return (
-    <div className="w-full space-y-3 lg:w-1/2">
+    <div className="w-full space-y-3 pb-16 lg:w-1/2">
       <h1 className="text-3xl font-bold">App Guide</h1>
       <p>
         Maximize your use of the Overachiever app with this step-by-step guide.

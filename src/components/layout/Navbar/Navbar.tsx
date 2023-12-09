@@ -59,11 +59,9 @@ const Navbar = () => {
             </NavLink>
           </li>
         </ul>
-        <ul className="flex items-center justify-center space-x-4">
-          <li className="pt-1">
-            <ThemeToggler />
-          </li>
-        </ul>
+        <div className="flex items-center justify-center space-x-4 pl-2 pt-1">
+          <ThemeToggler />
+        </div>
       </div>
     </nav>
   );

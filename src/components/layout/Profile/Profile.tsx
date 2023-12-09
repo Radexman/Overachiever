@@ -82,7 +82,7 @@ const Profile = () => {
                   className="rounded-full"
                 />
               ) : (
-                <div className="flex justify-center">
+                <div className="flex justify-center pt-8 md:pt-0">
                   <UserIcon size={120} />
                 </div>
               )}

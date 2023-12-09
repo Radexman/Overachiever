@@ -17,7 +17,7 @@ const Skills = () => {
       </h2>
       <p className="text-center md:text-left">
         This section allows you to assess your performance and your overall
-        profile level. You need to create / edit your profile first to se your
+        profile level. You need to create your profile first to see your
         progress!
       </p>
       <div
