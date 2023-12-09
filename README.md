@@ -6,14 +6,13 @@ This robust web application, crafted using React, Tailwind CSS, Daisy UI, and Ty
 
 <details>
   <summary>ℹ️ Overview</summary>
-
-  The Overachiever app serves as a versatile platform where users can seamlessly create, customize, and prioritize tasks. The UI dynamically reflects these actions, surpassing standard to-do apps by integrating a dedicated statistics section. Here, users meticulously track their daily progress through task engagement and completion.
+    The Overachiever app serves as a versatile platform where users can seamlessly create, customize, and prioritize tasks. The UI dynamically   
+    reflects these actions, surpassing standard to-do apps by integrating a dedicated statistics section. Here, users meticulously track their daily 
+    progress through task engagement and completion.
   
   <details>
     <summary>📈 Detailed Feedback and Progression</summary>
-
-    Experience holistic feedback mechanisms that offer a comprehensive view of daily performance. Engaging graphs, detailed percentages, task lists, and comparisons to previous days provide insights. Task completion isn't just about ticking off items; it awards experience points, driving user progression by leveling up the main account, transforming the experience into an engaging game.
-    
+    Experience holistic feedback mechanisms that offer a comprehensive view of daily performance. Engaging graphs, detailed percentages, task lists,     and comparisons to previous days provide insights. Task completion isn't just about ticking off items; it awards experience points, driving user     progression by leveling up the main account, transforming the experience into an engaging game.  
   </details>
 
   <details>
