@@ -1,14 +1,13 @@
 import { useContext } from "react";
 import AppContext from "../../../Context/AppContext";
 import { NavLink } from "react-router-dom";
-import Tracker from "../Tracker/Tracker";
 import ThemeToggler from "../ThemeToggler/ThemeToggler";
 
 const Navbar = () => {
   const { displayReport } = useContext(AppContext);
 
   return (
-    <nav className="navbar flex items-center justify-between bg-secondary-content px-8 py-4 shadow-xl md:py-2">
+    <nav className="navbar flex items-center justify-between bg-secondary-content px-8 shadow-xl md:py-2">
       <NavLink to="/">
         <span
           role="button"
@@ -18,7 +17,7 @@ const Navbar = () => {
         </span>
       </NavLink>
       <div className="flex-none">
-        <ul className="menu menu-horizontal hidden px-1 md:flex">
+        <ul className="menu menu-horizontal hidden space-x-3 px-1 md:flex">
           <li>
             <NavLink
               to="/"
@@ -60,10 +59,7 @@ const Navbar = () => {
             </NavLink>
           </li>
         </ul>
-        <ul className="flex items-center justify-center space-x-4 pl-4">
-          <li>
-            <Tracker />
-          </li>
+        <ul className="flex items-center justify-center space-x-4">
           <li className="pt-1">
             <ThemeToggler />
           </li>

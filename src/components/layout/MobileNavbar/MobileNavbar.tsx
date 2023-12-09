@@ -7,7 +7,9 @@ import { FaAddressCard } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const MobileNavbar = () => {
-  const { displayReport } = useContext(AppContext);
+  const { displayReport, taskList } = useContext(AppContext);
+
+  const taskListLength = taskList.length;
 
   return (
     <div className="sticky inset-x-0 bottom-0 z-20 block h-16 md:hidden">
@@ -24,7 +26,14 @@ const MobileNavbar = () => {
           to="/tasks"
           className={`nav-link group ${displayReport && "btn-disabled"}`}
         >
-          <button className="nav-button">
+          <button className="nav-button relative">
+            <div
+              className={`${
+                taskListLength === 0 ? "hidden" : "flex"
+              } absolute -right-3 -top-3 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-sm font-bold text-slate-900`}
+            >
+              {taskListLength}
+            </div>
             <FaListUl size={25} />
           </button>
         </NavLink>
