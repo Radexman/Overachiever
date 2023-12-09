@@ -1,32 +1,41 @@
-# **Overachiever**
+# 🏆 Overachiever
 
-This web app is a SPA build with React, Taiwlind CSS and Daisy UI styled components library. I also used TypeScript here and started to test smaller chunks of an app with Jest and RTL.
+This robust web application, crafted using React, Tailwind CSS, Daisy UI, and TypeScript, integrates Jest and RTL for comprehensive testing. As a Single Page Application (SPA), it's purpose-built for multifaceted task management and holistic progress tracking.
 
-Link to the app:
-https://overachiever-app.netlify.app/
+🚀 [Explore the Overachiever App](https://overachiever-app.netlify.app/)
 
-## **Overview**
+<details>
+  <summary>ℹ️ Overview</summary>
 
-Now this app sreves a couple of pourpouses, user can create various tasks, customize them and set the importance of each task. All of these actions are represented in the UI. Additionaly what separates this project from regular cookie cutter doto app is the statistics section where user can track their daily progress that they did by creating and compleating their tasks.
+  The Overachiever app serves as a versatile platform where users can seamlessly create, customize, and prioritize tasks. The UI dynamically reflects these actions, surpassing standard to-do apps by integrating a dedicated statistics section. Here, users meticulously track their daily progress through task engagement and completion.
+  
+  <details>
+    <summary>📈 Detailed Feedback and Progression</summary>
 
-### **Datailed Feedback And Progression**
+    Experience holistic feedback mechanisms that offer a comprehensive view of daily performance. Engaging graphs, detailed percentages, task lists, and comparisons to previous days provide insights. Task completion isn't just about ticking off items; it awards experience points, driving user progression by leveling up the main account, transforming the experience into an engaging game.
+    
+  </details>
 
-This app provides detailed feedback on how user is performing on a day to day basis via graphs, percentages, lists of tasks and comparisons
-to previous day.Each task carries experience points which are rewarded at the task completion. This feature progresses main account level and gamifies whole user experience.
+  <details>
+    <summary>👤 User Profile</summary>
 
-### **User Profile**
+    Personalize your profile by setting a unique username, crafting a brief bio, and even uploading a profile picture. This customization adds a personal touch, enhancing the app experience for every user.
+  </details>
 
-User can create their own small profile with username, short bio section and even profile picture to make their experience with this app more of their own.
+  <details>
+    <summary>🗄️ Local Storage</summary>
 
-### **Local Storage**
+    Seamlessly transition across sessions without losing your progress. Tasks and user profiles are securely stored in the local storage, ensuring a consistent and hassle-free experience.
+  </details>
 
-User can create their own small profile with username, short bio section and even profile picture to make their experience with this app more of their own.
+  <details>
+    <summary>🖥️ UX / UI</summary>
 
-### **UX / UI**
+    Meticulously designed with a mobile-first approach, this application offers a visually captivating experience across various devices. The theme switcher empowers users to select their preferred color palette, ensuring an aesthetically pleasing interface tailored to individual preferences.
+  </details>
+</details>
 
-This app was created with mobile first principle and looks great both on desktop and on smaller devices. Theme switcher allows users to use color palette that they prefer the most.
-
-## **Tech Stack**
+## 🔧 Tech Stack
 
 - React
 - TypeScript
@@ -36,11 +45,9 @@ This app was created with mobile first principle and looks great both on desktop
 - Jest
 - RTL
 
-## **How To Use**
+## 🛠️ How To Use
 
-This project was created with the CRA method so all of the CRA scripts will work here.
-
-**Open project on localhost**:
+This project follows the Create React App (CRA) structure, allowing users to easily engage with familiar CRA scripts.
 
 ```npm
 npm run start
