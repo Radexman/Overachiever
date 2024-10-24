@@ -5,7 +5,7 @@ This robust web application, crafted using React, Tailwind CSS, Daisy UI, and Ty
 🚀 [Explore the Overachiever App](https://overachiever-app.netlify.app/)
 
 
-## **ℹ️ Overview**
+## **Overview**
 
 The Overachiever app serves as a versatile platform where users can seamlessly create, customize, and prioritize tasks. The UI dynamically reflects these actions, surpassing standard to-do apps by integrating a dedicated statistics section. Here, users meticulously track their daily progress through task engagement and completion.
 
